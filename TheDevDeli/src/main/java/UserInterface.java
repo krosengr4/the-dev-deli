@@ -58,6 +58,13 @@ public class UserInterface {
 
     private void processOrder(int userAction) {
 
+        //no default because error was handled in display method
+        switch (userAction) {
+            case 1 -> processAddSandwich();
+            case 2 -> processAddChips();
+            case 3 -> processAddDrink();
+            case 4 -> processCheckout();
+        }
     }
 
     private void processAddSandwich() {
