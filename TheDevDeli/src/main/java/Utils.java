@@ -30,6 +30,11 @@ public class Utils {
     public static String cowboy = "\uD83E\uDD20";
     public static String ticket = "\uD83C\uDF9F\uFE0F";
     public static String train = "\uD83D\uDE84";
+    public static String fire = "\uD83D\uDD25";
+    public static String meat = "\uD83E\uDD69";
+    public static String bread = "\uD83C\uDF5E";
+    public static String sandwich = "\uD83E\uDD6A";
+    public static String drink = "\uD83E\uDD64";
 
     public static String baseball = "⚾";
     public static String football = "\uD83C\uDFC8";
