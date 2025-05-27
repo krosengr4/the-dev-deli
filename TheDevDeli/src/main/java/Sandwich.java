@@ -12,8 +12,6 @@ public class Sandwich extends MenuItem {
     boolean isExtraMeat;
     boolean isExtraCheese;
 
-    double value = 0.0;
-
     public Sandwich() {
         super("Sandwich", 0.0);
 
@@ -111,7 +109,7 @@ public class Sandwich extends MenuItem {
 
     @Override
     public double getValue() {
-        value = 0.0;
+        double value = 0.0;
 
         switch (this.size) {
             case "SMALL" -> {
@@ -125,10 +123,10 @@ public class Sandwich extends MenuItem {
                     value += 0.75;
                 }
                 //Calculate value for adding EXTRA meat and cheese
-                if (this.isExtraMeat) {
+                if (this.isExtraMeat()) {
                     value += 0.50;
                 }
-                if (isExtraCheese) {
+                if (this.isExtraCheese()) {
                     value += 0.30;
                 }
             }
@@ -143,10 +141,10 @@ public class Sandwich extends MenuItem {
                     value += 1.50;
                 }
                 //Calculate value for adding EXTRA meat and cheese
-                if (this.isExtraMeat) {
+                if (this.isExtraMeat()) {
                     value += 1.00;
                 }
-                if (this.isExtraCheese) {
+                if (this.isExtraCheese()) {
                     value += 0.60;
                 }
             }
@@ -161,10 +159,10 @@ public class Sandwich extends MenuItem {
                     value +=2.25;
                 }
                 //Calculate value for adding EXTRA meat and cheese
-                if (this.isExtraMeat) {
+                if (this.isExtraMeat()) {
                     value += 1.50;
                 }
-                if (this.isExtraCheese) {
+                if (this.isExtraCheese()) {
                     value += 0.90;
                 }
             }
