@@ -126,7 +126,9 @@ public class DeliStore {
     }
 
     private void processCheckout() {
-        System.out.println("Checkout");
+        Order newOrder = new Order(customerOrder);
+
+        newOrder.printItemsAndPrices();
     }
 
 }

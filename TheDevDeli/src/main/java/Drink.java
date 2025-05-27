@@ -35,6 +35,6 @@ public class Drink extends MenuItem {
 
     @Override
     public double getValue() {
-        return value;
+        return this.calculateValue();
     }
 }
