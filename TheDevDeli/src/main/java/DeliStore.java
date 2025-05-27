@@ -104,13 +104,23 @@ public class DeliStore {
             int userDrinkSize = Utils.messageAndResponseInt("Enter a drink size: ");
 
             switch (userDrinkSize) {
-                case 1 -> drink.setSize("SMALL");
-                case 2 -> drink.setSize("MEDIUM");
-                case 3 -> drink.setSize("LARGE");
+                case 1 -> {
+                    drink.setSize("SMALL");
+                    System.out.println("Success! Small drink added!");
+                }
+                case 2 -> {
+                    drink.setSize("MEDIUM");
+                    System.out.println("Success! Medium drink added!");
+                }
+                case 3 -> {
+                    drink.setSize("LARGE");
+                    System.out.println("Success! Large drink added!");
+                }
                 default -> System.err.println("ERROR! Please enter a number between 1 and 3!");
             }
 
             customerOrder.add(drink);
+            Utils.pauseApp();
 
             String anotherDrink = Utils.promptGetUserInput("Would you like to add another drink? (Y or N): ").trim();
             if (anotherDrink.equalsIgnoreCase("n")) {
