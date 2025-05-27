@@ -1,5 +1,3 @@
-import javax.swing.plaf.multi.MultiToolTipUI;
-
 public class MakeSandwich {
 
     static Sandwich sandwich;
@@ -233,15 +231,81 @@ public class MakeSandwich {
                 default -> System.err.println("ERROR! Invalid topping!");
             }
 
-            String userExtraToppings = Utils.promptGetUserInput("Would you like anymore toppings?(Y or N)");
+            if (userToppings != 0) {
+                String userExtraToppings = Utils.promptGetUserInput("Would you like anymore toppings?(Y or N)");
 
-            if (userExtraToppings.equalsIgnoreCase("n")) {
-                repeatExtraToppings = false;
-            } else if (!userExtraToppings.equalsIgnoreCase("y")) {
-                System.err.println("ERROR! Please enter either y or n!");
+                if (userExtraToppings.equalsIgnoreCase("n")) {
+                    repeatExtraToppings = false;
+                } else if (!userExtraToppings.equalsIgnoreCase("y")) {
+                    System.err.println("ERROR! Please enter either y or n!");
+                }
             }
         }
 
-        sandwich.setToppings(toppings.toString());
+        sandwich.setToppings(toppings.toString().trim());
+    }
+
+    private static void addSauces(Sandwich sandwich) {
+        boolean repeatSauces = true;
+        StringBuilder sauces = new StringBuilder();
+
+        while (repeatSauces) {
+            System.out.println("""
+                                        "---SAUCE OPTIONS---
+                                1 - Mayo                    5 - Thousand Islands
+                                2 - Mustard                 6 - Vinaigrette
+                                3 - Ketchup                 7 -  Au Jus
+                                4 - Ranch                   0 - None
+                    
+                    """);
+            int userSauces = Utils.messageAndResponseInt("Please enter the number next to the desired sauce: ");
+
+            switch (userSauces) {
+                case 1 -> {
+                    sauces.append("Mayo ");
+                    repeatSauces = false;
+                }
+                case 2 -> {
+                    sauces.append("Mustard ");
+                    repeatSauces = false;
+                }
+                case 3 -> {
+                    sauces.append("Ketchup ");
+                    repeatSauces = false;
+                }
+                case 4 -> {
+                    sauces.append("Ranch ");
+                    repeatSauces = false;
+                }
+                case 5 -> {
+                    sauces.append("Thousand Islands");
+                    repeatSauces = false;
+                }
+                case 6 -> {
+                    sauces.append("Vinaigrette");
+                    repeatSauces = false;
+                }
+                case 7 -> {
+                    sauces.append("Au Jus");
+                    repeatSauces = false;
+                }
+                case 0 -> {
+                    sandwich.setSauces(null);
+                    repeatSauces = false;
+                }
+            }
+            if (userSauces != 0) {
+                String userAddExtraSauce = Utils.promptGetUserInput("Would you like to add another sauce? (Y or N): ");
+
+                if (userAddExtraSauce.equalsIgnoreCase("n")) {
+                    repeatSauces = false;
+                } else if (!userAddExtraSauce.equalsIgnoreCase("y")) {
+                    System.err.println("ERROR! Please enter either y or n!");
+                }
+
+            }
+
+        }
+        sandwich.setSauces(sauces.toString().trim());
     }
 }
