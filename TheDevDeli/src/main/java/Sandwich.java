@@ -6,6 +6,8 @@ public class Sandwich extends MenuItem {
     String cheese;
     String toppings;
     String sauces;
+    boolean hasMeat;
+    boolean hasCheese;
     boolean isToasted;
     boolean isExtraMeat;
     boolean isExtraCheese;
@@ -66,6 +68,22 @@ public class Sandwich extends MenuItem {
         this.sauces = sauces;
     }
 
+    public boolean isHasMeat() {
+        return this.meat != null;
+    }
+
+    public void setHasMeat(boolean hasMeat) {
+        this.hasMeat = hasMeat;
+    }
+
+    public boolean isHasCheese() {
+        return this.cheese != null;
+    }
+
+    public void setHasCheese(boolean hasCheese) {
+        this.hasCheese = hasCheese;
+    }
+
     public boolean isExtraMeat() {
         return isExtraMeat;
     }
@@ -91,21 +109,73 @@ public class Sandwich extends MenuItem {
     }
     //endregion
 
-    public double getBasePrice() {
+    public double calculatePrice() {
         value = 0.0;
 
         switch (this.size) {
-            case "SMALL" -> value = 5.5 + 1.00 + .75;
-            case "MEDIUM" -> value = 7.00 + 2.00 + 1.50;
-            case "LARGE" -> value = 8.50 + 3.00 + 2.25;
+            case "SMALL" -> {
+                value = 5.5;
+
+                //Calculate value for adding meat and cheese
+                if (this.hasMeat) {
+                    value += 1.00;
+                }
+                if (this.hasCheese) {
+                    value += 0.75;
+                }
+                //Calculate value for adding EXTRA meat and cheese
+                if (this.isExtraMeat) {
+                    value += 0.50;
+                }
+                if (isExtraCheese) {
+                    value += 0.30;
+                }
+            }
+            case "MEDIUM" -> {
+                value = 7.00;
+
+                //Calculate value for adding meat and cheese
+                if (this.hasMeat) {
+                    value += 2.00;
+                }
+                if (this.hasCheese) {
+                    value += 1.50;
+                }
+                //Calculate value for adding EXTRA meat and cheese
+                if (this.isExtraMeat) {
+                    value += 1.00;
+                }
+                if (this.isExtraCheese) {
+                    value += 0.60;
+                }
+            }
+            case "LARGE" -> {
+                value = 8.50;
+
+                //Calculate value for adding meat and cheese
+                if (this.hasMeat) {
+                    value += 3.00;
+                }
+                if (this.hasCheese) {
+                    value +=2.25;
+                }
+                //Calculate value for adding EXTRA meat and cheese
+                if (this.isExtraMeat) {
+                    value += 1.50;
+                }
+                if (this.isExtraCheese) {
+                    value += 0.90;
+                }
+            }
             default -> System.out.println("ERROR! Size needs to be SMALL, MEDIUM, OR LARGE!");
         }
+
         return value;
     }
 
 
     @Override
     public double getValue() {
-        return this.getBasePrice();
+        return this.calculatePrice();
     }
 }

@@ -10,7 +10,7 @@ class SandwichTest {
 
         Sandwich sandwich = new Sandwich(Size.MEDIUM.toString());
 
-        double actual = sandwich.getBasePrice();
+        double actual = sandwich.calculatePrice();
 
         assertEquals(10.50, actual);
     }

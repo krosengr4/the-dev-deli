@@ -65,7 +65,10 @@ public class DeliStore {
         String userBread = Utils.promptGetUserInput("Enter the type of bread you would like: ").trim();
 
         String userMeat = Utils.promptGetUserInput("Enter the kind of meat you would like: ").trim();
-        String userExtraMeat = Utils.promptGetUserInput("Would you like extra meat? Y or N: ").trim();
+        String userExtraMeat = Utils.promptGetUserInput("Would you like extra meat? (Y or N): ").trim();
+
+        String userCheese = Utils.promptGetUserInput("Would you like extra cheese? (Y or N): ").trim();
+        String userExtraCheese = Utils.promptGetUserInput("Would you like extra cheese? (Y or N): ");
 
 
         int ifUserToppings = Utils.messageAndResponseInt("Would you like any other toppings?\n1 - Yes 2 - No: ");
