@@ -3,10 +3,14 @@ public class Drink extends MenuItem {
     String size;
     double value;
 
-    public Drink(String name, double price, String size) {
+    public Drink(String size) {
         super("drink", 0.0);
         this.size = size;
         this.value = 0.0;
+    }
+
+    public Drink() {
+        super("drink", 0.0);
     }
 
     //region getters and setters

@@ -1,4 +1,8 @@
+import java.util.ArrayList;
+
 public class DeliStore {
+
+    ArrayList<MenuItem> customerOrder = new ArrayList<>();
 
     public void displayOrderScreen() {
         boolean ifContinueOrder = true;
@@ -39,7 +43,7 @@ public class DeliStore {
 
     private void displaySandwichMenu() {
         System.out.println("\n\t\t\t\t" + Utils.sandwich + "SANDWICH MENU" + Utils.sandwich);
-        Utils.printDivider("-" , 70);
+        Utils.printDivider("-", 70);
         System.out.printf("""
                         BREADS %s      MEATS %s      CHEESES %s     TOPPINGS         SAUCES \s
                 -----------------------------------------------------------------------------------------
@@ -61,7 +65,7 @@ public class DeliStore {
     }
 
     private void processAddSandwich() {
-        System.out.println("1 - Small  |  2 - Medium  |  3 - Large");
+        System.out.println("\n1 - Small  |  2 - Medium  |  3 - Large");
         int userSize = Utils.messageAndResponseInt("Please enter sandwich size: ");
 
 
@@ -95,7 +99,30 @@ public class DeliStore {
     }
 
     private void processAddDrink() {
-        System.out.println("Add a drink");
+        boolean addAnotherDrink = true;
+
+        while (addAnotherDrink) {
+            Drink drink = new Drink();
+
+            System.out.println("\n1 - Small\n2 - Medium\n3 - Large");
+            int userDrinkSize = Utils.messageAndResponseInt("Enter a drink size: ");
+
+            switch (userDrinkSize) {
+                case 1 -> drink.setSize("SMALL");
+                case 2 -> drink.setSize("MEDIUM");
+                case 3 -> drink.setSize("LARGE");
+                default -> System.err.println("ERROR! Please enter a number between 1 and 3!");
+            }
+
+            customerOrder.add(drink);
+
+            String anotherDrink = Utils.promptGetUserInput("Would you like to add another drink? (Y or N): ").trim();
+            if (anotherDrink.equalsIgnoreCase("n")) {
+                addAnotherDrink = false;
+            } else if (!anotherDrink.equalsIgnoreCase("y")) {
+                System.err.println("ERROR! Please enter y or n!");
+            }
+        }
     }
 
     private void processCheckout() {
