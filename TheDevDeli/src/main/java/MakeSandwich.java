@@ -107,20 +107,23 @@ public class MakeSandwich {
                 }
                 default -> System.err.println("ERROR! Invalid meat!");
             }
-        }
 
-        boolean repeatExtraMeat = true;
+            if (userMeat != 0) {
 
-        while (repeatExtraMeat) {
-            String userExtraMeat = Utils.promptGetUserInput("Would you like extra meat?(Y or N): ");
-            if (userExtraMeat.equalsIgnoreCase("y")) {
-                sandwich.setExtraMeat(true);
-                repeatExtraMeat = false;
-            } else if (userExtraMeat.equalsIgnoreCase("n")) {
-                sandwich.setExtraMeat(false);
-                repeatExtraMeat = false;
-            } else {
-                System.err.println("ERROR! Please enter either y or n");
+                boolean repeatExtraMeat = true;
+
+                while (repeatExtraMeat) {
+                    String userExtraMeat = Utils.promptGetUserInput("Would you like extra meat?(Y or N): ");
+                    if (userExtraMeat.equalsIgnoreCase("y")) {
+                        sandwich.setExtraMeat(true);
+                        repeatExtraMeat = false;
+                    } else if (userExtraMeat.equalsIgnoreCase("n")) {
+                        sandwich.setExtraMeat(false);
+                        repeatExtraMeat = false;
+                    } else {
+                        System.err.println("ERROR! Please enter either y or n");
+                    }
+                }
             }
         }
     }
@@ -155,20 +158,22 @@ public class MakeSandwich {
                 }
                 default -> System.err.println("ERROR! Invalid Cheese!");
             }
-        }
 
-        boolean repeatExtraCheese = true;
+            if (userCheese != 0) {
+                boolean repeatExtraCheese = true;
 
-        while (repeatExtraCheese) {
-            String userExtraCheese = Utils.promptGetUserInput("Would you like extra cheese? (Y or N): ");
-            if (userExtraCheese.equalsIgnoreCase("y")) {
-                sandwich.setExtraCheese(true);
-                repeatExtraCheese = false;
-            } else if (userExtraCheese.equalsIgnoreCase("n")) {
-                sandwich.setExtraCheese(false);
-                repeatExtraCheese = false;
-            } else {
-                System.err.println("ERROR! Please enter either y or n");
+                while (repeatExtraCheese) {
+                    String userExtraCheese = Utils.promptGetUserInput("Would you like extra cheese? (Y or N): ");
+                    if (userExtraCheese.equalsIgnoreCase("y")) {
+                        sandwich.setExtraCheese(true);
+                        repeatExtraCheese = false;
+                    } else if (userExtraCheese.equalsIgnoreCase("n")) {
+                        sandwich.setExtraCheese(false);
+                        repeatExtraCheese = false;
+                    } else {
+                        System.err.println("ERROR! Please enter either y or n");
+                    }
+                }
             }
         }
     }
