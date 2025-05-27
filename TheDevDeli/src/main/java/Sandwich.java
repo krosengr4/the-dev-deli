@@ -117,10 +117,10 @@ public class Sandwich extends MenuItem {
                 value = 5.5;
 
                 //Calculate value for adding meat and cheese
-                if (this.hasMeat) {
+                if (this.isHasMeat()) {
                     value += 1.00;
                 }
-                if (this.hasCheese) {
+                if (this.isHasCheese()) {
                     value += 0.75;
                 }
                 //Calculate value for adding EXTRA meat and cheese
@@ -135,10 +135,10 @@ public class Sandwich extends MenuItem {
                 value = 7.00;
 
                 //Calculate value for adding meat and cheese
-                if (this.hasMeat) {
+                if (this.isHasMeat()) {
                     value += 2.00;
                 }
-                if (this.hasCheese) {
+                if (this.isHasCheese()) {
                     value += 1.50;
                 }
                 //Calculate value for adding EXTRA meat and cheese
@@ -153,10 +153,10 @@ public class Sandwich extends MenuItem {
                 value = 8.50;
 
                 //Calculate value for adding meat and cheese
-                if (this.hasMeat) {
+                if (this.isHasMeat()) {
                     value += 3.00;
                 }
-                if (this.hasCheese) {
+                if (this.isHasCheese()) {
                     value +=2.25;
                 }
                 //Calculate value for adding EXTRA meat and cheese

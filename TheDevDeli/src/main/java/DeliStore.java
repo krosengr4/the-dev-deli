@@ -56,6 +56,7 @@ public class DeliStore {
 
         Sandwich sandwich = MakeSandwich.createSandwich();
         System.out.println(sandwich.getMeat());
+        System.out.println(sandwich.getToppings());
         System.out.println(sandwich.getValue());
 
 //        processAddSandwich();
