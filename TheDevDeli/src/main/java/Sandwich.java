@@ -9,6 +9,8 @@ public class Sandwich extends MenuItem{
     boolean isExtraMeat;
     boolean isExtraCheese;
 
+    double value = 0.0;
+
     public Sandwich (String size) {
         super("Sandwich", 0.0);
         this.size = size;
@@ -17,7 +19,7 @@ public class Sandwich extends MenuItem{
 
 
     public double getBasePrice() {
-        double value = 0.0;
+//        value = 0.0;
 
         switch (this.size) {
             case "SMALL" -> value += 5.5 + 1.00 + .75;
@@ -29,7 +31,8 @@ public class Sandwich extends MenuItem{
     }
 
 
+    @Override
     public double getValue() {
-        return 0.0;
+        return value;
     }
 }
