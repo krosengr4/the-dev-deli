@@ -109,7 +109,8 @@ public class Sandwich extends MenuItem {
     }
     //endregion
 
-    public double calculatePrice() {
+    @Override
+    public double getValue() {
         value = 0.0;
 
         switch (this.size) {
@@ -171,11 +172,5 @@ public class Sandwich extends MenuItem {
         }
 
         return value;
-    }
-
-
-    @Override
-    public double getValue() {
-        return calculatePrice();
     }
 }

@@ -23,7 +23,8 @@ public class Drink extends MenuItem {
     }
     //endregion
 
-    public double calculateValue() {
+    @Override
+    public double getValue() {
         switch (this.size) {
             case "SMALL" -> this.value += 2.00;
             case "MEDIUM" -> this.value += 2.50;
@@ -31,10 +32,5 @@ public class Drink extends MenuItem {
             default -> System.err.println("ERROR! The Drink size is invalid!");
         }
         return this.value;
-    }
-
-    @Override
-    public double getValue() {
-        return this.calculateValue();
     }
 }

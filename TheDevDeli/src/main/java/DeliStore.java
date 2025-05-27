@@ -59,9 +59,12 @@ public class DeliStore {
         System.out.println("Sandwich size: " + sandwich.getSize());
         System.out.println("Sandwich Bread: " + sandwich.getBread());
         System.out.println("Sandwich meat: " + sandwich.getMeat());
+        System.out.println("Extra Meat?: " + sandwich.isExtraMeat());
+        System.out.println("Sandwich cheese: " + sandwich.getCheese());
+        System.out.println("Extra Cheese?: " + sandwich.isExtraCheese());
         System.out.println("Sandwich toppings: " + sandwich.getToppings());
         System.out.println("Sandwich sauces: " + sandwich.getSauces());
-        System.out.printf("Sandwich price: $%.2f\n", sandwich.calculatePrice());
+        System.out.printf("Sandwich price: $%.2f\n", sandwich.getValue());
 
 //        processAddSandwich();
     }
