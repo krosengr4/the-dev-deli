@@ -34,12 +34,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-            boolean ifContinue = true;
+        boolean ifContinue = true;
 
-            do {
-                DeliStore devDeli = new DeliStore();
+        do {
+            DeliStore devDeli = new DeliStore();
 
-                System.out.printf("""
+            System.out.printf("""
                                          \s
                                          %s%s%sWELCOME TO DEV DELI%s%s%s
                          Serving Developers an Extensive Library of Incredible Sandwiches.\s
@@ -49,19 +49,19 @@ public class Main {
                                                    OPTIONS:
                                          ---------------------------
                                     1 - Place an Order        0 - Exit
-
+                    
                     \s""", Utils.sandwich, Utils.sandwich, Utils.sandwich, Utils.sandwich, Utils.sandwich, Utils.sandwich);
-                int userAction = Utils.messageAndResponseInt("Enter 1 or 0: ");
+            int userAction = Utils.messageAndResponseInt("Enter 1 or 0: ");
 
-                switch (userAction) {
-                    case 1 -> devDeli.displayOrderScreen();
-                    case 0 -> ifContinue = false;
-                    default -> System.err.println("ERROR! Please enter a number that is listed!");
-                }
+            switch (userAction) {
+                case 1 -> devDeli.displayOrderScreen();
+                case 0 -> ifContinue = false;
+                default -> System.err.println("ERROR! Please enter a number that is listed!");
+            }
 
-            } while (ifContinue);
-            System.out.println("\n\n\t\t\t\tThanks for coming into Dev Deli!" + Utils.sandwich + Utils.fire);
-            System.out.println("\t\t\t\tWe will see you soon!");
+        } while (ifContinue);
+        System.out.println("\n\n\t\t\t\tThanks for coming into Dev Deli!" + Utils.sandwich + Utils.fire);
+        System.out.println("\t\t\t\tWe will see you soon!");
 
 
     }

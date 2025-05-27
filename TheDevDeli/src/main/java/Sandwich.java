@@ -1,4 +1,4 @@
-public class Sandwich extends MenuItem{
+public class Sandwich extends MenuItem {
 
     String size;
     String bread;
@@ -6,12 +6,13 @@ public class Sandwich extends MenuItem{
     String cheese;
     String toppings;
     String sauces;
+    boolean isToasted;
     boolean isExtraMeat;
     boolean isExtraCheese;
 
     double value = 0.0;
 
-    public Sandwich (String size) {
+    public Sandwich(String size) {
         super("Sandwich", 0.0);
         this.size = size;
     }
@@ -80,15 +81,23 @@ public class Sandwich extends MenuItem{
     public void setExtraCheese(boolean extraCheese) {
         isExtraCheese = extraCheese;
     }
+
+    public boolean isToasted() {
+        return isToasted;
+    }
+
+    public void setToasted(boolean toasted) {
+        isToasted = toasted;
+    }
     //endregion
 
     public double getBasePrice() {
-//        value = 0.0;
+        value = 0.0;
 
         switch (this.size) {
-            case "SMALL" -> value += 5.5 + 1.00 + .75;
-            case "MEDIUM" -> value += 7.00 + 2.00 + 1.50;
-            case "LARGE" -> value += 8.50 + 3.00 + 2.25;
+            case "SMALL" -> value = 5.5 + 1.00 + .75;
+            case "MEDIUM" -> value = 7.00 + 2.00 + 1.50;
+            case "LARGE" -> value = 8.50 + 3.00 + 2.25;
             default -> System.out.println("ERROR! Size needs to be SMALL, MEDIUM, OR LARGE!");
         }
         return value;
@@ -97,6 +106,6 @@ public class Sandwich extends MenuItem{
 
     @Override
     public double getValue() {
-        return value;
+        return this.getBasePrice();
     }
 }
