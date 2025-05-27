@@ -4,11 +4,13 @@ public class MakeSandwich {
 
     public static Sandwich createSandwich() {
         sandwich = new Sandwich();
+
         setSandwichSize(sandwich);
         addSandwichBread(sandwich);
         addSandwichMeat(sandwich);
         addSandwichCheese(sandwich);
         addExtraToppings(sandwich);
+        addSauces(sandwich);
 
         return sandwich;
     }
@@ -177,7 +179,7 @@ public class MakeSandwich {
 
         while (repeatExtraToppings) {
             System.out.println("""
-                                        "---TOPPINGS OPTIONS---
+                                        ---TOPPINGS OPTIONS---
                                 1 - Lettuce                 6 - Cucumbers
                                 2 - Peppers                 7 - Pickles
                                 3 - Onions                  8 - Guacamole
@@ -236,8 +238,8 @@ public class MakeSandwich {
 
                 if (userExtraToppings.equalsIgnoreCase("n")) {
                     repeatExtraToppings = false;
-                } else if (!userExtraToppings.equalsIgnoreCase("y")) {
-                    System.err.println("ERROR! Please enter either y or n!");
+                } else if (userExtraToppings.equalsIgnoreCase("y")) {
+                    repeatExtraToppings = true;
                 }
             }
         }
@@ -251,7 +253,7 @@ public class MakeSandwich {
 
         while (repeatSauces) {
             System.out.println("""
-                                        "---SAUCE OPTIONS---
+                                        ---SAUCE OPTIONS---
                                 1 - Mayo                    5 - Thousand Islands
                                 2 - Mustard                 6 - Vinaigrette
                                 3 - Ketchup                 7 -  Au Jus
@@ -299,7 +301,9 @@ public class MakeSandwich {
 
                 if (userAddExtraSauce.equalsIgnoreCase("n")) {
                     repeatSauces = false;
-                } else if (!userAddExtraSauce.equalsIgnoreCase("y")) {
+                } else if (userAddExtraSauce.equalsIgnoreCase("y")) {
+                    repeatSauces = true;
+                } else {
                     System.err.println("ERROR! Please enter either y or n!");
                 }
 

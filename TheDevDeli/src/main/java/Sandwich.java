@@ -176,6 +176,6 @@ public class Sandwich extends MenuItem {
 
     @Override
     public double getValue() {
-        return this.calculatePrice();
+        return calculatePrice();
     }
 }
