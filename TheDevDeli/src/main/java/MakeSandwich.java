@@ -1,3 +1,5 @@
+import javax.swing.plaf.multi.MultiToolTipUI;
+
 public class MakeSandwich {
 
     static Sandwich sandwich;
@@ -16,7 +18,7 @@ public class MakeSandwich {
     private static void setSandwichSize(Sandwich sandwich) {
         boolean repeatSize = true;
         while (repeatSize) {
-            System.out.println("\n1 - Small  |  2 - Medium  |  3 - Large");
+            System.out.println("\n\n---SIZES---\n1 - Small  |  2 - Medium  |  3 - Large");
             int userSize = Utils.messageAndResponseInt("Please enter the number next to the desired sandwich size: ");
 
             switch (userSize) {
@@ -104,6 +106,21 @@ public class MakeSandwich {
                     repeatMeat = false;
                 }
                 default -> System.err.println("ERROR! Invalid meat!");
+            }
+        }
+
+        boolean repeatExtraMeat = true;
+
+        while (repeatExtraMeat) {
+            String userExtraMeat = Utils.promptGetUserInput("Would you like extra meat?(Y or N): ");
+            if (userExtraMeat.equalsIgnoreCase("y")) {
+                sandwich.setExtraMeat(true);
+                repeatExtraMeat = false;
+            } else if (userExtraMeat.equalsIgnoreCase("n")) {
+                sandwich.setExtraMeat(false);
+                repeatExtraMeat = false;
+            } else {
+                System.err.println("ERROR! Please enter either y or n");
             }
         }
     }
