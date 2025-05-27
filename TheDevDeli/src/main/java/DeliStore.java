@@ -19,27 +19,20 @@ public class DeliStore {
 
             int userAction = Utils.messageAndResponseInt("Enter Your Option: ");
 
-            if (userAction < 0 || userAction > 4) {
-                System.err.println("ERROR! Please enter a number that is listed!");
-            } else if (userAction == 0) {
-                ifContinueOrder = false;
-            } else {
-                processOrder(userAction);
+            switch (userAction) {
+                case 0 -> ifContinueOrder = false;
+                case 1 -> displaySandwichMenu();
+                case 2 -> processAddChips();
+                case 3 -> processAddDrink();
+                case 4 -> {
+                    processCheckout();
+                    ifContinueOrder = false;
+                }
+                default -> System.err.println("ERROR! Please enter a number that is listed!");
             }
-
         } while (ifContinueOrder);
     }
 
-    private void processOrder(int userAction) {
-
-        //no default because error was handled in display method
-        switch (userAction) {
-            case 1 -> displaySandwichMenu();
-            case 2 -> processAddChips();
-            case 3 -> processAddDrink();
-            case 4 -> processCheckout();
-        }
-    }
 
     private void displaySandwichMenu() {
         System.out.println("\n\t\t\t\t" + Utils.sandwich + "SANDWICH MENU" + Utils.sandwich);
@@ -129,6 +122,8 @@ public class DeliStore {
         Order newOrder = new Order(customerOrder);
 
         newOrder.printItemsAndPrices();
+
+
     }
 
 }
