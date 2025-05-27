@@ -54,15 +54,23 @@ public class DeliStore {
                 """, Utils.bread, Utils.meat, Utils.cheese);
         //todo display pricing somewhere around here
 
-        processAddSandwich();
+        Sandwich sandwich = MakeSandwich.createSandwich();
+        System.out.println(sandwich.getMeat());
+        System.out.println(sandwich.getValue());
+
+//        processAddSandwich();
     }
 
     private void processAddSandwich() {
-        System.out.println("\n1 - Small  |  2 - Medium  |  3 - Large");
-        int userSize = Utils.messageAndResponseInt("Please enter sandwich size: ");
+        Sandwich sandwich = new Sandwich();
 
 
-        String userBread = Utils.promptGetUserInput("Enter the type of bread you would like: ").trim();
+
+
+
+
+        boolean repeatMeat = true;
+        System.out.println("MEAT-OPTIONS");
 
         String userMeat = Utils.promptGetUserInput("Enter the kind of meat you would like: ").trim();
         String userExtraMeat = Utils.promptGetUserInput("Would you like extra meat? (Y or N): ").trim();

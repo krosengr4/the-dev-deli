@@ -14,9 +14,9 @@ public class Sandwich extends MenuItem {
 
     double value = 0.0;
 
-    public Sandwich(String size) {
+    public Sandwich() {
         super("Sandwich", 0.0);
-        this.size = size;
+
     }
 
     //region setters and getters

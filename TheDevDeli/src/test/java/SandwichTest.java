@@ -8,7 +8,8 @@ class SandwichTest {
     @Test
     void getBasePrice() {
 
-        Sandwich sandwich = new Sandwich(Size.MEDIUM.toString());
+        Sandwich sandwich = new Sandwich();
+        sandwich.setSize(Size.MEDIUM.toString());
 
         double actual = sandwich.calculatePrice();
 
