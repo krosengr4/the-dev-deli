@@ -40,14 +40,20 @@ public class DeliStore {
 
         Sandwich sandwich = MakeSandwich.createSandwich();
 
-        customerOrder.add(sandwich);
-
-        System.out.println(Utils.GREEN + "\nSuccess! Sandwich Added to your order!" + Utils.RESET);
-        System.out.printf("Sandwich | %s | Toasted: %b | Bread: %s | Meat: %s | ExtraMeat: %b | Cheese: %s | ExtraCheese: %b | Toppings: %s | Sauces: %s",
+        System.out.printf("\nSandwich | %s | Toasted: %b | Bread: %s | Meat: %s | ExtraMeat: %b | Cheese: %s | ExtraCheese: %b | Toppings: %s | Sauces: %s",
                 sandwich.size, sandwich.isToasted(), sandwich.getBread(), sandwich.getMeat(), sandwich.isExtraMeat(), sandwich.getCheese(), sandwich.isExtraCheese(),
                 sandwich.getToppings(), sandwich.getSauces());
-
         System.out.printf("\nTotal Price: $%.2f\n", sandwich.getValue());
+
+        String userCorrectSandwich = Utils.promptGetUserInput("Is this sandwich correct?(Y or N):").trim();
+
+        if (userCorrectSandwich.equalsIgnoreCase("y")) {
+            customerOrder.add(sandwich);
+            System.out.println(Utils.GREEN + "Huzzah! We have added your sandwich to the order!" + Utils.RESET);
+        } else {
+            System.out.println("Apologies for the inconvenience. Try and place your sandwich order again.");
+        }
+
         Utils.pauseApp();
     }
 
