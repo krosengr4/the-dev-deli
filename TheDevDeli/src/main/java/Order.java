@@ -16,7 +16,6 @@ public class Order {
     public void printItemsAndPrices() {
         System.out.printf("\n\t\t\t---ORDER FOR %s---\n", customerName);
 
-        String receipt = formatReceipt();
         System.out.println(formatReceipt());
     }
 
@@ -58,28 +57,29 @@ public class Order {
                         .append(" | Sauces: ").append(((Sandwich) item).getSauces())
                         .append("\n")
                         .append("Price: $").append(item.getValue())
-                        .append("\n");
+                        .append("\n\n");
 
                 totalPrice += item.getValue();
             } else if (item instanceof Drink) {
-                receiptFormat.append(((Drink) item).getSize()).append(" ")
-                        .append(item.getName())
+                receiptFormat.append("Drink | ")
+                        .append("Type: ").append(item.getName())
+                        .append(" | Size: ").append(((Drink) item).getSize())
                         .append("\n")
-                        .append(item.getValue())
-                        .append("\n");
+                        .append("Price: $").append(item.getValue())
+                        .append("\n\n");
 
                 totalPrice += item.getValue();
             } else if (item instanceof Chips) {
                 receiptFormat.append("Chips")
                         .append("\n")
-                        .append(item.getValue())
-                        .append("\n");
+                        .append("Price: $").append(item.getValue())
+                        .append("\n\n");
 
                 totalPrice += item.getValue();
             }
         }
 
-        receiptFormat.append("TOTAL: $").append(totalPrice);
+        receiptFormat.append("\nTOTAL: $").append(totalPrice);
 
         return receiptFormat.toString();
     }
