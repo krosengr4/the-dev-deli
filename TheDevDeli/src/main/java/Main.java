@@ -47,12 +47,12 @@ public class Main {
                      \s
                      \s
                     \s
-                                                   OPTIONS:
+                                                 OPTIONS:
                                     ----------------------------------%s
-                                    1 - Place an Order        0 - Exit
+                                  %s1 - Place an Order%s        %s0 - Exit%s
                     
-                    \s""", Utils.fire, Utils.sandwich, Utils.CYAN, Utils.RESET, Utils.sandwich, Utils.fire, Utils.CYAN, Utils.RESET, Utils.smileyFace, Utils.thumbsUp,
-                    Utils.CYAN, Utils.RESET);
+                    \s""", Utils.fire, Utils.sandwich, Utils.BLUE, Utils.RESET, Utils.sandwich, Utils.fire, Utils.BLUE, Utils.RESET, Utils.smileyFace, Utils.thumbsUp,
+                    Utils.BLUE, Utils.RESET, Utils.GREEN, Utils.RESET, Utils.RED, Utils.RESET);
             int userAction = Utils.messageAndResponseInt("Enter 1 or 0: ");
 
             switch (userAction) {
