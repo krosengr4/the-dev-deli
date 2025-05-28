@@ -14,7 +14,7 @@ public class Order {
     }
 
     public void printItemsAndPrices() {
-        System.out.printf("\n\t\t\t%s---ORDER FOR%s %s---\n", Utils.BLUE, customerName, Utils.RESET);
+        System.out.printf("\n\t\t\t%s---ORDER FOR %s %s---\n", Utils.BLUE, customerName, Utils.RESET);
 
         System.out.println(formatReceipt());
     }
@@ -31,7 +31,7 @@ public class Order {
             writer.write("Order for: " + customerName + "\n");
             writer.write(receipt);
             writer.close();
-            System.out.printf("\nTHANK YOU %s! Order receipt has been saved in /src/main/receipts", customerName);
+            System.out.printf("\n%sTHANK YOU %s! \nOrder receipt has been saved in /src/main/receipts%s", Utils.GREEN, customerName, Utils.RESET);
 
         } catch (Exception e) {
             throw new RuntimeException(e);
