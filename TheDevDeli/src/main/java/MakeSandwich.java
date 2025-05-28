@@ -18,8 +18,8 @@ public class MakeSandwich {
     private static void setSandwichSize(Sandwich sandwich) {
         boolean repeatSize = true;
         while (repeatSize) {
-            System.out.println("\n\n---SIZES---\n1 - Small (4inch) $5.50  |  2 - Medium (8inch) $7.00  |  3 - Large (12inch) $8.50");
-            int userSize = Utils.messageAndResponseInt("Please enter the number next to the desired sandwich size: ");
+            System.out.println("\n\n---SIZES---\n1 - Small (4inch) $5.50\n2 - Medium (8inch) $7.00\n3 - Large (12inch) $8.50");
+            int userSize = Utils.messageAndResponseInt("\nPlease enter the number next to the desired sandwich size: ");
 
             switch (userSize) {
                 case 1 -> {
@@ -43,8 +43,8 @@ public class MakeSandwich {
         boolean repeatBread = true;
 
         while (repeatBread) {
-            System.out.println(Utils.bread + "---BREAD OPTIONS---\n1 - White\n2 - Wheat\n3 - Rye\n4 - Wrap");
-            int userBread = Utils.messageAndResponseInt("Please enter the number next to the desired bread: ");
+            System.out.println("\n" + Utils.bread + "---BREAD OPTIONS---\n1 - White\n2 - Wheat\n3 - Rye\n4 - Wrap");
+            int userBread = Utils.messageAndResponseInt("\nPlease enter the number next to the desired bread: ");
 
             switch (userBread) {
                 case 1 -> {
@@ -73,9 +73,9 @@ public class MakeSandwich {
         boolean repeatMeat = true;
 
         while (repeatMeat) {
-            System.out.println(Utils.meat + "---MEAT OPTIONS---\nSmall: +$1.00 | Medium: +$2.00 | Large: +$3.00" +
+            System.out.println("\n" + Utils.meat + "---MEAT OPTIONS---\nSmall: +$1.00 | Medium: +$2.00 | Large: +$3.00" +
                     "\n1 - Steak\n2 - Ham\n3 - Salami\n4 - Roast Beef\n5 - Chicken\n6 - Bacon\n0 - None");
-            int userMeat = Utils.messageAndResponseInt("Please enter the number next to the desired meat: ");
+            int userMeat = Utils.messageAndResponseInt("\nPlease enter the number next to the desired meat: ");
 
             switch (userMeat) {
                 case 1 -> {
@@ -114,8 +114,8 @@ public class MakeSandwich {
                 boolean repeatExtraMeat = true;
 
                 while (repeatExtraMeat) {
-                    System.out.println("Extra Meat: Small: +$0.50 | Medium: +$1.00 | Large: +$1.50");
-                    String userExtraMeat = Utils.promptGetUserInput("Would you like extra meat?(Y or N): ");
+                    System.out.println("\nExtra Meat: Small: +$0.50 | Medium: +$1.00 | Large: +$1.50");
+                    String userExtraMeat = Utils.promptGetUserInput("\nWould you like extra meat?(Y or N): ");
                     if (userExtraMeat.equalsIgnoreCase("y")) {
                         sandwich.setExtraMeat(true);
                         repeatExtraMeat = false;
@@ -134,9 +134,9 @@ public class MakeSandwich {
         boolean repeatCheese = true;
 
         while (repeatCheese) {
-            System.out.println(Utils.cheese + "---CHEESE OPTIONS---\nSmall: +$0.75 | Medium: +$1.50 | Large: +$2.25" +
+            System.out.println("\n" + Utils.cheese + "---CHEESE OPTIONS---\nSmall: +$0.75 | Medium: +$1.50 | Large: +$2.25" +
                     "\n1 - American\n2 - Provolone\n3 - Cheddar\n4 - Swiss\n0 - None");
-            int userCheese = Utils.messageAndResponseInt("Please enter the number next to the desired cheese: ");
+            int userCheese = Utils.messageAndResponseInt("\nPlease enter the number next to the desired cheese: ");
 
             switch (userCheese) {
                 case 1 -> {
@@ -166,8 +166,8 @@ public class MakeSandwich {
                 boolean repeatExtraCheese = true;
 
                 while (repeatExtraCheese) {
-                    System.out.println("Extra Cheese: Small: +$0.30 | Medium: +$0.60 | Large: +$0.90");
-                    String userExtraCheese = Utils.promptGetUserInput("Would you like extra cheese? (Y or N): ");
+                    System.out.println("\nExtra Cheese: Small: +$0.30 | Medium: +$0.60 | Large: +$0.90");
+                    String userExtraCheese = Utils.promptGetUserInput("\nWould you like extra cheese? (Y or N): ");
                     if (userExtraCheese.equalsIgnoreCase("y")) {
                         sandwich.setExtraCheese(true);
                         repeatExtraCheese = false;
@@ -197,7 +197,7 @@ public class MakeSandwich {
                                 5 - Jalapeños               0 - None
                     
                     """);
-            int userToppings = Utils.messageAndResponseInt("Please enter the number next to the desired topping: ");
+            int userToppings = Utils.messageAndResponseInt("\nPlease enter the number next to the desired topping: ");
 
             switch (userToppings) {
                 case 1 -> {
@@ -244,7 +244,7 @@ public class MakeSandwich {
             }
 
             if (userToppings != 0) {
-                String userExtraToppings = Utils.promptGetUserInput("Would you like anymore toppings?(Y or N)");
+                String userExtraToppings = Utils.promptGetUserInput("\nWould you like anymore toppings?(Y or N)");
 
                 if (userExtraToppings.equalsIgnoreCase("n")) {
                     repeatExtraToppings = false;
@@ -271,7 +271,7 @@ public class MakeSandwich {
                                 4 - Ranch                   0 - None
                     
                     """);
-            int userSauces = Utils.messageAndResponseInt("Please enter the number next to the desired sauce: ");
+            int userSauces = Utils.messageAndResponseInt("\nPlease enter the number next to the desired sauce: ");
 
             switch (userSauces) {
                 case 1 -> {
@@ -308,7 +308,7 @@ public class MakeSandwich {
                 }
             }
             if (userSauces != 0) {
-                String userAddExtraSauce = Utils.promptGetUserInput("Would you like to add another sauce? (Y or N): ");
+                String userAddExtraSauce = Utils.promptGetUserInput("\nWould you like to add another sauce? (Y or N): ");
 
                 if (userAddExtraSauce.equalsIgnoreCase("n")) {
                     repeatSauces = false;

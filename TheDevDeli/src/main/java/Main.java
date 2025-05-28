@@ -45,9 +45,11 @@ public class Main {
                          Serving Developers an Extensive Library of Incredible Sandwiches.\s
                                                  Have a Byte!  \s
                      ______________________________________________________________________________
+                     \s
+                     \s
                     \s
                                                    OPTIONS:
-                                         ---------------------------
+                                    ----------------------------------
                                     1 - Place an Order        0 - Exit
                     
                     \s""", Utils.sandwich, Utils.sandwich, Utils.sandwich, Utils.sandwich, Utils.sandwich, Utils.sandwich);
