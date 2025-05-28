@@ -37,8 +37,10 @@ public class Main {
         boolean ifContinue = true;
 
         do {
+            //Create new instance of DeliStore
             DeliStore devDeli = new DeliStore();
 
+            //Main Menu
             System.out.printf("""
                                          \s
                                          %s%s%sWELCOME TO DEV DELI%s%s%s
@@ -54,6 +56,7 @@ public class Main {
                     Utils.BLUE, Utils.RESET, Utils.GREEN, Utils.RESET, Utils.RED, Utils.RESET);
             int userAction = Utils.messageAndResponseInt("Enter 1 or 0: ");
 
+            //Handle user main menu option
             switch (userAction) {
                 case 1 -> devDeli.displayOrderScreen();
                 case 0 -> ifContinue = false;
@@ -62,6 +65,7 @@ public class Main {
 
         } while (ifContinue);
 
+        //Goodbye messages for when user exits app
         System.out.println(Utils.BLUE + "\n\n\t\t\t\tThanks for coming into Dev Deli!" + Utils.RESET + Utils.sandwich + Utils.fire);
         System.out.println(Utils.BLUE + "\t\t\t\tWe will see you soon!" + Utils.RESET);
     }
