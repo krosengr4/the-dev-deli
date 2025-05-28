@@ -62,7 +62,7 @@ public class Main {
 
         } while (ifContinue);
 
-        System.out.println("\n\n\t\t\t\tThanks for coming into Dev Deli!" + Utils.sandwich + Utils.fire);
-        System.out.println("\t\t\t\tWe will see you soon!");
+        System.out.println(Utils.BLUE + "\n\n\t\t\t\tThanks for coming into Dev Deli!" + Utils.RESET + Utils.sandwich + Utils.fire);
+        System.out.println(Utils.BLUE + "\t\t\t\tWe will see you soon!" + Utils.RESET);
     }
 }

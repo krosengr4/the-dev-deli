@@ -67,7 +67,8 @@ public class DeliStore {
         while (addAnotherDrink) {
             Drink drink = new Drink();
 
-            System.out.println("\n----DRINK OPTIONS-----\n1 - Fountain Drink\n2 - Lemonade\n3 - Sweet Tea\n4 - Unsweetened Tea\n5 - MilkShake");
+            System.out.printf("\n%s----%sDRINK OPTIONS%s-----%s\n%s1 - Fountain Drink\n2 - Lemonade\n3 - Sweet Tea\n4 - Unsweetened Tea\n5 - MilkShake%s\n",
+                    Utils.BLUE, Utils.drink, Utils.drink, Utils.RESET, Utils.YELLOW, Utils.RESET);
             int userDrinkChoice = Utils.messageAndResponseInt("Select the number next to the desired drink: ");
 
             switch (userDrinkChoice) {
@@ -79,7 +80,7 @@ public class DeliStore {
                 default -> System.err.println("ERROR! Please enter a number between 1 and 5!");
             }
 
-            System.out.println("\n1 - Small $2.00\n2 - Medium $2.50\n3 - Large $3.00");
+            System.out.println(Utils.YELLOW + "\n1 - Small $2.00\n2 - Medium $2.50\n3 - Large $3.00" + Utils.RESET);
             int userDrinkSize = Utils.messageAndResponseInt("Enter a drink size: ");
 
             switch (userDrinkSize) {
