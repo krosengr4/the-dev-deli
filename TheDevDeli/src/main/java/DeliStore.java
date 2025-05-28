@@ -40,8 +40,16 @@ public class DeliStore {
 
         customerOrder.add(sandwich);
 
-        System.out.printf("\nSuccess! Added %s %s and %s on %s with %s and %s to your order!\n",
-                sandwich.getSize().toLowerCase(), sandwich.getMeat(), sandwich.getCheese(), sandwich.getBread(), sandwich.getToppings(), sandwich.getSauces());
+        String toastedStatus = "";
+
+        if (sandwich.isToasted()) {
+            toastedStatus = "Toasted";
+        } else {
+            toastedStatus = "Not toasted";
+        }
+
+        System.out.printf("\nSuccess! Added %s, %s, %s and %s on %s with %s and %s to your order!\n",
+                sandwich.getSize().toLowerCase(), toastedStatus, sandwich.getMeat(), sandwich.getCheese(), sandwich.getBread(), sandwich.getToppings(), sandwich.getSauces());
         System.out.printf("Total Price: $%.2f\n", sandwich.getValue());
 
         Utils.pauseApp();

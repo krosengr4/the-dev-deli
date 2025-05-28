@@ -17,27 +17,8 @@ public class Order {
     public void printItemsAndPrices() {
         System.out.printf("\n\t\t\t---ORDER FOR %s---\n", customerName);
 
-        for (MenuItem item : customerOrder) {
-
-            if (item instanceof Drink) {
-                System.out.println(((Drink) item).getSize() + " " + item.getName());
-                System.out.printf("$%.2f\n", item.getValue());
-                totalPrice += item.getValue();
-            }
-            if (item instanceof Sandwich) {
-                System.out.printf("%s Sandwich on %s with %s %s %s %s\n", ((Sandwich) item).getSize(), ((Sandwich) item).getBread(),
-                        ((Sandwich) item).getMeat(), ((Sandwich) item).getCheese(), ((Sandwich) item).getToppings(), ((Sandwich) item).getSauces());
-                System.out.printf("$%.2f\n", item.getValue());
-                totalPrice += item.getValue();
-            }
-            if (item instanceof Chips) {
-                System.out.println("Chips.");
-                System.out.printf("$%.2f\n", item.getValue());
-                totalPrice += item.getValue();
-            }
-        }
-
-        System.out.printf("TOTAL PRICE: $%.2f\n", totalPrice);
+        String receipt = formatReceipt();
+        System.out.println(formatReceipt());
     }
 
     public void saveOrder () {
@@ -63,15 +44,38 @@ public class Order {
     public String formatReceipt() {
         StringBuilder receiptFormat = new StringBuilder();
 
+
+
         for (MenuItem item : customerOrder) {
             if (item instanceof Sandwich) {
+
+                    String toastMessage = "";
+                    if (((Sandwich) item).isToasted()) {
+                        toastMessage = "toasted";
+                    } else {
+                        toastMessage = "not toasted";
+                    }
+
+                    String extraMeatMessage = "";
+                    if (((Sandwich) item).isExtraMeat()) {
+                        extraMeatMessage = "Extra meat";
+                    }
+
+                    String extraCheeseMessage = "";
+                    if (((Sandwich) item).isExtraCheese()) {
+                        extraCheeseMessage = "Extra Cheese";
+                    }
+
                 receiptFormat.append("Sandwich ")
                         .append(((Sandwich) item).getSize())
-                        .append(" ")
-                        .append(((Sandwich) item).getBread()).append(" ")
-                        .append(((Sandwich) item).getMeat()).append(" ")
-                        .append(((Sandwich) item).getCheese()).append(" ")
-                        .append(((Sandwich) item).getToppings()).append(" ")
+                        .append(" | ")
+                        .append(toastMessage).append(" | ")
+                        .append(((Sandwich) item).getBread()).append(" | ")
+                        .append(((Sandwich) item).getMeat()).append(" | ")
+                        .append(extraMeatMessage).append(" | ")
+                        .append(((Sandwich) item).getCheese()).append(" | ")
+                        .append(extraCheeseMessage).append(" | ")
+                        .append(((Sandwich) item).getToppings()).append(" | ")
                         .append(((Sandwich) item).getSauces())
                         .append("\n")
                         .append(item.getValue())
