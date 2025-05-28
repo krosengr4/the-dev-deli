@@ -1,8 +1,10 @@
 public class Drink extends MenuItem {
 
+    //Drink attributes
     String size;
     String name;
 
+    //Constructor
     public Drink() {
         super("drink");
     }
@@ -27,6 +29,7 @@ public class Drink extends MenuItem {
     }
     //endregion
 
+    //Override getValue method to return appropriate price of drink
     @Override
     public double getValue() {
         double value = 0.0;

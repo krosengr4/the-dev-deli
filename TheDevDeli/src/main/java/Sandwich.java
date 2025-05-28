@@ -1,5 +1,6 @@
 public class Sandwich extends MenuItem {
 
+    //Sandwich attributes
     String size;
     String bread;
     String meat;
@@ -12,6 +13,7 @@ public class Sandwich extends MenuItem {
     boolean isExtraMeat;
     boolean isExtraCheese;
 
+    //constructor
     public Sandwich() {
         super("Sandwich");
     }
@@ -106,6 +108,7 @@ public class Sandwich extends MenuItem {
     }
     //endregion
 
+    //Override getValue method to get appropriate price of sandwich
     @Override
     public double getValue() {
         double value = 0.0;
