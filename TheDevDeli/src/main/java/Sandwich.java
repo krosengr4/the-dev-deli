@@ -1,5 +1,3 @@
-import javax.swing.plaf.synth.SynthRadioButtonMenuItemUI;
-
 public class Sandwich extends MenuItem {
 
     //Sandwich attributes

@@ -5,30 +5,36 @@ import java.util.ArrayList;
 
 public class Order {
 
+    //Order object attributes
     ArrayList<MenuItem> customerOrder;
     String customerName;
 
+    //Constructor
     public Order(ArrayList<MenuItem> customerOrder, String customerName) {
         this.customerOrder = customerOrder;
         this.customerName = customerName;
     }
 
+    //Method to print out a customers formatted receipt for their order
     public void printItemsAndPrices() {
         System.out.printf("\n\t\t\t%s---ORDER FOR %s %s---\n", Utils.BLUE, customerName, Utils.RESET);
 
         System.out.println(formatReceipt());
     }
 
+    //Method to write a customers formatted receipt to a new .txt file
     public void saveOrder() {
         String receipt = formatReceipt();
 
+        //Getting the name of the .txt file using LocalDateTime
         LocalDateTime localDateTime = LocalDateTime.now();
         DateTimeFormatter fullDateTime = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
         String logFile = localDateTime.format(fullDateTime);
 
         try {
+            //Create FileWriter and writing customer and the formatted receipt for their order
             FileWriter writer = new FileWriter("TheDevDeli/src/main/receipts/" + logFile + ".txt");
-            writer.write("Order for: " + customerName + "\n");
+            writer.write("ORDER FOR: " + customerName + "\n");
             writer.write(receipt);
             writer.close();
             System.out.printf("\n%sTHANK YOU %s. Your order will out shortly! \nYour receipt has been saved in /src/main/receipts%s",
@@ -37,11 +43,11 @@ public class Order {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
     }
 
+    //Method to format the receipt
     public String formatReceipt() {
-        StringBuilder receiptFormat = new StringBuilder();
+        StringBuilder receiptFormat = new StringBuilder(); //<--- Using StringBuilder to format the receipt
         double totalPrice = 0.0;
 
         for (MenuItem item : customerOrder) {

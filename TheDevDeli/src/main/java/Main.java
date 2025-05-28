@@ -40,7 +40,7 @@ public class Main {
             //Create new instance of DeliStore
             DeliStore devDeli = new DeliStore();
 
-            //Main Menu
+            //Print out Main Menu
             System.out.printf("""
                                          \s
                                          %s%s%sWELCOME TO DEV DELI%s%s%s
