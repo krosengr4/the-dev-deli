@@ -58,7 +58,13 @@ public class DeliStore {
     }
 
     private void processAddChips() {
-        System.out.println("Add chips");
+        int numberOfChips = Utils.messageAndResponseInt("How many bags of chips would you like?: ");
+
+        for (int i = 0; i < numberOfChips; i++) {
+            Chips chip = new Chips();
+            customerOrder.add(chip);
+        }
+        System.out.println("Success! " + numberOfChips + " bag(s) of chips has been added to your order!");
     }
 
     private void processAddDrink() {
