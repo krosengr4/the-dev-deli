@@ -1,9 +1,7 @@
 import java.io.FileWriter;
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class Order {
 
@@ -49,10 +47,10 @@ public class Order {
         String logFile = localDateTime.format(fullDateTime);
 
         try {
-            FileWriter writer = new FileWriter("TheDevDeli/src/receipts/" + logFile);
+            FileWriter writer = new FileWriter("TheDevDeli/src/main/receipts/" + logFile);
             writer.write(receipt);
             writer.close();
-            System.out.println("Success! Order receipt has been saved in /src/receipts");
+            System.out.println("Success! Order receipt has been saved in /src/main/receipts");
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -90,7 +88,7 @@ public class Order {
             }
         }
 
-        receiptFormat.append("TOTAL: ").append(totalPrice);
+        receiptFormat.append("TOTAL: $").append(totalPrice);
 
         return receiptFormat.toString();
     }
