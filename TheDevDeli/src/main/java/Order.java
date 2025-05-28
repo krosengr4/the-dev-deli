@@ -27,7 +27,7 @@ public class Order {
         String logFile = localDateTime.format(fullDateTime);
 
         try {
-            FileWriter writer = new FileWriter("TheDevDeli/src/main/receipts/" + logFile);
+            FileWriter writer = new FileWriter("TheDevDeli/src/main/receipts/" + logFile + ".txt");
             writer.write("Order for: " + customerName + "\n");
             writer.write(receipt);
             writer.close();

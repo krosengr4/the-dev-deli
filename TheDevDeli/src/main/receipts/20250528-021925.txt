@@ -1,0 +1,12 @@
+Order for: DAVE
+Sandwich | Size: MEDIUM | Toasted: false | Bread: White | Meat: Bacon | ExtraMeat: true | Cheese: null | ExtraCheese: false | Toppings: Lettuce Tomatoes | Sauces: Vinaigrette
+Price: $10.0
+
+Drink | Type: Fountain Drink | Size: LARGE
+Price: $3.0
+
+Chips
+Price: $1.5
+
+
+TOTAL: $14.5
