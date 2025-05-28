@@ -31,7 +31,8 @@ public class Order {
             writer.write("Order for: " + customerName + "\n");
             writer.write(receipt);
             writer.close();
-            System.out.printf("\n%sTHANK YOU %s! \nOrder receipt has been saved in /src/main/receipts%s", Utils.GREEN, customerName, Utils.RESET);
+            System.out.printf("\n%sTHANK YOU %s. Your order will out shortly! \nYour receipt has been saved in /src/main/receipts%s",
+                    Utils.GREEN, customerName, Utils.RESET);
 
         } catch (Exception e) {
             throw new RuntimeException(e);

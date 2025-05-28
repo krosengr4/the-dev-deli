@@ -108,7 +108,15 @@ public class DeliStore {
         Order newOrder = new Order(customerOrder, customerName);
 
         newOrder.printItemsAndPrices();
-        newOrder.saveOrder();
+
+        String correctUserOrder = Utils.promptGetUserInput("Is this order correct? (Y or N): ").trim();
+
+        if (correctUserOrder.equalsIgnoreCase("y")) {
+            newOrder.saveOrder();
+        } else {
+            System.out.println("Apologies for the inconvenience. Try and place your order again.");
+        }
+
         Utils.pauseApp();
     }
 
