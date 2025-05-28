@@ -56,17 +56,21 @@ public class DeliStore {
         //todo display pricing somewhere around here
 
         Sandwich sandwich = MakeSandwich.createSandwich();
-        System.out.println("Sandwich size: " + sandwich.getSize());
-        System.out.println("Sandwich Bread: " + sandwich.getBread());
-        System.out.println("Sandwich meat: " + sandwich.getMeat());
-        System.out.println("Extra Meat?: " + sandwich.isExtraMeat());
-        System.out.println("Sandwich cheese: " + sandwich.getCheese());
-        System.out.println("Extra Cheese?: " + sandwich.isExtraCheese());
-        System.out.println("Sandwich toppings: " + sandwich.getToppings());
-        System.out.println("Sandwich sauces: " + sandwich.getSauces());
-        System.out.printf("Sandwich price: $%.2f\n", sandwich.getValue());
+//        System.out.println("Sandwich size: " + sandwich.getSize());
+//        System.out.println("Sandwich Bread: " + sandwich.getBread());
+//        System.out.println("Sandwich meat: " + sandwich.getMeat());
+//        System.out.println("Extra Meat?: " + sandwich.isExtraMeat());
+//        System.out.println("Sandwich cheese: " + sandwich.getCheese());
+//        System.out.println("Extra Cheese?: " + sandwich.isExtraCheese());
+//        System.out.println("Sandwich toppings: " + sandwich.getToppings());
+//        System.out.println("Sandwich sauces: " + sandwich.getSauces());
+//        System.out.printf("Sandwich price: $%.2f\n", sandwich.getValue());
 
-//        processAddSandwich();
+        System.out.printf("\nSuccess! Added %s %s and %s on %s with %s and %s to your order!\n",
+                sandwich.getSize().toLowerCase(), sandwich.getMeat(), sandwich.getCheese(), sandwich.getBread(), sandwich.getToppings(), sandwich.getSauces());
+        System.out.printf("Total Price: $%.2f\n", sandwich.getValue());
+
+        customerOrder.add(sandwich);
     }
 
     private void processAddChips() {
