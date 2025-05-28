@@ -1,7 +1,7 @@
 public class Chips extends MenuItem{
 
     public Chips() {
-        super("Chips", 0.0);
+        super("Chips");
     }
 
     @Override

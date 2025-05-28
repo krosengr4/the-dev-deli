@@ -1,14 +1,10 @@
 public class Drink extends MenuItem {
 
     String size;
-
-    public Drink(String size) {
-        super("drink", 0.0);
-        this.size = size;
-    }
+    String name;
 
     public Drink() {
-        super("drink", 0.0);
+        super("drink");
     }
 
     //region getters and setters
@@ -18,6 +14,16 @@ public class Drink extends MenuItem {
 
     public void setSize(String size) {
         this.size = size;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
     }
     //endregion
 

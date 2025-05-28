@@ -1,11 +1,9 @@
 public abstract class MenuItem {
 
     String name;
-    double price;
 
-    public MenuItem (String name, double price) {
+    public MenuItem (String name) {
         this.name = name;
-        this.price = price;
     }
 
     //region getters and setters

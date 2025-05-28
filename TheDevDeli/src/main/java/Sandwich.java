@@ -13,8 +13,7 @@ public class Sandwich extends MenuItem {
     boolean isExtraCheese;
 
     public Sandwich() {
-        super("Sandwich", 0.0);
-
+        super("Sandwich");
     }
 
     //region setters and getters
