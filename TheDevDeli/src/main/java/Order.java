@@ -1,8 +1,14 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Order {
 
     ArrayList<MenuItem> customerOrder;
+    double totalPrice = 0.0;
 
     public Order(ArrayList<MenuItem> customerOrder) {
         this.customerOrder = customerOrder;
@@ -10,8 +16,6 @@ public class Order {
 
     public void printItemsAndPrices() {
         System.out.println("\n\t\t\t---YOUR ORDER---");
-
-        double totalPrice = 0.0;
 
         for (MenuItem item : customerOrder) {
 
@@ -37,7 +41,26 @@ public class Order {
         Utils.pauseApp();
     }
 
-    public void saveOrder() {
+    public void saveOrder () {
+        String receipt = formatReceipt();
+
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter fullDateTime = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
+        String logFile = localDateTime.format(fullDateTime);
+
+        try {
+            FileWriter writer = new FileWriter("TheDevDeli/src/receipts/" + logFile);
+            writer.write(receipt);
+            writer.close();
+            System.out.println("Success! Order receipt has been saved in /src/receipts");
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public String formatReceipt() {
         StringBuilder receiptFormat = new StringBuilder();
 
         for (MenuItem item : customerOrder) {
@@ -45,26 +68,31 @@ public class Order {
                 receiptFormat.append("Sandwich ")
                         .append(((Sandwich) item).getSize())
                         .append(" ")
-                        .append(((Sandwich) item).getBread())
-                        .append(((Sandwich) item).getMeat())
-                        .append(((Sandwich) item).getCheese())
-                        .append(((Sandwich) item).getToppings())
+                        .append(((Sandwich) item).getBread()).append(" ")
+                        .append(((Sandwich) item).getMeat()).append(" ")
+                        .append(((Sandwich) item).getCheese()).append(" ")
+                        .append(((Sandwich) item).getToppings()).append(" ")
                         .append(((Sandwich) item).getSauces())
                         .append("\n")
-                        .append(item.getValue());
+                        .append(item.getValue())
+                        .append("\n");
             } else if (item instanceof Drink) {
-                receiptFormat.append(item.getName())
-                        .append(((Drink) item).getSize())
+                receiptFormat.append(((Drink) item).getSize()).append(" ")
+                        .append(item.getName())
                         .append("\n")
-                        .append(item.getValue());
+                        .append(item.getValue())
+                        .append("\n");
             } else if (item instanceof Chips) {
-                receiptFormat.append("Chips ")
+                receiptFormat.append("Chips")
                         .append("\n")
-                        .append(item.getValue());
+                        .append(item.getValue())
+                        .append("\n");
             }
         }
 
-        System.out.println(receiptFormat);
+        receiptFormat.append("TOTAL: ").append(totalPrice);
+
+        return receiptFormat.toString();
     }
 
 }

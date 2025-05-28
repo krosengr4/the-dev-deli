@@ -102,6 +102,7 @@ public class DeliStore {
         Order newOrder = new Order(customerOrder);
 
         newOrder.printItemsAndPrices();
+        newOrder.saveOrder();
     }
 
 }
