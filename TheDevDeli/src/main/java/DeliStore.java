@@ -41,6 +41,8 @@ public class DeliStore {
         customerOrder.add(sandwich);
 
         String toastedStatus = "";
+        String extraMeatStatus = "";
+        String extraCheeseStatus = "";
 
         if (sandwich.isToasted()) {
             toastedStatus = "Toasted";
@@ -48,10 +50,12 @@ public class DeliStore {
             toastedStatus = "Not toasted";
         }
 
-        System.out.printf("\nSuccess! Added %s, %s, %s and %s on %s with %s and %s to your order!\n",
-                sandwich.getSize().toLowerCase(), toastedStatus, sandwich.getMeat(), sandwich.getCheese(), sandwich.getBread(), sandwich.getToppings(), sandwich.getSauces());
-        System.out.printf("Total Price: $%.2f\n", sandwich.getValue());
+        System.out.println("\nSuccess! Sandwich Added to your order!");
+        System.out.printf("Sandwich | %s | Toasted: %b | Bread: %s | Meat: %s | ExtraMeat: %b | Cheese: %s | ExtraCheese: %b | Toppings: %s | Sauces: %s",
+                sandwich.size, sandwich.isToasted(), sandwich.getBread(), sandwich.getMeat(), sandwich.isExtraMeat(), sandwich.getCheese(), sandwich.isExtraCheese(),
+                sandwich.getToppings(), sandwich.getSauces());
 
+        System.out.printf("\nTotal Price: $%.2f\n", sandwich.getValue());
         Utils.pauseApp();
     }
 
