@@ -42,7 +42,7 @@ public class DeliStore {
 
         customerOrder.add(sandwich);
 
-        System.out.println("\nSuccess! Sandwich Added to your order!");
+        System.out.println(Utils.GREEN + "\nSuccess! Sandwich Added to your order!" + Utils.RESET);
         System.out.printf("Sandwich | %s | Toasted: %b | Bread: %s | Meat: %s | ExtraMeat: %b | Cheese: %s | ExtraCheese: %b | Toppings: %s | Sauces: %s",
                 sandwich.size, sandwich.isToasted(), sandwich.getBread(), sandwich.getMeat(), sandwich.isExtraMeat(), sandwich.getCheese(), sandwich.isExtraCheese(),
                 sandwich.getToppings(), sandwich.getSauces());
@@ -58,7 +58,7 @@ public class DeliStore {
             Chips chip = new Chips();
             customerOrder.add(chip);
         }
-        System.out.println("Success! " + numberOfChips + " bag(s) of chips has been added to your order!");
+        System.out.println(Utils.GREEN + "Success! " + numberOfChips + " bag(s) of chips has been added to your order!" + Utils.RESET);
     }
 
     private void processAddDrink() {
@@ -90,7 +90,7 @@ public class DeliStore {
             }
 
             customerOrder.add(drink);
-            System.out.printf("\nSuccess! %s %s added!\n", drink.getSize().toLowerCase(), drink.getName());
+            System.out.printf("\n%sSuccess! %s %s added!%s\n", Utils.GREEN, drink.getSize().toLowerCase(), drink.getName(), Utils.RESET);
 
             String anotherDrink = Utils.promptGetUserInput("\nWould you like to add another drink? (Y or N): ").trim();
             if (anotherDrink.equalsIgnoreCase("n")) {
