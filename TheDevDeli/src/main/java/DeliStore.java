@@ -8,15 +8,16 @@ public class DeliStore {
         boolean ifContinueOrder = true;
 
         do {
-            System.out.print("""
+            System.out.printf("""
                                                       \s
                                                       ORDER
                                 -------------------------------------------------
-                                1 - Order a Sandwich              3 - Add a Drink
-                                2 - Add Chips                     4 - Checkout
+                                %s1 - Order a Sandwich%s        %s3 - Add a Drink%s
+                                %s2 - Add Chips%s               %s4 - Checkout%s
                     
-                                              0 - Cancel Order
-                    """);
+                                              %s0 - Cancel Order%s
+                                              \s
+                    """, Utils.BLUE, Utils.RESET, Utils.PURPLE, Utils.RESET, Utils.YELLOW, Utils.RESET, Utils.GREEN, Utils.RESET, Utils.RED, Utils.RESET);
 
             int userAction = Utils.messageAndResponseInt("Enter Your Option: ");
 
