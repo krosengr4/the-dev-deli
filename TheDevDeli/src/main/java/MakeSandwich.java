@@ -11,6 +11,7 @@ public class MakeSandwich {
         addSandwichCheese(sandwich);
         addExtraToppings(sandwich);
         addSauces(sandwich);
+        toastSandwich(sandwich);
 
         return sandwich;
     }
@@ -322,5 +323,26 @@ public class MakeSandwich {
 
         }
         sandwich.setSauces(sauces.toString().trim());
+    }
+
+    private static void toastSandwich(Sandwich sandwich) {
+        boolean repeatToastOption = true;
+
+        while (repeatToastOption) {
+            int userToastOption = Utils.messageAndResponseInt("Would you like your sandwich toasted?\n1 - yes, toast it!\n2 - no, don't toast it.");
+
+            switch (userToastOption) {
+                case 1 -> {
+                    sandwich.setToasted(true);
+                    repeatToastOption = false;
+                }
+                case 2 -> {
+                    sandwich.setToasted(false);
+                    repeatToastOption = false;
+                }
+                default -> System.err.println("ERROR! Please select either 1 or 2!");
+            }
+
+        }
     }
 }
