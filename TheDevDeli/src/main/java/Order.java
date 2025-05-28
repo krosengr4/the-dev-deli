@@ -16,7 +16,7 @@ public class Order {
         for (MenuItem item : customerOrder) {
 
             if (item instanceof Drink) {
-                System.out.println(((Drink) item).getSize() + " Drink.");
+                System.out.println(((Drink) item).getSize() + " " + item.getName());
                 System.out.printf("$%.2f\n", item.getValue());
                 totalPrice += item.getValue();
             }
