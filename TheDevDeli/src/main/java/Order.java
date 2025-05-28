@@ -14,7 +14,7 @@ public class Order {
     }
 
     public void printItemsAndPrices() {
-        System.out.printf("\n\t\t\t---ORDER FOR %s---\n", customerName);
+        System.out.printf("\n\t\t\t%s---ORDER FOR%s %s---\n", Utils.BLUE, customerName, Utils.RESET);
 
         System.out.println(formatReceipt());
     }
