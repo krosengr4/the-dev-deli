@@ -47,11 +47,13 @@ public class DeliStore {
 //        System.out.println("Sandwich sauces: " + sandwich.getSauces());
 //        System.out.printf("Sandwich price: $%.2f\n", sandwich.getValue());
 
+        customerOrder.add(sandwich);
+
         System.out.printf("\nSuccess! Added %s %s and %s on %s with %s and %s to your order!\n",
                 sandwich.getSize().toLowerCase(), sandwich.getMeat(), sandwich.getCheese(), sandwich.getBread(), sandwich.getToppings(), sandwich.getSauces());
         System.out.printf("Total Price: $%.2f\n", sandwich.getValue());
 
-        customerOrder.add(sandwich);
+        Utils.pauseApp();
     }
 
     private void processAddChips() {
