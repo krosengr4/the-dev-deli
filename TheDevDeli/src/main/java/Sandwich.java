@@ -1,3 +1,5 @@
+import javax.swing.plaf.synth.SynthRadioButtonMenuItemUI;
+
 public class Sandwich extends MenuItem {
 
     //Sandwich attributes
@@ -16,6 +18,20 @@ public class Sandwich extends MenuItem {
     //constructor
     public Sandwich() {
         super("Sandwich");
+    }
+
+    //Overloaded constructor
+    public Sandwich(String size, String bread, String meat, String cheese, String toppings, String sauces, boolean isToasted, boolean isExtraMeat, boolean isExtraCheese) {
+        super ("Sandwich");
+        this.size = size;
+        this.bread = bread;
+        this.meat = meat;
+        this.cheese = cheese;
+        this.toppings = toppings;
+        this.sauces = sauces;
+        this.isToasted = isToasted;
+        this.isExtraMeat = isExtraMeat;
+        this.isExtraCheese = isExtraCheese;
     }
 
     //region setters and getters

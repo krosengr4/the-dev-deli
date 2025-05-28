@@ -2,16 +2,44 @@ public class MakeSandwich {
 
     static Sandwich sandwich;
 
+    //Method to create and return new instance of Sandwich
     public static Sandwich createSandwich() {
-        sandwich = new Sandwich();
 
-        setSandwichSize(sandwich);
-        addSandwichBread(sandwich);
-        addSandwichMeat(sandwich);
-        addSandwichCheese(sandwich);
-        addExtraToppings(sandwich);
-        addSauces(sandwich);
-        toastSandwich(sandwich);
+
+        System.out.printf("""
+               \s
+                            %s---%sSIGNATURE SANDWICHES%s---
+                       ___________________________________________%s
+                      %sBLT ($10.50)             Philly Cheese Steak ($10.50)
+                      -------------             ---------------------------%s \s
+                      %s8" White Bread          8" White Bread
+                      Bacon                   Steak \s
+                      Cheddar                 American Cheese
+                      Lettuce                 Peppers
+                      Tomato                  Mayo
+                      Ranch                   Toasted
+                      Toasted%s
+               \s""", Utils.CYAN, Utils.sandwich, Utils.sandwich, Utils.RESET, Utils.BLUE, Utils.RESET, Utils.YELLOW, Utils.RESET);
+
+        System.out.println(Utils.CYAN + "\n\t\t\t-----OPTIONS-----" + Utils.RESET);
+        System.out.println(Utils.YELLOW + "1 - Create Your Own | 2 - BLT | 3 - Philly Cheese Steak" + Utils.RESET);
+        int userSandwichChoice = Utils.messageAndResponseInt("Please Enter your Choice: ");
+
+        switch (userSandwichChoice) {
+            case 1 -> {
+                sandwich = new Sandwich();
+                setSandwichSize(sandwich);
+                addSandwichBread(sandwich);
+                addSandwichMeat(sandwich);
+                addSandwichCheese(sandwich);
+                addExtraToppings(sandwich);
+                addSauces(sandwich);
+                toastSandwich(sandwich);
+            }
+            case 2 -> sandwich = new Sandwich("MEDIUM", "White", "Bacon", "Cheddar", "Lettuce Tomato", "Ranch", true, false, false);
+            case 3 -> sandwich = new Sandwich("MEDIUM", "White", "Steak", "American", "Peppers", "Mayo", true, false ,false);
+            default -> System.err.println("ERROR! Please enter a number between 1 and 3!");
+        }
 
         return sandwich;
     }
