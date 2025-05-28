@@ -6,14 +6,16 @@ import java.util.ArrayList;
 public class Order {
 
     ArrayList<MenuItem> customerOrder;
+    String customerName;
     double totalPrice = 0.0;
 
-    public Order(ArrayList<MenuItem> customerOrder) {
+    public Order(ArrayList<MenuItem> customerOrder, String customerName) {
         this.customerOrder = customerOrder;
+        this.customerName = customerName;
     }
 
     public void printItemsAndPrices() {
-        System.out.println("\n\t\t\t---YOUR ORDER---");
+        System.out.printf("\n\t\t\t---ORDER FOR %s---\n", customerName);
 
         for (MenuItem item : customerOrder) {
 
@@ -35,8 +37,7 @@ public class Order {
             }
         }
 
-        System.out.printf("\nTOTAL PRICE: $%.2f\n", totalPrice);
-        Utils.pauseApp();
+        System.out.printf("TOTAL PRICE: $%.2f\n", totalPrice);
     }
 
     public void saveOrder () {
@@ -48,9 +49,10 @@ public class Order {
 
         try {
             FileWriter writer = new FileWriter("TheDevDeli/src/main/receipts/" + logFile);
+            writer.write("Order for: " + customerName + "\n");
             writer.write(receipt);
             writer.close();
-            System.out.println("Success! Order receipt has been saved in /src/main/receipts");
+            System.out.printf("THANK YOU %s! Order receipt has been saved in /src/main/receipts", customerName);
 
         } catch (Exception e) {
             throw new RuntimeException(e);

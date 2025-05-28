@@ -98,10 +98,13 @@ public class DeliStore {
     }
 
     private void processCheckout() {
-        Order newOrder = new Order(customerOrder);
+        String customerName = Utils.promptGetUserInput("Please enter a name for your order: ").toUpperCase();
+
+        Order newOrder = new Order(customerOrder, customerName);
 
         newOrder.printItemsAndPrices();
         newOrder.saveOrder();
+        Utils.pauseApp();
     }
 
 }
