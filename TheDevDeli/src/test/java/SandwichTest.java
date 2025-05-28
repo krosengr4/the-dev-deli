@@ -87,4 +87,43 @@ class SandwichTest {
 
         assertEquals(12.1, actual);
     }
+
+    @Test
+    void getValueNoMeat() {
+
+        sandwich.setSize("MEDIUM");
+        sandwich.setBread("White");
+        sandwich.setMeat(null);
+        sandwich.setCheese("American");
+
+        double actual = sandwich.getValue();
+
+        assertEquals(8.50, actual);
+    }
+
+    @Test
+    void getValueNoCheese() {
+
+        sandwich.setSize("MEDIUM");
+        sandwich.setBread("White");
+        sandwich.setMeat("Ham");
+        sandwich.setCheese(null);
+
+        double actual = sandwich.getValue();
+
+        assertEquals(9.00, actual);
+    }
+
+    @Test
+    void getValueNoMeatOrCheese() {
+
+        sandwich.setSize("MEDIUM");
+        sandwich.setBread("White");
+        sandwich.setMeat(null);
+        sandwich.setCheese(null);
+
+        double actual = sandwich.getValue();
+
+        assertEquals(7.00, actual);
+    }
 }
