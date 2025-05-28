@@ -25,7 +25,7 @@ public class Order {
                 totalPrice += item.getValue();
             }
             if (item instanceof Sandwich) {
-                System.out.printf("%s Sandwich on %s bread with %s %s %s %s\n", ((Sandwich) item).getSize(), ((Sandwich) item).getBread(),
+                System.out.printf("%s Sandwich on %s with %s %s %s %s\n", ((Sandwich) item).getSize(), ((Sandwich) item).getBread(),
                         ((Sandwich) item).getMeat(), ((Sandwich) item).getCheese(), ((Sandwich) item).getToppings(), ((Sandwich) item).getSauces());
                 System.out.printf("$%.2f\n", item.getValue());
                 totalPrice += item.getValue();
@@ -52,7 +52,7 @@ public class Order {
             writer.write("Order for: " + customerName + "\n");
             writer.write(receipt);
             writer.close();
-            System.out.printf("THANK YOU %s! Order receipt has been saved in /src/main/receipts", customerName);
+            System.out.printf("\nTHANK YOU %s! Order receipt has been saved in /src/main/receipts", customerName);
 
         } catch (Exception e) {
             throw new RuntimeException(e);
