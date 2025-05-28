@@ -42,17 +42,17 @@ public class Main {
             System.out.printf("""
                                          \s
                                          %s%s%sWELCOME TO DEV DELI%s%s%s
-                         Serving Developers an Extensive Library of Incredible Sandwiches.\s
-                                                 Have a Byte!  \s
-                     ______________________________________________________________________________
+                                     %sTake A Byte Into our Devlicous Sandwiches!%s%s%s
+                    %s______________________________________________________________________________
                      \s
                      \s
                     \s
                                                    OPTIONS:
-                                    ----------------------------------
+                                    ----------------------------------%s
                                     1 - Place an Order        0 - Exit
                     
-                    \s""", Utils.sandwich, Utils.sandwich, Utils.sandwich, Utils.sandwich, Utils.sandwich, Utils.sandwich);
+                    \s""", Utils.fire, Utils.sandwich, Utils.CYAN, Utils.RESET, Utils.sandwich, Utils.fire, Utils.CYAN, Utils.RESET, Utils.smileyFace, Utils.thumbsUp,
+                    Utils.CYAN, Utils.RESET);
             int userAction = Utils.messageAndResponseInt("Enter 1 or 0: ");
 
             switch (userAction) {
