@@ -36,6 +36,7 @@ public class Utils {
     public static String sandwich = "\uD83E\uDD6A";
     public static String drink = "\uD83E\uDD64";
     public static String cheese = "\uD83E\uDDC0";
+    public static String chips = "\uD83E\uDD6B";
 
     public static String baseball = "⚾";
     public static String football = "\uD83C\uDFC8";

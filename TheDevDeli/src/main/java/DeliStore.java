@@ -10,14 +10,15 @@ public class DeliStore {
         do {
             System.out.printf("""
                                                       \s
-                                                      ORDER
-                                -------------------------------------------------
-                                %s1 - Order a Sandwich%s        %s3 - Add a Drink%s
-                                %s2 - Add Chips%s               %s4 - Checkout%s
+                                                      %sORDER
+                                -------------------------------------------------%s
+                                %s1 - Order a Sandwich%s%s          %s3 - Add a Drink%s%s
+                                %s2 - Add Chips%s%s                 %s4 - Checkout%s
                     
                                               %s0 - Cancel Order%s
                                               \s
-                    """, Utils.BLUE, Utils.RESET, Utils.PURPLE, Utils.RESET, Utils.YELLOW, Utils.RESET, Utils.GREEN, Utils.RESET, Utils.RED, Utils.RESET);
+                    """, Utils.BLUE, Utils.RESET, Utils.PURPLE, Utils.RESET, Utils.sandwich, Utils.CYAN, Utils.RESET, Utils.drink, Utils.YELLOW, Utils.RESET,
+                    Utils.chips, Utils.GREEN, Utils.RESET, Utils.RED, Utils.RESET);
 
             int userAction = Utils.messageAndResponseInt("Enter Your Option: ");
 
