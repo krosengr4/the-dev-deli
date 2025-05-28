@@ -40,16 +40,6 @@ public class DeliStore {
 
         customerOrder.add(sandwich);
 
-        String toastedStatus = "";
-        String extraMeatStatus = "";
-        String extraCheeseStatus = "";
-
-        if (sandwich.isToasted()) {
-            toastedStatus = "Toasted";
-        } else {
-            toastedStatus = "Not toasted";
-        }
-
         System.out.println("\nSuccess! Sandwich Added to your order!");
         System.out.printf("Sandwich | %s | Toasted: %b | Bread: %s | Meat: %s | ExtraMeat: %b | Cheese: %s | ExtraCheese: %b | Toppings: %s | Sauces: %s",
                 sandwich.size, sandwich.isToasted(), sandwich.getBread(), sandwich.getMeat(), sandwich.isExtraMeat(), sandwich.getCheese(), sandwich.isExtraCheese(),

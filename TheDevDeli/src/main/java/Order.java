@@ -7,7 +7,6 @@ public class Order {
 
     ArrayList<MenuItem> customerOrder;
     String customerName;
-    double totalPrice = 0.0;
 
     public Order(ArrayList<MenuItem> customerOrder, String customerName) {
         this.customerOrder = customerOrder;
@@ -21,7 +20,7 @@ public class Order {
         System.out.println(formatReceipt());
     }
 
-    public void saveOrder () {
+    public void saveOrder() {
         String receipt = formatReceipt();
 
         LocalDateTime localDateTime = LocalDateTime.now();
@@ -43,54 +42,40 @@ public class Order {
 
     public String formatReceipt() {
         StringBuilder receiptFormat = new StringBuilder();
-
-
+        double totalPrice = 0.0;
 
         for (MenuItem item : customerOrder) {
             if (item instanceof Sandwich) {
-
-                    String toastMessage = "";
-                    if (((Sandwich) item).isToasted()) {
-                        toastMessage = "toasted";
-                    } else {
-                        toastMessage = "not toasted";
-                    }
-
-                    String extraMeatMessage = "";
-                    if (((Sandwich) item).isExtraMeat()) {
-                        extraMeatMessage = "Extra meat";
-                    }
-
-                    String extraCheeseMessage = "";
-                    if (((Sandwich) item).isExtraCheese()) {
-                        extraCheeseMessage = "Extra Cheese";
-                    }
-
-                receiptFormat.append("Sandwich ")
-                        .append(((Sandwich) item).getSize())
-                        .append(" | ")
-                        .append(toastMessage).append(" | ")
-                        .append(((Sandwich) item).getBread()).append(" | ")
-                        .append(((Sandwich) item).getMeat()).append(" | ")
-                        .append(extraMeatMessage).append(" | ")
-                        .append(((Sandwich) item).getCheese()).append(" | ")
-                        .append(extraCheeseMessage).append(" | ")
-                        .append(((Sandwich) item).getToppings()).append(" | ")
-                        .append(((Sandwich) item).getSauces())
+                receiptFormat.append("Sandwich | ")
+                        .append("Size: ").append(((Sandwich) item).getSize())
+                        .append(" | Toasted: ").append(((Sandwich) item).isToasted())
+                        .append(" | Bread: ").append(((Sandwich) item).getBread())
+                        .append(" | Meat: ").append(((Sandwich) item).getMeat())
+                        .append(" | ExtraMeat: ").append(((Sandwich) item).isExtraMeat())
+                        .append(" | Cheese: ").append(((Sandwich) item).getCheese())
+                        .append(" | ExtraCheese: ").append(((Sandwich) item).isExtraCheese())
+                        .append(" | Toppings: ").append(((Sandwich) item).getToppings())
+                        .append(" | Sauces: ").append(((Sandwich) item).getSauces())
                         .append("\n")
-                        .append(item.getValue())
+                        .append("Price: $").append(item.getValue())
                         .append("\n");
+
+                totalPrice += item.getValue();
             } else if (item instanceof Drink) {
                 receiptFormat.append(((Drink) item).getSize()).append(" ")
                         .append(item.getName())
                         .append("\n")
                         .append(item.getValue())
                         .append("\n");
+
+                totalPrice += item.getValue();
             } else if (item instanceof Chips) {
                 receiptFormat.append("Chips")
                         .append("\n")
                         .append(item.getValue())
                         .append("\n");
+
+                totalPrice += item.getValue();
             }
         }
 
