@@ -18,7 +18,7 @@ public class MakeSandwich {
     private static void setSandwichSize(Sandwich sandwich) {
         boolean repeatSize = true;
         while (repeatSize) {
-            System.out.println("\n\n---SIZES---\n1 - Small  |  2 - Medium  |  3 - Large");
+            System.out.println("\n\n---SIZES---\n1 - Small (4inch) $5.50  |  2 - Medium (8inch) $7.00  |  3 - Large (12inch) $8.50");
             int userSize = Utils.messageAndResponseInt("Please enter the number next to the desired sandwich size: ");
 
             switch (userSize) {
@@ -73,7 +73,8 @@ public class MakeSandwich {
         boolean repeatMeat = true;
 
         while (repeatMeat) {
-            System.out.println(Utils.meat + "---MEAT OPTIONS---\n1 - Steak\n2 - Ham\n3 - Salami\n4 - Roast Beef\n5 - Chicken\n6 - Bacon\n0 - None");
+            System.out.println(Utils.meat + "---MEAT OPTIONS---\nSmall: +$1.00 | Medium: +$2.00 | Large: +$3.00" +
+                    "\n1 - Steak\n2 - Ham\n3 - Salami\n4 - Roast Beef\n5 - Chicken\n6 - Bacon\n0 - None");
             int userMeat = Utils.messageAndResponseInt("Please enter the number next to the desired meat: ");
 
             switch (userMeat) {
@@ -113,6 +114,7 @@ public class MakeSandwich {
                 boolean repeatExtraMeat = true;
 
                 while (repeatExtraMeat) {
+                    System.out.println("Extra Meat: Small: +$0.50 | Medium: +$1.00 | Large: +$1.50");
                     String userExtraMeat = Utils.promptGetUserInput("Would you like extra meat?(Y or N): ");
                     if (userExtraMeat.equalsIgnoreCase("y")) {
                         sandwich.setExtraMeat(true);
@@ -132,7 +134,8 @@ public class MakeSandwich {
         boolean repeatCheese = true;
 
         while (repeatCheese) {
-            System.out.println(Utils.cheese + "---CHEESE OPTIONS---\n1 - American\n2 - Provolone\n3 - Cheddar\n4 - Swiss\n0 - None");
+            System.out.println(Utils.cheese + "---CHEESE OPTIONS---\nSmall: +$0.75 | Medium: +$1.50 | Large: +$2.25" +
+                    "\n1 - American\n2 - Provolone\n3 - Cheddar\n4 - Swiss\n0 - None");
             int userCheese = Utils.messageAndResponseInt("Please enter the number next to the desired cheese: ");
 
             switch (userCheese) {
@@ -163,6 +166,7 @@ public class MakeSandwich {
                 boolean repeatExtraCheese = true;
 
                 while (repeatExtraCheese) {
+                    System.out.println("Extra Cheese: Small: +$0.30 | Medium: +$0.60 | Large: +$0.90");
                     String userExtraCheese = Utils.promptGetUserInput("Would you like extra cheese? (Y or N): ");
                     if (userExtraCheese.equalsIgnoreCase("y")) {
                         sandwich.setExtraCheese(true);
@@ -185,6 +189,7 @@ public class MakeSandwich {
         while (repeatExtraToppings) {
             System.out.println("""
                                         ---TOPPINGS OPTIONS---
+                                          Toppings are free
                                 1 - Lettuce                 6 - Cucumbers
                                 2 - Peppers                 7 - Pickles
                                 3 - Onions                  8 - Guacamole
@@ -258,7 +263,8 @@ public class MakeSandwich {
 
         while (repeatSauces) {
             System.out.println("""
-                                        ---SAUCE OPTIONS---
+                                            ---SAUCE OPTIONS---
+                                              Sauces are free
                                 1 - Mayo                    5 - Thousand Islands
                                 2 - Mustard                 6 - Vinaigrette
                                 3 - Ketchup                 7 -  Au Jus

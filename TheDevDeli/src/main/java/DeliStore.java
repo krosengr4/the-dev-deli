@@ -35,25 +35,6 @@ public class DeliStore {
 
 
     private void displaySandwichMenu() {
-//        System.out.println("\n\t\t\t\t" + Utils.sandwich + "SANDWICH MENU" + Utils.sandwich);
-//        Utils.printDivider("-", 70);
-//        System.out.printf("""
-//                        BREADS %s      MEATS %s      CHEESES %s     TOPPINGS         SAUCES \s
-//                -----------------------------------------------------------------------------------------
-//                        White          Steak         American        Lettuce          Mayo
-//                        Wheat          Ham           Provolone       Peppers          Mustard
-//                        Rye            Salami        Cheddar         Onions           Ketchup
-//                        Wrap           Roast Beef    Swiss           Tomatoes         Ranch
-//                                       Chicken                       Jalapeños        Thousand Islands
-//                                       Bacon                         Cucumbers        Vinaigrette
-//                                                                     Pickles          Au Jus
-//                                                                     Guacamole
-//                                                                     Mushrooms
-//                -----------------------------------------------------------------------------------------
-//                SIZES               4"                  8"                  12"
-//                """, Utils.bread, Utils.meat, Utils.cheese);
-
-        //todo display pricing somewhere around here
 
         Sandwich sandwich = MakeSandwich.createSandwich();
 //        System.out.println("Sandwich size: " + sandwich.getSize());
