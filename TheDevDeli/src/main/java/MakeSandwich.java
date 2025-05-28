@@ -21,10 +21,12 @@ public class MakeSandwich {
                       Toasted%s
                \s""", Utils.CYAN, Utils.sandwich, Utils.sandwich, Utils.RESET, Utils.BLUE, Utils.RESET, Utils.YELLOW, Utils.RESET);
 
+        //Prompt user to choose one of the signature sandwiches, or to create their own
         System.out.println(Utils.CYAN + "\n\t\t\t-----OPTIONS-----" + Utils.RESET);
         System.out.println(Utils.YELLOW + "1 - Create Your Own | 2 - BLT | 3 - Philly Cheese Steak" + Utils.RESET);
         int userSandwichChoice = Utils.messageAndResponseInt("Please Enter your Choice: ");
 
+        //Handle user sandwich choice
         switch (userSandwichChoice) {
             case 1 -> {
                 sandwich = new Sandwich();
@@ -40,17 +42,20 @@ public class MakeSandwich {
             case 3 -> sandwich = new Sandwich("MEDIUM", "White", "Steak", "American", "Peppers", "Mayo", true, false ,false);
             default -> System.err.println("ERROR! Please enter a number between 1 and 3!");
         }
-
+        //Return sandwich customer makes
         return sandwich;
     }
 
+    //Method to set sandwich size
     private static void setSandwichSize(Sandwich sandwich) {
         boolean repeatSize = true;
         while (repeatSize) {
+            //print out size options
             System.out.printf("\n\t%s---SIZES---%s\n%s1 - Small (4inch) $5.50\n2 - Medium (8inch) $7.00\n3 - Large (12inch) $8.50%s",
                     Utils.CYAN, Utils.RESET, Utils.YELLOW, Utils.RESET);
             int userSize = Utils.messageAndResponseInt("\nPlease enter the number next to the desired sandwich size: ");
 
+            //handle user choice for size
             switch (userSize) {
                 case 1 -> {
                     sandwich.setSize(Size.SMALL.toString());
@@ -69,14 +74,17 @@ public class MakeSandwich {
         }
     }
 
+    //Method to set the sandwich bread type
     private static void addSandwichBread(Sandwich sandwich) {
         boolean repeatBread = true;
 
+        //Print out options, prompt user for choice
         while (repeatBread) {
             System.out.printf("\n%s---%sBREAD OPTIONS%s---%s\n%s1 - White\n2 - Wheat\n3 - Rye\n4 - Wrap%s", Utils.CYAN, Utils.bread, Utils.bread,
                     Utils.RESET, Utils.YELLOW, Utils.RESET);
             int userBread = Utils.messageAndResponseInt("\nPlease enter the number next to the desired bread: ");
 
+            //Handle user bread choice
             switch (userBread) {
                 case 1 -> {
                     sandwich.setBread("White");
@@ -100,9 +108,11 @@ public class MakeSandwich {
         }
     }
 
+    //Method to set sandwich meat type and if extra meat
     private static void addSandwichMeat(Sandwich sandwich) {
         boolean repeatMeat = true;
 
+        //Print meat options and prompt user for choice
         while (repeatMeat) {
             System.out.printf("""
                             
@@ -118,6 +128,7 @@ public class MakeSandwich {
                             0 - None%s""", Utils.CYAN, Utils.meat, Utils.meat, Utils.RESET, Utils.YELLOW, Utils.RESET);
             int userMeat = Utils.messageAndResponseInt("\nPlease enter the number next to the desired meat: ");
 
+            //Handle user meat choice
             switch (userMeat) {
                 case 1 -> {
                     sandwich.setMeat("Steak");
@@ -151,12 +162,14 @@ public class MakeSandwich {
             }
 
             if (userMeat != 0) {
-
                 boolean repeatExtraMeat = true;
 
                 while (repeatExtraMeat) {
+                    //Prompt user if they want extra meat
                     System.out.printf("\n%sExtra Meat: Small: +$0.50 | Medium: +$1.00 | Large: +$1.50%s", Utils.CYAN, Utils.RESET);
                     String userExtraMeat = Utils.promptGetUserInput("\nWould you like extra meat?(Y or N): ");
+
+                    //Handle extra meat request
                     if (userExtraMeat.equalsIgnoreCase("y")) {
                         sandwich.setExtraMeat(true);
                         repeatExtraMeat = false;
@@ -171,9 +184,11 @@ public class MakeSandwich {
         }
     }
 
+    //Method to set sandwich cheese type and if extra cheese
     private static void addSandwichCheese(Sandwich sandwich) {
         boolean repeatCheese = true;
 
+        //Print out cheese choices and prompt user for selection
         while (repeatCheese) {
             System.out.printf("""
                     
@@ -187,6 +202,7 @@ public class MakeSandwich {
                     0 - None%s""", Utils.CYAN, Utils.cheese, Utils.cheese, Utils.RESET, Utils.YELLOW, Utils.RESET);
             int userCheese = Utils.messageAndResponseInt("\nPlease enter the number next to the desired cheese: ");
 
+            //Handle user cheese selection
             switch (userCheese) {
                 case 1 -> {
                     sandwich.setCheese("American");
@@ -215,8 +231,11 @@ public class MakeSandwich {
                 boolean repeatExtraCheese = true;
 
                 while (repeatExtraCheese) {
+                    //Prompt user if they want extra cheese
                     System.out.printf("\n%sExtra Cheese: Small: +$0.30 | Medium: +$0.60 | Large: +$0.90%s", Utils.CYAN, Utils.RESET);
                     String userExtraCheese = Utils.promptGetUserInput("\nWould you like extra cheese? (Y or N): ");
+
+                    //Handle user request for extra cheese
                     if (userExtraCheese.equalsIgnoreCase("y")) {
                         sandwich.setExtraCheese(true);
                         repeatExtraCheese = false;
@@ -231,11 +250,14 @@ public class MakeSandwich {
         }
     }
 
+    //Method to add toppings to sandwich
     private static void addExtraToppings(Sandwich sandwich) {
         boolean repeatExtraToppings = true;
-        StringBuilder toppings = new StringBuilder();
+        StringBuilder toppings = new StringBuilder(); //<--- Use StringBuilder to handle request for extra toppings
 
         while (repeatExtraToppings) {
+
+            //Print out options for sandwich toppings and prompt user for topping to add to sandwich
             System.out.printf("""
                                         %s---TOPPINGS OPTIONS---
                                           Toppings are free%s
@@ -248,6 +270,7 @@ public class MakeSandwich {
                     """, Utils.CYAN, Utils.RESET, Utils.YELLOW, Utils.RESET);
             int userToppings = Utils.messageAndResponseInt("\nPlease enter the number next to the desired topping: ");
 
+            //Handle user request for toppings by appending topping to toppings StringBuilder
             switch (userToppings) {
                 case 1 -> {
                     toppings.append("Lettuce ");
@@ -292,6 +315,7 @@ public class MakeSandwich {
                 default -> System.err.println("ERROR! Invalid topping!");
             }
 
+            //Ask user if they would like any more toppings and handle response
             if (userToppings != 0) {
                 String userExtraToppings = Utils.promptGetUserInput("\nWould you like anymore toppings?(Y or N)");
 
@@ -302,15 +326,17 @@ public class MakeSandwich {
                 }
             }
         }
-
+        //Set sandwich topping(s) to StringBuilder
         sandwich.setToppings(toppings.toString().trim());
     }
 
+    //Method to add sauces to sandwich
     private static void addSauces(Sandwich sandwich) {
         boolean repeatSauces = true;
-        StringBuilder sauces = new StringBuilder();
+        StringBuilder sauces = new StringBuilder(); //<--- Use StringBuilder to handle request for extra sauces
 
         while (repeatSauces) {
+            //Print out sauce options and prompt user for which sauce to add
             System.out.printf("""
                                             %s---SAUCE OPTIONS---
                                               Sauces are free%s
@@ -322,6 +348,7 @@ public class MakeSandwich {
                     """, Utils.CYAN, Utils.RESET, Utils.YELLOW, Utils.RESET);
             int userSauces = Utils.messageAndResponseInt("\nPlease enter the number next to the desired sauce: ");
 
+            //Handle user request for which sauce to add using StringBuilder
             switch (userSauces) {
                 case 1 -> {
                     sauces.append("Mayo ");
@@ -356,6 +383,8 @@ public class MakeSandwich {
                     repeatSauces = false;
                 }
             }
+
+            //Ask user if they would like any more sauces and handle response
             if (userSauces != 0) {
                 String userAddExtraSauce = Utils.promptGetUserInput("\nWould you like to add another sauce? (Y or N): ");
 
@@ -370,18 +399,22 @@ public class MakeSandwich {
             }
 
         }
+        //Set sandwich sauce(s) to StringBuilder
         sandwich.setSauces(sauces.toString().trim());
     }
 
+    //Method to determine if sandwich toasted or not
     private static void toastSandwich(Sandwich sandwich) {
         boolean repeatToastOption = true;
 
         while (repeatToastOption) {
+            //Ask user if they want sandwich toasted
             System.out.printf("\n%sWould you like your sandwich toasted?%s%s%s\n%s1 - yes, toast it!\n2 - no, don't toast it.%s\n",
                     Utils.CYAN, Utils.RESET, Utils.fire, Utils.bread, Utils.YELLOW, Utils.RESET);
 
             int userToastOption = Utils.messageAndResponseInt("Enter your option: ");
 
+            //Handle user request for toasted or not
             switch (userToastOption) {
                 case 1 -> {
                     sandwich.setToasted(true);
