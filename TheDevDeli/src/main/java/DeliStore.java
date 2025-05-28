@@ -11,7 +11,7 @@ public class DeliStore {
             System.out.print("""
                                                       \s
                                                       ORDER
-                                  ----------------------------------------------
+                                -------------------------------------------------
                                 1 - Order a Sandwich              3 - Add a Drink
                                 2 - Add Chips                     4 - Checkout
                     
@@ -33,7 +33,6 @@ public class DeliStore {
             }
         } while (ifContinueOrder);
     }
-
 
     private void processAddSandwich() {
 
