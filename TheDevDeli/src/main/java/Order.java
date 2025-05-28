@@ -26,6 +26,11 @@ public class Order {
                 System.out.printf("$%.2f\n", item.getValue());
                 totalPrice += item.getValue();
             }
+            if (item instanceof Chips) {
+                System.out.println("Chips.");
+                System.out.printf("$%.2f\n", item.getValue());
+                totalPrice += item.getValue();
+            }
         }
 
         System.out.printf("\nTOTAL PRICE: $%.2f\n", totalPrice);
