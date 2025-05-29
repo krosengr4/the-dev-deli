@@ -99,8 +99,17 @@ public class Utils {
     }
 
     public static int messageAndResponseInt(String message) {
-        System.out.print(message);
-        return Integer.parseInt(myScanner.nextLine());
+
+        while (true) {
+            System.out.print(message);
+
+            try {
+
+                return Integer.parseInt(myScanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.err.println("ERROR! Invalid Input! Please enter a valid integer!");
+            }
+        }
     }
 
     public static double messageAndResponseDouble(String message) {
