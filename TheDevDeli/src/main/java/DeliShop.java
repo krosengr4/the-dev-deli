@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
+//! Class that handles all logic of application
 public class DeliShop {
-
 
     ArrayList<MenuItem> customerOrder = new ArrayList<>();
     UserInterface ui = new UserInterface();

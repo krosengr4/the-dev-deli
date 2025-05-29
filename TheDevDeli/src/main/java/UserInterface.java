@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+//! Class that handles all user interface of application
 public class UserInterface {
 
     //List that will store the menu items a customer has ordered
