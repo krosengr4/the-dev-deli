@@ -154,6 +154,17 @@ public class UserInterface {
         return Utils.messageAndResponseInt("Enter your option: ");
     }
 
+    public String confirmSandwich(Sandwich sandwich) {
+        //Print out the sandwich that was just created
+        System.out.printf("\nSandwich | %s | Toasted: %b | Bread: %s | Meat: %s | ExtraMeat: %b | Cheese: %s | ExtraCheese: %b | Toppings: %s | Sauces: %s",
+                sandwich.size, sandwich.isToasted(), sandwich.getBread(), sandwich.getMeat(), sandwich.isExtraMeat(), sandwich.getCheese(), sandwich.isExtraCheese(),
+                sandwich.getToppings(), sandwich.getSauces());
+        System.out.printf("\nTotal Price: $%.2f\n", sandwich.getValue());
+
+        //Verify if the sandwich is correct
+        return Utils.promptGetUserInput("Is this sandwich correct?(Y or N):").trim();
+    }
+
 
     //Method to make customer sandwich, verify it is correct, and add it to orders list
 //    private void processAddSandwich() {
@@ -161,21 +172,14 @@ public class UserInterface {
 //        //Call MakeSandwich class to create customer sandwich
 //        Sandwich sandwich = MakeSandwich.createSandwich();
 //
-//        //Print out the sandwich that was just created
-//        System.out.printf("\nSandwich | %s | Toasted: %b | Bread: %s | Meat: %s | ExtraMeat: %b | Cheese: %s | ExtraCheese: %b | Toppings: %s | Sauces: %s",
-//                sandwich.size, sandwich.isToasted(), sandwich.getBread(), sandwich.getMeat(), sandwich.isExtraMeat(), sandwich.getCheese(), sandwich.isExtraCheese(),
-//                sandwich.getToppings(), sandwich.getSauces());
-//        System.out.printf("\nTotal Price: $%.2f\n", sandwich.getValue());
-//
-//        //Verify if the sandwich is correct
-//        String userCorrectSandwich = Utils.promptGetUserInput("Is this sandwich correct?(Y or N):").trim();
+
 //
 //        //If correct -> add to order list, if no -> retry
 //        if (userCorrectSandwich.equalsIgnoreCase("y")) {
 //            customerOrder.add(sandwich);
-//            System.out.println(Utils.GREEN + "Huzzah! We have added your sandwich to the order!" + Utils.RESET);
+//
 //        } else {
-//            System.out.println("Apologies for the inconvenience. Try and place your sandwich order again.");
+//
 //        }
 //
 //        Utils.pauseApp();

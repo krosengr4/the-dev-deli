@@ -46,6 +46,34 @@ public class DeliShop {
 
     public void processAddSandwich() {
 
+        Sandwich sandwich = createNewSandwich();
+        boolean repeatConfirmation = true;
+
+        do {
+            String userSandwichConfirmation = ui.confirmSandwich(sandwich);
+
+            if (userSandwichConfirmation.equalsIgnoreCase("y")) {
+                customerOrder.add(sandwich);
+                System.out.println(Utils.GREEN + "Huzzah! We have added your sandwich to the order!" + Utils.RESET);
+
+                repeatConfirmation = false;
+
+            } else if (userSandwichConfirmation.equalsIgnoreCase("n")){
+                System.out.println("Apologies for the inconvenience. Try and place your sandwich order again.");
+
+                repeatConfirmation = false;
+
+            } else {
+                System.err.println("ERROR! Please enter either y or n!");
+            }
+
+        } while (repeatConfirmation);
+
+        Utils.pauseApp();
+    }
+
+    private Sandwich createNewSandwich() {
+
         boolean repeatSandwichCreateMenu = true;
         Sandwich sandwich = new Sandwich();
 
@@ -78,6 +106,8 @@ public class DeliShop {
                 default -> System.err.println("ERROR! Please enter a number between 1 and 3!");
             }
         } while (repeatSandwichCreateMenu);
+
+        return sandwich;
     }
 
     public void setSandwichSize(Sandwich sandwich) {
