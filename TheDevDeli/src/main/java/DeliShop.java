@@ -148,6 +148,7 @@ public class DeliShop {
                 order.saveOrder();
                 repeatOrderConfirmation = false;
             } else if (customerOrderConfirmation.equalsIgnoreCase("n")) {
+                customerOrder.clear();
                 System.out.println("Apologies for the inconvenience. Try and place your order again.");
                 repeatOrderConfirmation = false;
             } else {

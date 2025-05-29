@@ -43,8 +43,8 @@ public class UserInterface {
                 \s
                              %s---%sSIGNATURE SANDWICHES%s---
                         ___________________________________________%s
-                       %sBLT ($10.50)             Philly Cheese Steak ($10.50)
-                       -------------             ---------------------------%s \s
+                       %sBLT ($10.50)            Philly Cheese Steak ($10.50)
+                       -------------           -----------------------------%s \s
                        %s8" White Bread          8" White Bread
                        Bacon                   Steak \s
                        Cheddar                 American Cheese
