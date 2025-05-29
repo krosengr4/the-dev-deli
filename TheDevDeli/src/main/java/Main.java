@@ -34,36 +34,17 @@ public class Main {
 
     public static void main(String[] args) {
 
-        boolean ifContinue = true;
+        System.out.printf("""
+                                                         \s
+                                                         \s
+                                         %s%s%sWELCOME TO DEV DELI%s%s
+                                     Take A Byte Into our Devlicous Sandwiches!%s%s
+                    ______________________________________________________________________________%s
+                """, Utils.fire, Utils.sandwich, Utils.BLUE, Utils.sandwich, Utils.fire, Utils.smileyFace, Utils.thumbsUp, Utils.RESET);
 
-        do {
-            //Create new instance of DeliStore
-            DeliStore devDeli = new DeliStore();
-
-            //Print out Main Menu
-            System.out.printf("""
-                                         \s
-                                         %s%s%sWELCOME TO DEV DELI%s%s%s
-                                     %sTake A Byte Into our Devlicous Sandwiches!%s%s%s
-                    %s______________________________________________________________________________
-                     \s
-                     \s
-                                                 OPTIONS:
-                                    ----------------------------------%s
-                                  %s1 - Place an Order%s        %s0 - Exit%s
-                    
-                    \s""", Utils.fire, Utils.sandwich, Utils.BLUE, Utils.RESET, Utils.sandwich, Utils.fire, Utils.BLUE, Utils.RESET, Utils.smileyFace, Utils.thumbsUp,
-                    Utils.BLUE, Utils.RESET, Utils.GREEN, Utils.RESET, Utils.RED, Utils.RESET);
-            int userAction = Utils.messageAndResponseInt("Enter 1 or 0: ");
-
-            //Handle user main menu option
-            switch (userAction) {
-                case 1 -> devDeli.displayOrderScreen();
-                case 0 -> ifContinue = false;
-                default -> System.err.println("ERROR! Please enter a number that is listed!");
-            }
-
-        } while (ifContinue);
+        //Create new User Interface instance and call Main Screen
+        UserInterface ui = new UserInterface();
+        ui.displayMainScreen();
 
         //Goodbye messages for when user exits app
         System.out.println(Utils.BLUE + "\n\n\t\t\t\tThanks for coming into Dev Deli!" + Utils.RESET + Utils.sandwich + Utils.fire);

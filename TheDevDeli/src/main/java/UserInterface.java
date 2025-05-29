@@ -1,9 +1,38 @@
 import java.util.ArrayList;
 
-public class DeliStore {
+public class UserInterface {
 
     //List that will store the menu items a customer has ordered
     ArrayList<MenuItem> customerOrder = new ArrayList<>();
+
+    //Method that will display the Main Menu of the application
+    public void displayMainScreen() {
+        boolean ifContinue = true;
+
+        do {
+            //Create new instance of DeliStore
+            UserInterface ui = new UserInterface();
+
+            //Print out Main Menu
+            System.out.printf("""
+                                                 \s
+                                                 \s
+                                                 %sMAIN MENU:
+                                    ----------------------------------%s
+                                  %s1 - Place an Order%s        %s0 - Exit%s
+                    
+                    \s""", Utils.BLUE, Utils.RESET, Utils.GREEN, Utils.RESET, Utils.RED, Utils.RESET);
+            int userAction = Utils.messageAndResponseInt("Enter 1 or 0: ");
+
+            //Handle user main menu option
+            switch (userAction) {
+                case 1 -> ui.displayOrderScreen();
+                case 0 -> ifContinue = false;
+                default -> System.err.println("ERROR! Please enter a number that is listed!");
+            }
+
+        } while (ifContinue);
+    }
 
     //Method that displays order screen options and handles user selection
     public void displayOrderScreen() {
