@@ -13,7 +13,6 @@ public class UserInterface {
         //Print out Main Menu
         System.out.printf("""
                                              \s
-                                             \s
                                              %sMAIN MENU:
                                 ----------------------------------%s
                               %s1 - Place an Order%s        %s0 - Exit%s
@@ -172,7 +171,8 @@ public class UserInterface {
     public int displayChipOptions() {
         System.out.printf("""
                 
-                        %s---%sCHIP OPTIONS%s---%s
+                        %s---%sCHIP OPTIONS%s---
+                         Chips are $1.50 each%s
                    %s1 - Doritos Nacho Cheese 
                    2 - Lays Classic 
                    3 - Miss Vickies Jalapeño 
@@ -203,9 +203,9 @@ public class UserInterface {
         System.out.printf("""
                \s
                     %s-----DRINK SIZES-----%s
-                %s1 - Small
-                2 - Medium
-                3 - Large%s       \s
+                %s1 - Small $2.00
+                2 - Medium $2.50
+                3 - Large $3.00%s       \s
                \s""", Utils.BLUE, Utils.RESET, Utils.YELLOW, Utils.RESET);
 
         return Utils.messageAndResponseInt("Enter a drink size: ");

@@ -77,7 +77,38 @@ public class DeliShop {
         boolean repeatChipMenu = true;
         Chips chips = new Chips();
 
-        do {
+        while (repeatChipMenu) {
+
+            setChipType(chips);
+
+            customerOrder.add(chips);
+            System.out.println(Utils.GREEN + "\nWe have added a bag of " + chips.getName() + " to your order!" + Utils.RESET);
+
+            boolean repeatAddAnotherOption = true;
+
+            while (repeatAddAnotherOption) {
+
+                String addAnotherChipOption = ui.displayAddAnotherMessage();
+
+                if (addAnotherChipOption.equalsIgnoreCase("n")) {
+                    repeatChipMenu = false;
+                    repeatAddAnotherOption = false;
+                } else if (addAnotherChipOption.equalsIgnoreCase("y")) {
+                    repeatAddAnotherOption = false;
+                } else {
+                    System.err.println("ERROR! Please enter Y or N!");
+                }
+            }
+
+        }
+    }
+
+    public void setChipType(Chips chips) {
+
+        boolean repeatChipMenu = true;
+
+        while (repeatChipMenu) {
+
             int userChipOption = ui.displayChipOptions();
 
             switch (userChipOption) {
@@ -103,27 +134,7 @@ public class DeliShop {
                 }
                 default -> System.err.println("ERROR! Please enter a number listed on the screen!");
             }
-
-            customerOrder.add(chips);
-            System.out.println(Utils.GREEN + "We have added a bag of " + chips.getName() + " to your order!" + Utils.RESET);
-
-            boolean repeatAddAnotherOption = true;
-            while (repeatAddAnotherOption) {
-
-                String addAnotherChipOption = ui.displayAddAnotherMessage();
-
-                if (addAnotherChipOption.equalsIgnoreCase("n")) {
-                    repeatChipMenu = false;
-                    repeatAddAnotherOption = false;
-                } else if (addAnotherChipOption.equalsIgnoreCase("y")) {
-                    repeatChipMenu = true;
-                    repeatAddAnotherOption = false;
-                } else {
-                    System.err.println("ERROR! Please enter Y or N!");
-                }
-            }
-
-        } while (repeatChipMenu);
+        }
     }
 
     public void processAddDrink() {
@@ -136,7 +147,7 @@ public class DeliShop {
             setDrinkSize(drink);
 
             customerOrder.add(drink);
-            System.out.println(Utils.GREEN + "Success! A " + drink.getSize() + " " + drink.getName() + " has been added to your order!" + Utils.RESET);
+            System.out.println(Utils.GREEN + "\nSuccess! A " + drink.getSize() + " " + drink.getName() + " has been added to your order!" + Utils.RESET);
 
             boolean repeatAddAnotherMenu = true;
 
