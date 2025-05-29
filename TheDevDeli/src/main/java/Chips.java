@@ -1,4 +1,4 @@
-public class Chips extends MenuItem{
+public class Chips extends MenuItem {
 
     String name;
 

@@ -1,12 +1,9 @@
-import java.util.ArrayList;
-
 //! Class that handles all user interface of application
 public class UserInterface {
 
     //Method that will display the Main Menu of the application
     public int displayMainScreen() {
         //Create new instance of DeliStore
-        UserInterface ui = new UserInterface();
 
         //Print out Main Menu
         System.out.printf("""
@@ -168,15 +165,15 @@ public class UserInterface {
 
     public int displayChipOptions() {
         System.out.printf("""
-                
-                        %s---%sCHIP OPTIONS%s---
-                         Chips are $1.50 each%s
-                   %s1 - Doritos Nacho Cheese 
-                   2 - Lays Classic 
-                   3 - Miss Vickies Jalapeño 
-                   4 - Ruffles Original
-                   5 - Cheetos%s
-                """, Utils.BLUE, Utils.chips, Utils.chips, Utils.RESET, Utils.YELLOW, Utils.RESET);
+                \s
+                         %s---%sCHIP OPTIONS%s---
+                          Chips are $1.50 each%s
+                    %s1 - Doritos Nacho Cheese\s
+                    2 - Lays Classic\s
+                    3 - Miss Vickies Jalapeño\s
+                    4 - Ruffles Original
+                    5 - Cheetos%s
+                \s""", Utils.BLUE, Utils.chips, Utils.chips, Utils.RESET, Utils.YELLOW, Utils.RESET);
 
         return Utils.messageAndResponseInt("Please enter your option: ");
     }
@@ -184,14 +181,14 @@ public class UserInterface {
     public int displayDrinkOptions() {
         //Ask customer for drink type
         System.out.printf("""
-                        
-                            %s----%sDRINK OPTIONS%s-----%s
-                        %s1 - Fountain Drink
-                        2 - Lemonade
-                        3 - Sweet Tea
-                        4 - Unsweetened Tea
-                        5 - MilkShake%s
-                        """, Utils.BLUE, Utils.drink, Utils.drink, Utils.RESET, Utils.YELLOW, Utils.RESET);
+                
+                    %s----%sDRINK OPTIONS%s-----%s
+                %s1 - Fountain Drink
+                2 - Lemonade
+                3 - Sweet Tea
+                4 - Unsweetened Tea
+                5 - MilkShake%s
+                """, Utils.BLUE, Utils.drink, Utils.drink, Utils.RESET, Utils.YELLOW, Utils.RESET);
 
         return Utils.messageAndResponseInt("Select the number next to the desired drink: ");
     }
@@ -199,12 +196,12 @@ public class UserInterface {
     public int displayDrinkSizes() {
         //Ask customer for drink size
         System.out.printf("""
-               \s
-                    %s-----DRINK SIZES-----%s
-                %s1 - Small $2.00
-                2 - Medium $2.50
-                3 - Large $3.00%s       \s
-               \s""", Utils.BLUE, Utils.RESET, Utils.YELLOW, Utils.RESET);
+                \s
+                     %s-----DRINK SIZES-----%s
+                 %s1 - Small $2.00
+                 2 - Medium $2.50
+                 3 - Large $3.00%s       \s
+                \s""", Utils.BLUE, Utils.RESET, Utils.YELLOW, Utils.RESET);
 
         return Utils.messageAndResponseInt("Enter a drink size: ");
     }

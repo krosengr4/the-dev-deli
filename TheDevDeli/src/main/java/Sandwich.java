@@ -7,8 +7,6 @@ public class Sandwich extends MenuItem {
     String cheese;
     String toppings;
     String sauces;
-    boolean hasMeat;
-    boolean hasCheese;
     boolean isToasted;
     boolean isExtraMeat;
     boolean isExtraCheese;
@@ -20,7 +18,7 @@ public class Sandwich extends MenuItem {
 
     //Overloaded constructor
     public Sandwich(String size, String bread, String meat, String cheese, String toppings, String sauces, boolean isToasted, boolean isExtraMeat, boolean isExtraCheese) {
-        super ("Sandwich");
+        super("Sandwich");
         this.size = size;
         this.bread = bread;
         this.meat = meat;
@@ -85,16 +83,8 @@ public class Sandwich extends MenuItem {
         return this.meat != null;
     }
 
-    public void setHasMeat(boolean hasMeat) {
-        this.hasMeat = hasMeat;
-    }
-
     public boolean isHasCheese() {
         return this.cheese != null;
-    }
-
-    public void setHasCheese(boolean hasCheese) {
-        this.hasCheese = hasCheese;
     }
 
     public boolean isExtraMeat() {
@@ -172,7 +162,7 @@ public class Sandwich extends MenuItem {
                     value += 3.00;
                 }
                 if (this.isHasCheese()) {
-                    value +=2.25;
+                    value += 2.25;
                 }
                 //Calculate value for adding EXTRA meat and cheese
                 if (this.isExtraMeat()) {
