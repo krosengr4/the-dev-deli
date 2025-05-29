@@ -220,7 +220,7 @@ public class DeliShop {
                     drink.setName("MilkShake");
                     repeatDrinkMenu = false;
                 }
-                default -> System.err.println("ERROR! Please enter a number between 1 and 5!");
+                default -> System.err.println("ERROR! Please enter a number that is listed on the screen!");
             }
         }
     }
@@ -282,7 +282,7 @@ public class DeliShop {
                     sandwich = new Sandwich("MEDIUM", "White", "Steak", "American", "Peppers", "Mayo", true, false, false);
                     repeatSandwichCreateMenu = false;
                 }
-                default -> System.err.println("ERROR! Please enter a number between 1 and 3!");
+                default -> System.err.println("ERROR! Please enter a number that is listed on the screen!");
             }
         } while (repeatSandwichCreateMenu);
 
@@ -308,7 +308,7 @@ public class DeliShop {
                     sandwich.setSize(Size.LARGE.toString());
                     repeatSizeMenu = false;
                 }
-                default -> System.err.println("ERROR! Please enter a number between 1 and 3!");
+                default -> System.err.println("ERROR! Please enter a number that is listed on the screen!");
             }
         } while (repeatSizeMenu);
     }
@@ -336,7 +336,7 @@ public class DeliShop {
                     sandwich.setBread("Wrap");
                     repeatBreadMenu = false;
                 }
-                default -> System.err.println("ERROR! Enter a number between 1 and 4!");
+                default -> System.err.println("ERROR! Enter a number that is listed on the screen!");
             }
         } while (repeatBreadMenu);
     }
@@ -377,7 +377,7 @@ public class DeliShop {
                     sandwich.setMeat(null);
                     repeatMeatMenu = false;
                 }
-                default -> System.err.println("ERROR! Please enter a number between 0 and 6!");
+                default -> System.err.println("ERROR! Please enter a number that is listed on the screen!");
             }
 
         } while (repeatMeatMenu);
@@ -435,7 +435,7 @@ public class DeliShop {
                     sandwich.setCheese(null);
                     repeatCheeseMenu = false;
                 }
-                default -> System.err.println("ERROR! Enter a number between 0 and 4!");
+                default -> System.err.println("ERROR! Enter a number that is listed on the screen!");
             }
 
         } while (repeatCheeseMenu);
@@ -513,7 +513,7 @@ public class DeliShop {
                     sandwich.setToppings(null);
                     repeatToppingsMenu = false;
                 }
-                default -> System.err.println("ERROR! Enter a number between 0 and 9!");
+                default -> System.err.println("ERROR! Enter a number that is listed on the screen!");
             }
 
             if (userToppingsOption != 0) {
@@ -575,7 +575,7 @@ public class DeliShop {
                     sandwich.setSauces(null);
                     repeatSaucesMenu = false;
                 }
-                default -> System.err.println("ERROR! Please Enter a number between 0 and 7!");
+                default -> System.err.println("ERROR! Please Enter a number that is listed on the screen!");
             }
 
             if (userSauceOption != 0) {
