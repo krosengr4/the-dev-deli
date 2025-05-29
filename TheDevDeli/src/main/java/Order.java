@@ -34,7 +34,7 @@ public class Order {
         try {
             //Create FileWriter and writing customer and the formatted receipt for their order
             FileWriter writer = new FileWriter("TheDevDeli/src/main/receipts/" + logFile + ".txt");
-            writer.write("ORDER FOR: " + customerName + "\n");
+            writer.write("ORDER FOR: " + customerName + "\n\n");
             writer.write(receipt);
             writer.close();
             System.out.printf("\n%sTHANK YOU %s. Your order will out shortly! \nYour receipt has been saved in /src/main/receipts%s",
@@ -77,7 +77,8 @@ public class Order {
 
                 totalPrice += item.getValue();
             } else if (item instanceof Chips) {
-                receiptFormat.append("Chips")
+                receiptFormat.append("Chips | ")
+                        .append(item.getName())
                         .append("\n")
                         .append("Price: $").append(item.getValue())
                         .append("\n\n");

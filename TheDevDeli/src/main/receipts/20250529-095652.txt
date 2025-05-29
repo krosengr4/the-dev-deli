@@ -1,0 +1,22 @@
+ORDER FOR: Big Bad Blake
+
+Chips | Miss Vickies Jalapeño
+Price: $1.5
+
+Sandwich | Size: MEDIUM | Toasted: true | Bread: White | Meat: Bacon | ExtraMeat: false | Cheese: Cheddar | ExtraCheese: false | Toppings: Lettuce Tomato | Sauces: Ranch
+Price: $10.5
+
+Sandwich | Size: LARGE | Toasted: true | Bread: White | Meat: Roast Beef | ExtraMeat: true | Cheese: American | ExtraCheese: true | Toppings: Peppers Cucumbers Jalapeños | Sauces: Mayo 
+Price: $16.15
+
+Chips | Miss Vickies Jalapeño
+Price: $1.5
+
+Drink | Type: MilkShake | Size: SMALL
+Price: $2.0
+
+Drink | Type: MilkShake | Size: SMALL
+Price: $2.0
+
+
+TOTAL: $33.65
