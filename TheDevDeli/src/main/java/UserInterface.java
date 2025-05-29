@@ -46,19 +46,19 @@ public class UserInterface {
     public int displayNewSandwichMenu() {
 
         System.out.printf("""
-               \s
-                            %s---%sSIGNATURE SANDWICHES%s---
-                       ___________________________________________%s
-                      %sBLT ($10.50)             Philly Cheese Steak ($10.50)
-                      -------------             ---------------------------%s \s
-                      %s8" White Bread          8" White Bread
-                      Bacon                   Steak \s
-                      Cheddar                 American Cheese
-                      Lettuce                 Peppers
-                      Tomato                  Mayo
-                      Ranch                   Toasted
-                      Toasted%s
-               \s""", Utils.CYAN, Utils.sandwich, Utils.sandwich, Utils.RESET, Utils.BLUE, Utils.RESET, Utils.YELLOW, Utils.RESET);
+                \s
+                             %s---%sSIGNATURE SANDWICHES%s---
+                        ___________________________________________%s
+                       %sBLT ($10.50)             Philly Cheese Steak ($10.50)
+                       -------------             ---------------------------%s \s
+                       %s8" White Bread          8" White Bread
+                       Bacon                   Steak \s
+                       Cheddar                 American Cheese
+                       Lettuce                 Peppers
+                       Tomato                  Mayo
+                       Ranch                   Toasted
+                       Toasted%s
+                \s""", Utils.CYAN, Utils.sandwich, Utils.sandwich, Utils.RESET, Utils.BLUE, Utils.RESET, Utils.YELLOW, Utils.RESET);
 
         //Prompt user to choose one of the signature sandwiches, or to create their own
         System.out.println(Utils.CYAN + "\n\t\t\t-----OPTIONS-----" + Utils.RESET);
@@ -66,21 +66,93 @@ public class UserInterface {
         return Utils.messageAndResponseInt("Please Enter your Choice: ");
     }
 
-    public int displaySandwichSizeMenu() {
+    public int displaySandwichSizeOptions() {
         //print out size options
         System.out.printf("\n\t%s---SIZES---%s\n%s1 - Small (4inch) $5.50\n2 - Medium (8inch) $7.00\n3 - Large (12inch) $8.50%s",
                 Utils.CYAN, Utils.RESET, Utils.YELLOW, Utils.RESET);
         return Utils.messageAndResponseInt("\nPlease enter the number next to the desired sandwich size: ");
     }
 
+    public int displaySandwichBreadOptions() {
+        System.out.printf("\n%s---%sBREAD OPTIONS%s---%s\n%s1 - White\n2 - Wheat\n3 - Rye\n4 - Wrap%s", Utils.CYAN, Utils.bread, Utils.bread,
+                Utils.RESET, Utils.YELLOW, Utils.RESET);
+        return Utils.messageAndResponseInt("\nPlease enter the number next to the desired bread: ");
+    }
 
+    public int displaySandwichMeatMenu() {
+        System.out.printf("""
+                
+                           %s---%sMEAT OPTIONS%s---
+                Small: +$1.00 | Medium: +$2.00 | Large: +$3.00%s\
+                
+                %s1 - Steak
+                2 - Ham
+                3 - Salami
+                4 - Roast Beef
+                5 - Chicken
+                6 - Bacon
+                0 - None%s""", Utils.CYAN, Utils.meat, Utils.meat, Utils.RESET, Utils.YELLOW, Utils.RESET);
+        return Utils.messageAndResponseInt("\nPlease enter the number next to the desired meat: ");
+    }
 
+    public String displayExtraMeatOption() {
+        //Prompt user if they want extra meat
+        System.out.printf("\n%sExtra Meat: Small: +$0.50 | Medium: +$1.00 | Large: +$1.50%s", Utils.CYAN, Utils.RESET);
+        return Utils.promptGetUserInput("\nWould you like extra meat?(Y or N): ").trim();
+    }
 
+    public int displaySandwichCheeseOptions() {
+        System.out.printf("""
+                
+                           %s---%sCHEESE OPTIONS%s---
+                Small: +$0.75 | Medium: +$1.50 | Large: +$2.25%s\
+                %s
+                1 - American
+                2 - Provolone
+                3 - Cheddar
+                4 - Swiss
+                0 - None%s""", Utils.CYAN, Utils.cheese, Utils.cheese, Utils.RESET, Utils.YELLOW, Utils.RESET);
+        return Utils.messageAndResponseInt("\nPlease enter the number next to the desired cheese: ");
+    }
 
+    public String displayExtraCheeseOption() {
+        System.out.printf("\n%sExtra Cheese: Small: +$0.30 | Medium: +$0.60 | Large: +$0.90%s", Utils.CYAN, Utils.RESET);
+        return Utils.promptGetUserInput("\nWould you like extra cheese? (Y or N): ").trim();
+    }
 
+    public int displaySandwichToppingsOptions() {
+        System.out.printf("""
+                                        %s---TOPPINGS OPTIONS---
+                                          Toppings are free%s
+                                %s1 - Lettuce                 6 - Cucumbers
+                                2 - Peppers                 7 - Pickles
+                                3 - Onions                  8 - Guacamole
+                                4 - Tomatoes                9 - Mushrooms
+                                5 - Jalapeños               0 - None%s
 
+                    """, Utils.CYAN, Utils.RESET, Utils.YELLOW, Utils.RESET);
+        return Utils.messageAndResponseInt("\nPlease enter the number next to the desired topping: ");
+    }
 
+    public int displaySandwichSaucesOptions() {
+        System.out.printf("""
+                                            %s---SAUCE OPTIONS---
+                                              Sauces are free%s
+                                %s1 - Mayo                    5 - Thousand Islands
+                                2 - Mustard                 6 - Vinaigrette
+                                3 - Ketchup                 7 - Au Jus
+                                4 - Ranch                   0 - None%s
 
+                    """, Utils.CYAN, Utils.RESET, Utils.YELLOW, Utils.RESET);
+       return Utils.messageAndResponseInt("\nPlease enter the number next to the desired sauce: ");
+    }
+
+    public int displayToastedSandwichOptions() {
+        System.out.printf("\n%sWould you like your sandwich toasted?%s%s%s\n%s1 - yes, toast it!\n2 - no, don't toast it.%s\n",
+                Utils.CYAN, Utils.RESET, Utils.fire, Utils.bread, Utils.YELLOW, Utils.RESET);
+
+        return Utils.messageAndResponseInt("Enter your option: ");
+    }
 
 
     //Method to make customer sandwich, verify it is correct, and add it to orders list
