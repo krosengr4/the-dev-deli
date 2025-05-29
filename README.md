@@ -12,25 +12,25 @@
 
 ## Description
 
-Dev Deli is a command line application, created using java, that is the point of sales application for The Dev Deli, a
+- Dev Deli is a command line application, created using java, that is the point of sales application for The Dev Deli, a
 custom sandwich shop. Up until the creation of this app,
 The Dev Deli has been managing orders using paper and pen. However, with Dev Deli application, the order process can now
 be automated.
 ---
-In the Dev Deli application, a user can log a customers order, which includes the items a customer orders and the name
+- In the Dev Deli application, a user can log a customers order, which includes the items a customer orders and the name
 of the customer. When an order is completed, the receipt of
 all orders are saved to a file and kept in the receipts' directory. A receipt includes the customers name, all ordered
 items, the price for each item, as well as the total price for the order. The name of a receipt file is based on the
 time the receipt was created, formatted as yyyyMMdd-hhmmss.
 ---
-The items that a user can add to an order include sandwiches, drinks, and chips. A user can either add one of the
+- The items that a user can add to an order include sandwiches, drinks, and chips. A user can either add one of the
 signature sandwiches the shop sells, or they can fully customize a
 sandwich to add. Sandwiches can be customized by size (4", 8" or 12"), type of bread, type of meat, option for extra
 meat, type of cheese, option for extra cheese, toppings, sauces,
 and an option for the sandwich to be toasted. Drinks can be customized by the type of drink, and the size of the drink.
 Chips are added by the bag and can be customized by the type of chips.
 ---
-Once a user has finished creating a sandwich, they can confirm that the sandwich is correct before adding it to an
+- Once a user has finished creating a sandwich, they can confirm that the sandwich is correct before adding it to an
 order. Once an order is completed, a user can confirm that the order is correct before writing it to a receipt.
 Prices for all items vary, but the Dev Deli application keeps track of the prices for each item, as well as the total
 price of the order.
