@@ -122,29 +122,29 @@ public class UserInterface {
 
     public int displaySandwichToppingsOptions() {
         System.out.printf("""
-                                        %s---TOPPINGS OPTIONS---
-                                          Toppings are free%s
-                                %s1 - Lettuce                 6 - Cucumbers
-                                2 - Peppers                 7 - Pickles
-                                3 - Onions                  8 - Guacamole
-                                4 - Tomatoes                9 - Mushrooms
-                                5 - Jalapeños               0 - None%s
-
-                    """, Utils.CYAN, Utils.RESET, Utils.YELLOW, Utils.RESET);
+                                    %s---TOPPINGS OPTIONS---
+                                      Toppings are free%s
+                            %s1 - Lettuce                 6 - Cucumbers
+                            2 - Peppers                 7 - Pickles
+                            3 - Onions                  8 - Guacamole
+                            4 - Tomatoes                9 - Mushrooms
+                            5 - Jalapeños               0 - None%s
+                
+                """, Utils.CYAN, Utils.RESET, Utils.YELLOW, Utils.RESET);
         return Utils.messageAndResponseInt("\nPlease enter the number next to the desired topping: ");
     }
 
     public int displaySandwichSaucesOptions() {
         System.out.printf("""
-                                            %s---SAUCE OPTIONS---
-                                              Sauces are free%s
-                                %s1 - Mayo                    5 - Thousand Islands
-                                2 - Mustard                 6 - Vinaigrette
-                                3 - Ketchup                 7 - Au Jus
-                                4 - Ranch                   0 - None%s
-
-                    """, Utils.CYAN, Utils.RESET, Utils.YELLOW, Utils.RESET);
-       return Utils.messageAndResponseInt("\nPlease enter the number next to the desired sauce: ");
+                                        %s---SAUCE OPTIONS---
+                                          Sauces are free%s
+                            %s1 - Mayo                    5 - Thousand Islands
+                            2 - Mustard                 6 - Vinaigrette
+                            3 - Ketchup                 7 - Au Jus
+                            4 - Ranch                   0 - None%s
+                
+                """, Utils.CYAN, Utils.RESET, Utils.YELLOW, Utils.RESET);
+        return Utils.messageAndResponseInt("\nPlease enter the number next to the desired sauce: ");
     }
 
     public int displayToastedSandwichOptions() {
@@ -165,6 +165,10 @@ public class UserInterface {
         return Utils.promptGetUserInput("Is this sandwich correct?(Y or N):").trim();
     }
 
+    public String displayAddAnotherMessage() {
+        return Utils.promptGetUserInput("Would you like to add another? (Y or N): ").trim();
+    }
+
     public int displayChipOptions() {
         System.out.printf("""
                 
@@ -179,8 +183,32 @@ public class UserInterface {
         return Utils.messageAndResponseInt("Please enter your option: ");
     }
 
-    public String displayAddAnotherMessage() {
-        return Utils.promptGetUserInput("Would you like to add another? (Y or N): ").trim();
+    public int displayDrinkOptions() {
+        //Ask customer for drink type
+        System.out.printf("""
+                        
+                            %s----%sDRINK OPTIONS%s-----%s
+                        %s1 - Fountain Drink
+                        2 - Lemonade
+                        3 - Sweet Tea
+                        4 - Unsweetened Tea
+                        5 - MilkShake%s
+                        """, Utils.BLUE, Utils.drink, Utils.drink, Utils.RESET, Utils.YELLOW, Utils.RESET);
+
+        return Utils.messageAndResponseInt("Select the number next to the desired drink: ");
+    }
+
+    public int displayDrinkSizes() {
+        //Ask customer for drink size
+        System.out.printf("""
+               \s
+                    %s-----DRINK SIZES-----%s
+                %s1 - Small
+                2 - Medium
+                3 - Large%s       \s
+               \s""", Utils.BLUE, Utils.RESET, Utils.YELLOW, Utils.RESET);
+
+        return Utils.messageAndResponseInt("Enter a drink size: ");
     }
 
 
@@ -204,53 +232,42 @@ public class UserInterface {
 //    }
 
     //Method to get customer drink (type and size) and add to orders list
-    private void processAddDrink() {
-        boolean addAnotherDrink = true;
-
-        while (addAnotherDrink) {
-            //Create new instance of Drink object
-            Drink drink = new Drink();
-
-            //Ask customer for drink type
-            System.out.printf("\n%s----%sDRINK OPTIONS%s-----%s\n%s1 - Fountain Drink\n2 - Lemonade\n3 - Sweet Tea\n4 - Unsweetened Tea\n5 - MilkShake%s\n",
-                    Utils.BLUE, Utils.drink, Utils.drink, Utils.RESET, Utils.YELLOW, Utils.RESET);
-            int userDrinkChoice = Utils.messageAndResponseInt("Select the number next to the desired drink: ");
-
-            //Handle customer drink type request
-            switch (userDrinkChoice) {
-                case 1 -> drink.setName("Fountain Drink");
-                case 2 -> drink.setName("Lemonade");
-                case 3 -> drink.setName("Sweet Tea");
-                case 4 -> drink.setName("Unsweetened Tea");
-                case 5 -> drink.setName("MilkShake");
-                default -> System.err.println("ERROR! Please enter a number between 1 and 5!");
-            }
-
-            //Ask customer for drink size
-            System.out.println(Utils.YELLOW + "\n1 - Small $2.00\n2 - Medium $2.50\n3 - Large $3.00" + Utils.RESET);
-            int userDrinkSize = Utils.messageAndResponseInt("Enter a drink size: ");
-
-            //Handle customer drink size request
-            switch (userDrinkSize) {
-                case 1 -> drink.setSize("SMALL");
-                case 2 -> drink.setSize("MEDIUM");
-                case 3 -> drink.setSize("LARGE");
-                default -> System.err.println("ERROR! Please enter a number between 1 and 3!");
-            }
-
-            //Add drink with type and size to the orders list
-            customerOrder.add(drink);
-            System.out.printf("\n%sSuccess! %s %s added!%s\n", Utils.GREEN, drink.getSize().toLowerCase(), drink.getName(), Utils.RESET);
-
-            //Ask customer if they would like another drink
-            String anotherDrink = Utils.promptGetUserInput("\nWould you like to add another drink? (Y or N): ").trim();
-            if (anotherDrink.equalsIgnoreCase("n")) {
-                addAnotherDrink = false;
-            } else if (!anotherDrink.equalsIgnoreCase("y")) {
-                System.err.println("ERROR! Please enter y or n!");
-            }
-        }
-    }
+//    private void processAddDrink() {
+//        boolean addAnotherDrink = true;
+//
+//        while (addAnotherDrink) {
+//            //Create new instance of Drink object
+//            Drink drink = new Drink();
+//
+//
+//
+//            switch (userDrinkChoice) {
+//
+//            }
+//
+//
+//
+//            //Handle customer drink size request
+//            switch (userDrinkSize) {
+//                case 1 -> drink.setSize("SMALL");
+//                case 2 -> drink.setSize("MEDIUM");
+//                case 3 -> drink.setSize("LARGE");
+//                default -> System.err.println("ERROR! Please enter a number between 1 and 3!");
+//            }
+//
+//            //Add drink with type and size to the orders list
+//            customerOrder.add(drink);
+//            System.out.printf("\n%sSuccess! %s %s added!%s\n", Utils.GREEN, drink.getSize().toLowerCase(), drink.getName(), Utils.RESET);
+//
+//            //Ask customer if they would like another drink
+//            String anotherDrink = Utils.promptGetUserInput("\nWould you like to add another drink? (Y or N): ").trim();
+//            if (anotherDrink.equalsIgnoreCase("n")) {
+//                addAnotherDrink = false;
+//            } else if (!anotherDrink.equalsIgnoreCase("y")) {
+//                System.err.println("ERROR! Please enter y or n!");
+//            }
+//        }
+//    }
 
     //Method to create new order with customers name and their list of orders, verify and save it
     private void processCheckout() {

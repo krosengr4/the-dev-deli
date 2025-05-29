@@ -34,7 +34,7 @@ public class DeliShop {
                 case 0 -> ifContinueOrder = false;
                 case 1 -> processAddSandwich();
                 case 2 -> processAddChips();
-//                case 3 -> processAddDrink();
+                case 3 -> processAddDrink();
                 case 4 -> {
 //                    processCheckout();
                     ifContinueOrder = false;
@@ -58,7 +58,7 @@ public class DeliShop {
 
                 repeatConfirmation = false;
 
-            } else if (userSandwichConfirmation.equalsIgnoreCase("n")){
+            } else if (userSandwichConfirmation.equalsIgnoreCase("n")) {
                 System.out.println("Apologies for the inconvenience. Try and place your sandwich order again.");
 
                 repeatConfirmation = false;
@@ -110,12 +110,12 @@ public class DeliShop {
             boolean repeatAddAnotherOption = true;
             while (repeatAddAnotherOption) {
 
-                String addAnotherOption = ui.displayAddAnotherMessage();
+                String addAnotherChipOption = ui.displayAddAnotherMessage();
 
-                if (addAnotherOption.equalsIgnoreCase("n")) {
+                if (addAnotherChipOption.equalsIgnoreCase("n")) {
                     repeatChipMenu = false;
                     repeatAddAnotherOption = false;
-                } else if (addAnotherOption.equalsIgnoreCase("y")) {
+                } else if (addAnotherChipOption.equalsIgnoreCase("y")) {
                     repeatChipMenu = true;
                     repeatAddAnotherOption = false;
                 } else {
@@ -124,6 +124,97 @@ public class DeliShop {
             }
 
         } while (repeatChipMenu);
+    }
+
+    public void processAddDrink() {
+
+        Drink drink = new Drink();
+        boolean repeatDrinkMenu = true;
+
+        while (repeatDrinkMenu) {
+            setDrinkType(drink);
+            setDrinkSize(drink);
+
+            customerOrder.add(drink);
+            System.out.println(Utils.GREEN + "Success! A " + drink.getSize() + " " + drink.getName() + " has been added to your order!" + Utils.RESET);
+
+            boolean repeatAddAnotherMenu = true;
+
+            while (repeatAddAnotherMenu) {
+
+                String userAddAnotherOption = ui.displayAddAnotherMessage();
+
+                if (userAddAnotherOption.equalsIgnoreCase("n")) {
+                    repeatDrinkMenu = false;
+                    repeatAddAnotherMenu = false;
+                } else if (userAddAnotherOption.equalsIgnoreCase("y")) {
+                    repeatAddAnotherMenu = false;
+                } else {
+                    System.err.println("ERROR! Please enter either Y or N!");
+                }
+            }
+        }
+
+    }
+
+    //Handle customer drink type request
+    public void setDrinkType(Drink drink) {
+        boolean repeatDrinkMenu = true;
+
+        while (repeatDrinkMenu) {
+
+            int userDrinkTypeChoice = ui.displayDrinkOptions();
+
+            switch (userDrinkTypeChoice) {
+                case 1 -> {
+                    drink.setName("Fountain Drink");
+                    repeatDrinkMenu = false;
+                }
+                case 2 -> {
+                    drink.setName("Lemonade");
+                    repeatDrinkMenu = false;
+                }
+                case 3 -> {
+                    drink.setName("Sweet Tea");
+                    repeatDrinkMenu = false;
+                }
+                case 4 -> {
+                    drink.setName("Unsweetened Tea");
+                    repeatDrinkMenu = false;
+                }
+                case 5 -> {
+                    drink.setName("MilkShake");
+                    repeatDrinkMenu = false;
+                }
+                default -> System.err.println("ERROR! Please enter a number between 1 and 5!");
+            }
+        }
+    }
+
+    //Set the size of the drink
+    public void setDrinkSize(Drink drink) {
+        boolean repeatDrinkSizes = true;
+
+        while (repeatDrinkSizes) {
+
+            int userDrinkSizeChoice = ui.displayDrinkSizes();
+
+            switch (userDrinkSizeChoice) {
+                case 1 -> {
+                    drink.setSize(Size.SMALL.toString());
+                    repeatDrinkSizes = false;
+                }
+                case 2 -> {
+                    drink.setSize(Size.MEDIUM.toString());
+                    repeatDrinkSizes = false;
+                }
+                case 3 -> {
+                    drink.setSize(Size.LARGE.toString());
+                    repeatDrinkSizes = false;
+                }
+                default -> System.err.println("ERROR! Please enter a number listed on the screen!");
+            }
+        }
     }
 
     private Sandwich createNewSandwich() {
