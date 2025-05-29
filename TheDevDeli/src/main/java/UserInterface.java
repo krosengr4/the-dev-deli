@@ -6,95 +6,108 @@ public class UserInterface {
     ArrayList<MenuItem> customerOrder = new ArrayList<>();
 
     //Method that will display the Main Menu of the application
-    public void displayMainScreen() {
-        boolean ifContinue = true;
+    public int displayMainScreen() {
+        //Create new instance of DeliStore
+        UserInterface ui = new UserInterface();
 
-        do {
-            //Create new instance of DeliStore
-            UserInterface ui = new UserInterface();
+        //Print out Main Menu
+        System.out.printf("""
+                                             \s
+                                             \s
+                                             %sMAIN MENU:
+                                ----------------------------------%s
+                              %s1 - Place an Order%s        %s0 - Exit%s
+                
+                \s""", Utils.BLUE, Utils.RESET, Utils.GREEN, Utils.RESET, Utils.RED, Utils.RESET);
 
-            //Print out Main Menu
-            System.out.printf("""
-                                                 \s
-                                                 \s
-                                                 %sMAIN MENU:
-                                    ----------------------------------%s
-                                  %s1 - Place an Order%s        %s0 - Exit%s
-                    
-                    \s""", Utils.BLUE, Utils.RESET, Utils.GREEN, Utils.RESET, Utils.RED, Utils.RESET);
-            int userAction = Utils.messageAndResponseInt("Enter 1 or 0: ");
-
-            //Handle user main menu option
-            switch (userAction) {
-                case 1 -> ui.displayOrderScreen();
-                case 0 -> ifContinue = false;
-                default -> System.err.println("ERROR! Please enter a number that is listed!");
-            }
-
-        } while (ifContinue);
+        return Utils.messageAndResponseInt("Enter 1 or 0: ");
     }
 
-    //Method that displays order screen options and handles user selection
-    public void displayOrderScreen() {
-        boolean ifContinueOrder = true;
+    //Method that displays order screen options
+    public int displayOrderScreen() {
+        //Printing out order menu
+        System.out.printf("""
+                                                          \s
+                                                          %sORDER
+                                    -------------------------------------------------%s
+                                    %s1 - Order a Sandwich%s%s          %s3 - Add a Drink%s%s
+                                    %s2 - Add Chips%s%s                 %s4 - Checkout%s
+                        
+                                                  %s0 - Cancel Order%s
+                                                  \s
+                        """, Utils.BLUE, Utils.RESET, Utils.PURPLE, Utils.RESET, Utils.sandwich, Utils.CYAN, Utils.RESET, Utils.drink, Utils.YELLOW, Utils.RESET,
+                Utils.chips, Utils.GREEN, Utils.RESET, Utils.RED, Utils.RESET);
 
-        do {
-            //Printing out order menu
-            System.out.printf("""
-                                                      \s
-                                                      %sORDER
-                                -------------------------------------------------%s
-                                %s1 - Order a Sandwich%s%s          %s3 - Add a Drink%s%s
-                                %s2 - Add Chips%s%s                 %s4 - Checkout%s
-                    
-                                              %s0 - Cancel Order%s
-                                              \s
-                    """, Utils.BLUE, Utils.RESET, Utils.PURPLE, Utils.RESET, Utils.sandwich, Utils.CYAN, Utils.RESET, Utils.drink, Utils.YELLOW, Utils.RESET,
-                    Utils.chips, Utils.GREEN, Utils.RESET, Utils.RED, Utils.RESET);
-
-            //Getting user order menu selection
-            int userAction = Utils.messageAndResponseInt("Enter Your Option: ");
-
-            //Handling user order menu selection
-            switch (userAction) {
-                case 0 -> ifContinueOrder = false;
-                case 1 -> processAddSandwich();
-                case 2 -> processAddChips();
-                case 3 -> processAddDrink();
-                case 4 -> {
-                    processCheckout();
-                    ifContinueOrder = false;
-                }
-                default -> System.err.println("ERROR! Please enter a number that is listed!");
-            }
-        } while (ifContinueOrder);
+        //Getting and returning user order menu selection
+        return Utils.messageAndResponseInt("Enter Your Option: ");
     }
+
+    //Method to display signature sandwiches and get user sandwich option
+    public int displayNewSandwichMenu() {
+
+        System.out.printf("""
+               \s
+                            %s---%sSIGNATURE SANDWICHES%s---
+                       ___________________________________________%s
+                      %sBLT ($10.50)             Philly Cheese Steak ($10.50)
+                      -------------             ---------------------------%s \s
+                      %s8" White Bread          8" White Bread
+                      Bacon                   Steak \s
+                      Cheddar                 American Cheese
+                      Lettuce                 Peppers
+                      Tomato                  Mayo
+                      Ranch                   Toasted
+                      Toasted%s
+               \s""", Utils.CYAN, Utils.sandwich, Utils.sandwich, Utils.RESET, Utils.BLUE, Utils.RESET, Utils.YELLOW, Utils.RESET);
+
+        //Prompt user to choose one of the signature sandwiches, or to create their own
+        System.out.println(Utils.CYAN + "\n\t\t\t-----OPTIONS-----" + Utils.RESET);
+        System.out.println(Utils.YELLOW + "1 - Create Your Own | 2 - BLT | 3 - Philly Cheese Steak" + Utils.RESET);
+        return Utils.messageAndResponseInt("Please Enter your Choice: ");
+    }
+
+    public int displaySandwichSizeMenu() {
+        //print out size options
+        System.out.printf("\n\t%s---SIZES---%s\n%s1 - Small (4inch) $5.50\n2 - Medium (8inch) $7.00\n3 - Large (12inch) $8.50%s",
+                Utils.CYAN, Utils.RESET, Utils.YELLOW, Utils.RESET);
+        return Utils.messageAndResponseInt("\nPlease enter the number next to the desired sandwich size: ");
+    }
+
+
+
+
+
+
+
+
+
+
 
     //Method to make customer sandwich, verify it is correct, and add it to orders list
-    private void processAddSandwich() {
-
-        //Call MakeSandwich class to create customer sandwich
-        Sandwich sandwich = MakeSandwich.createSandwich();
-
-        //Print out the sandwich that was just created
-        System.out.printf("\nSandwich | %s | Toasted: %b | Bread: %s | Meat: %s | ExtraMeat: %b | Cheese: %s | ExtraCheese: %b | Toppings: %s | Sauces: %s",
-                sandwich.size, sandwich.isToasted(), sandwich.getBread(), sandwich.getMeat(), sandwich.isExtraMeat(), sandwich.getCheese(), sandwich.isExtraCheese(),
-                sandwich.getToppings(), sandwich.getSauces());
-        System.out.printf("\nTotal Price: $%.2f\n", sandwich.getValue());
-
-        //Verify if the sandwich is correct
-        String userCorrectSandwich = Utils.promptGetUserInput("Is this sandwich correct?(Y or N):").trim();
-    
-        //If correct -> add to order list, if no -> retry
-        if (userCorrectSandwich.equalsIgnoreCase("y")) {
-            customerOrder.add(sandwich);
-            System.out.println(Utils.GREEN + "Huzzah! We have added your sandwich to the order!" + Utils.RESET);
-        } else {
-            System.out.println("Apologies for the inconvenience. Try and place your sandwich order again.");
-        }
-
-        Utils.pauseApp();
-    }
+//    private void processAddSandwich() {
+//
+//        //Call MakeSandwich class to create customer sandwich
+//        Sandwich sandwich = MakeSandwich.createSandwich();
+//
+//        //Print out the sandwich that was just created
+//        System.out.printf("\nSandwich | %s | Toasted: %b | Bread: %s | Meat: %s | ExtraMeat: %b | Cheese: %s | ExtraCheese: %b | Toppings: %s | Sauces: %s",
+//                sandwich.size, sandwich.isToasted(), sandwich.getBread(), sandwich.getMeat(), sandwich.isExtraMeat(), sandwich.getCheese(), sandwich.isExtraCheese(),
+//                sandwich.getToppings(), sandwich.getSauces());
+//        System.out.printf("\nTotal Price: $%.2f\n", sandwich.getValue());
+//
+//        //Verify if the sandwich is correct
+//        String userCorrectSandwich = Utils.promptGetUserInput("Is this sandwich correct?(Y or N):").trim();
+//
+//        //If correct -> add to order list, if no -> retry
+//        if (userCorrectSandwich.equalsIgnoreCase("y")) {
+//            customerOrder.add(sandwich);
+//            System.out.println(Utils.GREEN + "Huzzah! We have added your sandwich to the order!" + Utils.RESET);
+//        } else {
+//            System.out.println("Apologies for the inconvenience. Try and place your sandwich order again.");
+//        }
+//
+//        Utils.pauseApp();
+//    }
 
     //Method to ask user how many bags of chips customer wants, and add that many bags to orders list
     private void processAddChips() {

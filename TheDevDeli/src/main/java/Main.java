@@ -43,8 +43,8 @@ public class Main {
                 """, Utils.fire, Utils.sandwich, Utils.BLUE, Utils.sandwich, Utils.fire, Utils.smileyFace, Utils.thumbsUp, Utils.RESET);
 
         //Create new User Interface instance and call Main Screen
-        UserInterface ui = new UserInterface();
-        ui.displayMainScreen();
+        DeliShop deliShop = new DeliShop();
+        deliShop.processMainMenuOption();
 
         //Goodbye messages for when user exits app
         System.out.println(Utils.BLUE + "\n\n\t\t\t\tThanks for coming into Dev Deli!" + Utils.RESET + Utils.sandwich + Utils.fire);
