@@ -69,7 +69,7 @@ public class MakeSandwich {
                     sandwich.setSize(Size.LARGE.toString());
                     repeatSize = false;
                 }
-                default -> System.err.println("ERROR! Invalid sandwich size!");
+                default -> System.err.println("ERROR! Please enter a number between 1 and 3!");
             }
         }
     }
@@ -102,7 +102,7 @@ public class MakeSandwich {
                     sandwich.setBread("Wrap");
                     repeatBread = false;
                 }
-                default -> System.err.println("ERROR! Invalid bread!");
+                default -> System.err.println("ERROR! Enter a number between 1 and 4!");
 
             }
         }
@@ -158,7 +158,7 @@ public class MakeSandwich {
                     sandwich.setMeat(null);
                     repeatMeat = false;
                 }
-                default -> System.err.println("ERROR! Invalid meat!");
+                default -> System.err.println("ERROR! Please enter a number between 0 and 6!");
             }
 
             if (userMeat != 0) {
@@ -224,7 +224,7 @@ public class MakeSandwich {
                     sandwich.setCheese(null);
                     repeatCheese = false;
                 }
-                default -> System.err.println("ERROR! Invalid Cheese!");
+                default -> System.err.println("ERROR! Enter a number between 0 and 4!");
             }
 
             if (userCheese != 0) {
@@ -312,7 +312,7 @@ public class MakeSandwich {
                     sandwich.setToppings(null);
                     repeatExtraToppings = false;
                 }
-                default -> System.err.println("ERROR! Invalid topping!");
+                default -> System.err.println("ERROR! Enter a number between 0 and 9!");
             }
 
             //Ask user if they would like any more toppings and handle response
@@ -382,6 +382,7 @@ public class MakeSandwich {
                     sandwich.setSauces(null);
                     repeatSauces = false;
                 }
+                default -> System.err.println("ERROR! Please Enter a number between 0 and 7!");
             }
 
             //Ask user if they would like any more sauces and handle response
