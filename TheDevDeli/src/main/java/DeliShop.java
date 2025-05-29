@@ -33,7 +33,7 @@ public class DeliShop {
             switch (userOrderAction) {
                 case 0 -> ifContinueOrder = false;
                 case 1 -> processAddSandwich();
-//                case 2 -> processAddChips();
+                case 2 -> processAddChips();
 //                case 3 -> processAddDrink();
                 case 4 -> {
 //                    processCheckout();
@@ -44,7 +44,7 @@ public class DeliShop {
         } while (ifContinueOrder);
     }
 
-    public void processAddSandwich() {
+    private void processAddSandwich() {
 
         Sandwich sandwich = createNewSandwich();
         boolean repeatConfirmation = true;
@@ -70,6 +70,60 @@ public class DeliShop {
         } while (repeatConfirmation);
 
         Utils.pauseApp();
+    }
+
+    public void processAddChips() {
+
+        boolean repeatChipMenu = true;
+        Chips chips = new Chips();
+
+        do {
+            int userChipOption = ui.displayChipOptions();
+
+            switch (userChipOption) {
+                case 1 -> {
+                    chips.setName("Doritos Nacho Cheese");
+                    repeatChipMenu = false;
+                }
+                case 2 -> {
+                    chips.setName("Lays Classic");
+                    repeatChipMenu = false;
+                }
+                case 3 -> {
+                    chips.setName("Miss Vickies Jalapeño");
+                    repeatChipMenu = false;
+                }
+                case 4 -> {
+                    chips.setName("Ruffles Original");
+                    repeatChipMenu = false;
+                }
+                case 5 -> {
+                    chips.setName("Cheetos");
+                    repeatChipMenu = false;
+                }
+                default -> System.err.println("ERROR! Please enter a number listed on the screen!");
+            }
+
+            customerOrder.add(chips);
+            System.out.println(Utils.GREEN + "We have added a bag of " + chips.getName() + " to your order!" + Utils.RESET);
+
+            boolean repeatAddAnotherOption = true;
+            while (repeatAddAnotherOption) {
+
+                String addAnotherOption = ui.displayAddAnotherMessage();
+
+                if (addAnotherOption.equalsIgnoreCase("n")) {
+                    repeatChipMenu = false;
+                    repeatAddAnotherOption = false;
+                } else if (addAnotherOption.equalsIgnoreCase("y")) {
+                    repeatChipMenu = true;
+                    repeatAddAnotherOption = false;
+                } else {
+                    System.err.println("ERROR! Please enter Y or N!");
+                }
+            }
+
+        } while (repeatChipMenu);
     }
 
     private Sandwich createNewSandwich() {
@@ -110,7 +164,7 @@ public class DeliShop {
         return sandwich;
     }
 
-    public void setSandwichSize(Sandwich sandwich) {
+    private void setSandwichSize(Sandwich sandwich) {
         boolean repeatSizeMenu = true;
 
         do {
@@ -134,7 +188,7 @@ public class DeliShop {
         } while (repeatSizeMenu);
     }
 
-    public void setSandwichBread(Sandwich sandwich) {
+    private void setSandwichBread(Sandwich sandwich) {
         boolean repeatBreadMenu = true;
 
         do {
@@ -162,7 +216,7 @@ public class DeliShop {
         } while (repeatBreadMenu);
     }
 
-    public void addSandwichMeat(Sandwich sandwich) {
+    private void addSandwichMeat(Sandwich sandwich) {
         boolean repeatMeatMenu = true;
 
         do {
@@ -204,7 +258,7 @@ public class DeliShop {
         } while (repeatMeatMenu);
     }
 
-    public void addExtraMeat(Sandwich sandwich) {
+    private void addExtraMeat(Sandwich sandwich) {
 
         if (sandwich.isHasMeat()) {
 
@@ -229,7 +283,7 @@ public class DeliShop {
         }
     }
 
-    public void addSandwichCheese(Sandwich sandwich) {
+    private void addSandwichCheese(Sandwich sandwich) {
         boolean repeatCheeseMenu = true;
 
         do {
@@ -262,7 +316,7 @@ public class DeliShop {
         } while (repeatCheeseMenu);
     }
 
-    public void addExtraCheese(Sandwich sandwich) {
+    private void addExtraCheese(Sandwich sandwich) {
 
         if (sandwich.isHasCheese()) {
             boolean repeatExtraCheese = true;
@@ -285,7 +339,7 @@ public class DeliShop {
         }
     }
 
-    public void addSandwichToppings(Sandwich sandwich) {
+    private void addSandwichToppings(Sandwich sandwich) {
 
         boolean repeatToppingsMenu = true;
         StringBuilder toppings = new StringBuilder(); //<--- Use StringBuilder to handle request for extra toppings
@@ -355,7 +409,7 @@ public class DeliShop {
         sandwich.setToppings(toppings.toString().trim());
     }
 
-    public void addSandwichSauces(Sandwich sandwich) {
+    private void addSandwichSauces(Sandwich sandwich) {
 
         boolean repeatSaucesMenu = true;
         StringBuilder sauces = new StringBuilder();//<--- Use StringBuilder to handle request for extra sauces
@@ -417,7 +471,7 @@ public class DeliShop {
         sandwich.setSauces(sauces.toString());
     }
 
-    public void setToastSandwichOption(Sandwich sandwich) {
+    private void setToastSandwichOption(Sandwich sandwich) {
         boolean repeatToastMenu = true;
 
         do {

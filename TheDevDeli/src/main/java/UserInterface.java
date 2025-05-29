@@ -165,6 +165,24 @@ public class UserInterface {
         return Utils.promptGetUserInput("Is this sandwich correct?(Y or N):").trim();
     }
 
+    public int displayChipOptions() {
+        System.out.printf("""
+                
+                        %s---%sCHIP OPTIONS%s---%s
+                   %s1 - Doritos Nacho Cheese 
+                   2 - Lays Classic 
+                   3 - Miss Vickies Jalapeño 
+                   4 - Ruffles Original
+                   5 - Cheetos%s
+                """, Utils.BLUE, Utils.chips, Utils.chips, Utils.RESET, Utils.YELLOW, Utils.RESET);
+
+        return Utils.messageAndResponseInt("Please enter your option: ");
+    }
+
+    public String displayAddAnotherMessage() {
+        return Utils.promptGetUserInput("Would you like to add another? (Y or N): ").trim();
+    }
+
 
     //Method to make customer sandwich, verify it is correct, and add it to orders list
 //    private void processAddSandwich() {
@@ -184,18 +202,6 @@ public class UserInterface {
 //
 //        Utils.pauseApp();
 //    }
-
-    //Method to ask user how many bags of chips customer wants, and add that many bags to orders list
-    private void processAddChips() {
-        int numberOfChips = Utils.messageAndResponseInt("How many bags of chips would you like?: ");
-
-        //For how many chips a customer wants, create new chips object and add to orders list
-        for (int i = 0; i < numberOfChips; i++) {
-            Chips chip = new Chips();
-            customerOrder.add(chip);
-        }
-        System.out.println(Utils.GREEN + "Success! " + numberOfChips + " bag(s) of chips has been added to your order!" + Utils.RESET);
-    }
 
     //Method to get customer drink (type and size) and add to orders list
     private void processAddDrink() {
