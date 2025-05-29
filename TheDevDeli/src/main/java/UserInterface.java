@@ -3,9 +3,6 @@ import java.util.ArrayList;
 //! Class that handles all user interface of application
 public class UserInterface {
 
-    //List that will store the menu items a customer has ordered
-    ArrayList<MenuItem> customerOrder = new ArrayList<>();
-
     //Method that will display the Main Menu of the application
     public int displayMainScreen() {
         //Create new instance of DeliStore
