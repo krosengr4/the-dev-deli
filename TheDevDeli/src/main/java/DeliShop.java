@@ -36,7 +36,7 @@ public class DeliShop {
                 case 2 -> processAddChips();
                 case 3 -> processAddDrink();
                 case 4 -> {
-//                    processCheckout();
+                    processCheckout();
                     ifContinueOrder = false;
                 }
                 default -> System.err.println("ERROR! Please enter a number that is listed!");
@@ -72,7 +72,7 @@ public class DeliShop {
         Utils.pauseApp();
     }
 
-    public void processAddChips() {
+    private void processAddChips() {
 
         boolean repeatChipMenu = true;
         Chips chips = new Chips();
@@ -101,6 +101,60 @@ public class DeliShop {
             }
 
         }
+    }
+
+    private void processAddDrink() {
+
+        Drink drink = new Drink();
+        boolean repeatDrinkMenu = true;
+
+        while (repeatDrinkMenu) {
+            setDrinkType(drink);
+            setDrinkSize(drink);
+
+            customerOrder.add(drink);
+            System.out.println(Utils.GREEN + "\nSuccess! A " + drink.getSize() + " " + drink.getName() + " has been added to your order!" + Utils.RESET);
+
+            boolean repeatAddAnotherMenu = true;
+
+            while (repeatAddAnotherMenu) {
+
+                String userAddAnotherOption = ui.displayAddAnotherMessage();
+
+                if (userAddAnotherOption.equalsIgnoreCase("n")) {
+                    repeatDrinkMenu = false;
+                    repeatAddAnotherMenu = false;
+                } else if (userAddAnotherOption.equalsIgnoreCase("y")) {
+                    repeatAddAnotherMenu = false;
+                } else {
+                    System.err.println("ERROR! Please enter either Y or N!");
+                }
+            }
+        }
+
+    }
+
+    private void processCheckout() {
+
+        String customerName = Utils.promptGetUserInput("Enter a name for your order: ");
+        Order order = new Order(customerOrder, customerName);
+
+        boolean repeatOrderConfirmation = true;
+
+        while (repeatOrderConfirmation) {
+            String customerOrderConfirmation = ui.displayAndConfirmOrder(order);
+
+            if (customerOrderConfirmation.equalsIgnoreCase("y")) {
+                order.saveOrder();
+                repeatOrderConfirmation = false;
+            } else if (customerOrderConfirmation.equalsIgnoreCase("n")) {
+                System.out.println("Apologies for the inconvenience. Try and place your order again.");
+                repeatOrderConfirmation = false;
+            } else {
+                System.err.println("ERROR! Only enter either Y or N!");
+            }
+        }
+
     }
 
     public void setChipType(Chips chips) {
@@ -135,37 +189,6 @@ public class DeliShop {
                 default -> System.err.println("ERROR! Please enter a number listed on the screen!");
             }
         }
-    }
-
-    public void processAddDrink() {
-
-        Drink drink = new Drink();
-        boolean repeatDrinkMenu = true;
-
-        while (repeatDrinkMenu) {
-            setDrinkType(drink);
-            setDrinkSize(drink);
-
-            customerOrder.add(drink);
-            System.out.println(Utils.GREEN + "\nSuccess! A " + drink.getSize() + " " + drink.getName() + " has been added to your order!" + Utils.RESET);
-
-            boolean repeatAddAnotherMenu = true;
-
-            while (repeatAddAnotherMenu) {
-
-                String userAddAnotherOption = ui.displayAddAnotherMessage();
-
-                if (userAddAnotherOption.equalsIgnoreCase("n")) {
-                    repeatDrinkMenu = false;
-                    repeatAddAnotherMenu = false;
-                } else if (userAddAnotherOption.equalsIgnoreCase("y")) {
-                    repeatAddAnotherMenu = false;
-                } else {
-                    System.err.println("ERROR! Please enter either Y or N!");
-                }
-            }
-        }
-
     }
 
     //Handle customer drink type request

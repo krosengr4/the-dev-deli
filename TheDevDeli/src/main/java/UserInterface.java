@@ -211,83 +211,12 @@ public class UserInterface {
         return Utils.messageAndResponseInt("Enter a drink size: ");
     }
 
-
-    //Method to make customer sandwich, verify it is correct, and add it to orders list
-//    private void processAddSandwich() {
-//
-//        //Call MakeSandwich class to create customer sandwich
-//        Sandwich sandwich = MakeSandwich.createSandwich();
-//
-
-//
-//        //If correct -> add to order list, if no -> retry
-//        if (userCorrectSandwich.equalsIgnoreCase("y")) {
-//            customerOrder.add(sandwich);
-//
-//        } else {
-//
-//        }
-//
-//        Utils.pauseApp();
-//    }
-
-    //Method to get customer drink (type and size) and add to orders list
-//    private void processAddDrink() {
-//        boolean addAnotherDrink = true;
-//
-//        while (addAnotherDrink) {
-//            //Create new instance of Drink object
-//            Drink drink = new Drink();
-//
-//
-//
-//            switch (userDrinkChoice) {
-//
-//            }
-//
-//
-//
-//            //Handle customer drink size request
-//            switch (userDrinkSize) {
-//                case 1 -> drink.setSize("SMALL");
-//                case 2 -> drink.setSize("MEDIUM");
-//                case 3 -> drink.setSize("LARGE");
-//                default -> System.err.println("ERROR! Please enter a number between 1 and 3!");
-//            }
-//
-//            //Add drink with type and size to the orders list
-//            customerOrder.add(drink);
-//            System.out.printf("\n%sSuccess! %s %s added!%s\n", Utils.GREEN, drink.getSize().toLowerCase(), drink.getName(), Utils.RESET);
-//
-//            //Ask customer if they would like another drink
-//            String anotherDrink = Utils.promptGetUserInput("\nWould you like to add another drink? (Y or N): ").trim();
-//            if (anotherDrink.equalsIgnoreCase("n")) {
-//                addAnotherDrink = false;
-//            } else if (!anotherDrink.equalsIgnoreCase("y")) {
-//                System.err.println("ERROR! Please enter y or n!");
-//            }
-//        }
-//    }
-
-    //Method to create new order with customers name and their list of orders, verify and save it
-    private void processCheckout() {
-        String customerName = Utils.promptGetUserInput("Please enter a name for your order: ").toUpperCase();
-
-        //Create new instance of Order with customers name and orders
-        Order newOrder = new Order(customerOrder, customerName);
+    public String displayAndConfirmOrder(Order order) {
 
         //Print out order and verify order with customer
-        newOrder.printItemsAndPrices();
-        String correctUserOrder = Utils.promptGetUserInput("Is this order correct? (Y or N): ").trim();
+        order.printItemsAndPrices();
+        return Utils.promptGetUserInput("Is this order correct? (Y or N): ").trim();
 
-        //If order correct -> Save it, if not -> try again
-        if (correctUserOrder.equalsIgnoreCase("y")) {
-            newOrder.saveOrder();
-        } else {
-            System.out.println("Apologies for the inconvenience. Try and place your order again.");
-        }
-
-        Utils.pauseApp();
     }
 
 }
