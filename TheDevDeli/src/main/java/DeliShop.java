@@ -344,6 +344,9 @@ public class DeliShop {
                     repeatToppingsMenu = false;
                 } else if (userExtraToppings.equalsIgnoreCase("y")) {
                     repeatToppingsMenu = true;
+                } else {
+                    System.err.println("ERROR! Please enter either y or n!");
+                    repeatToppingsMenu = true;
                 }
             }
 
@@ -405,12 +408,13 @@ public class DeliShop {
                     repeatSaucesMenu = true;
                 } else {
                     System.err.println("ERROR! Please enter either y or n!");
+                    repeatSaucesMenu = true;
                 }
             }
 
         } while (repeatSaucesMenu);
 
-        sandwich.setToppings(sauces.toString());
+        sandwich.setSauces(sauces.toString());
     }
 
     public void setToastSandwichOption(Sandwich sandwich) {
