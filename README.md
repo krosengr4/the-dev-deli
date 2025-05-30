@@ -6,6 +6,7 @@
 - [Images](#images)
 - [Class Diagram](#class-diagram)
 - [Usage](#usage)
+- [Testing](#testing)
 - [Featured Code](#featured-code)
 - [License](#license)
 - [Contributing](#contributing)
@@ -86,7 +87,26 @@ ___
 5) Receipts for completed orders are kept in /TheDevDeli/src/main/receipts directory, named based on the time they were
    written (yyyyMMdd-hhmmss).
 
+## Testing
+
+---
+
+- This application contains unit tests to test that the prices of multiple combinations of sandwiches are calculated
+  correctly. It also contains unit tests to test that the prices of drinks with different sizes are calculated correctly.
+- All unit tests use JUnit5.
+--- 
+
+#### How To Use the Unit Tests
+
+---
+
+1) Navigate to /TheDevDeli/src/test/java/DrinkTest.java 
+2) Or navigate to /TheDevDeli/src/test/java/SandwichTest.java
+3) Run the file to execute tests
+
 ## Featured Code
+
+---
 
 - One piece of code, or class, that I am proud of is the abstract MenuItem class, which is the parent of
   the Sandwich, Drink, and Chips classes. Because of this, I was able to use only one list (of MenuItem objects) to
