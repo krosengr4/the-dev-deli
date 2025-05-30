@@ -15,7 +15,7 @@
 ## Description
 
 - Dev Deli is a command line application, created using java, that is the point of sales application for The Dev Deli, a
-  custom sandwich shop. Up until the creation of this app,
+  deli shop. Up until the creation of this app,
   The Dev Deli has been managing orders using paper and pen. However, with Dev Deli application, the order process can
   now be automated.
 
@@ -36,12 +36,7 @@
 - Chips are added by the bag and can be customized by the type of chips.
 - Sandwiches can be customized by size (4", 8" or 12"), type of bread, type of meat, option for extra
   meat, type of cheese, option for extra cheese, toppings, sauces, and an option for the sandwich to be toasted.
-- A user can also add one of the signature sandwiches the shop sells to an order, or they can create their own and fully
-  customize a sandwich to add.
-- After a user chooses one of the signature sandwiches, or chooses to create their own sandwich and goes through the
-  process of
-  customizing a sandwich, the application confirms that everything on the sandwich is correct before adding it to the
-  order.
+- A user can also select one of the signature sandwiches the shop sells to add to an order.
 
 ---
 
