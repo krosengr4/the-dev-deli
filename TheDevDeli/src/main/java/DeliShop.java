@@ -83,6 +83,7 @@ public class DeliShop {
 
             customerOrder.add(chips);
             System.out.println(Utils.GREEN + "\nWe have added a bag of " + chips.getName() + " to your order!" + Utils.RESET);
+            Utils.playSound("success");
 
             boolean repeatAddAnotherOption = true;
 
