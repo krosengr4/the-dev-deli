@@ -1,3 +1,6 @@
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Scanner;
@@ -132,6 +135,43 @@ public class Utils {
                     .append(" ");
         }
         return capitalized.toString().trim();
+    }
+
+    public static void playSound(String sound) {
+
+        String filePath = "";
+
+        switch (sound) {
+            case "success" -> filePath = "TheDevDeli/src/sounds/owin31.wav";
+            case "shutDown" -> filePath = "TheDevDeli/src/sounds/winxpshutdown.wav";
+            case "wompWomp" -> filePath = "TheDevDeli/src/sounds/womp-womp.wav";
+            default -> System.err.println("ERROR! Argument passed in is not an option!");
+        }
+
+        File audioFile = new File(filePath);
+
+        try {
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            Object lock = new Object();
+
+            clip.addLineListener(event -> {
+                if (event.getType() == LineEvent.Type.STOP) {
+                    synchronized (lock) {
+                        lock.notify();
+                    }
+                }
+            });
+
+            clip.start();
+            synchronized (lock) {
+                lock.wait();
+            }
+
+        } catch (LineUnavailableException | IOException | UnsupportedAudioFileException | InterruptedException e) {
+            e.printStackTrace(); }
+
     }
 
 
