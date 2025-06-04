@@ -55,11 +55,13 @@ public class DeliShop {
             if (userSandwichConfirmation.equalsIgnoreCase("y")) {
                 customerOrder.add(sandwich);
                 System.out.println(Utils.GREEN + "Huzzah! We have added your sandwich to the order!" + Utils.RESET);
+                Utils.playSound("success");
 
                 repeatConfirmation = false;
 
             } else if (userSandwichConfirmation.equalsIgnoreCase("n")) {
                 System.out.println("Apologies for the inconvenience. Try and place your sandwich order again.");
+                Utils.playSound("wompWomp");
 
                 repeatConfirmation = false;
 
@@ -115,6 +117,7 @@ public class DeliShop {
 
             customerOrder.add(drink);
             System.out.println(Utils.GREEN + "\nSuccess! A " + drink.getSize() + " " + drink.getName() + " has been added to your order!" + Utils.RESET);
+            Utils.playSound("success");
 
             boolean repeatAddAnotherMenu = true;
 
@@ -151,6 +154,7 @@ public class DeliShop {
             } else if (customerOrderConfirmation.equalsIgnoreCase("n")) {
                 customerOrder.clear();
                 System.out.println("Apologies for the inconvenience. Try and place your order again.");
+                Utils.playSound("wompWomp");
                 repeatOrderConfirmation = false;
             } else {
                 System.err.println("ERROR! Only enter either Y or N!");

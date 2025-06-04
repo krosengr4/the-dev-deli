@@ -49,5 +49,6 @@ public class Main {
         //Goodbye messages for when user exits app
         System.out.println(Utils.BLUE + "\n\n\t\t\t\tThanks for coming into Dev Deli!" + Utils.RESET + Utils.sandwich + Utils.fire);
         System.out.println(Utils.BLUE + "\t\t\t\tWe will see you soon!" + Utils.RESET);
+        Utils.playSound("shutDown");
     }
 }
