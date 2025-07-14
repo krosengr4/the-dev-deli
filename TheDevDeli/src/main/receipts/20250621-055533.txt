@@ -1,0 +1,7 @@
+ORDER FOR: Mike
+
+Sandwich | Size: MEDIUM | Toasted: true | Bread: White | Meat: Steak | ExtraMeat: false | Cheese: American | ExtraCheese: false | Toppings: Peppers | Sauces: Mayo
+Price: $10.5
+
+
+TOTAL: $10.5
