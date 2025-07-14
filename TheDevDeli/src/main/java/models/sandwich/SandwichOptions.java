@@ -8,6 +8,10 @@ enum Bread {
 		this.displayName = displayName;
 	}
 
+	public String getDisplayName() {
+		return displayName;
+	}
+
 	@Override
 	public String toString() {
 		return displayName;
@@ -22,6 +26,10 @@ enum Meat {
 		this.displayName = displayName;
 	}
 
+	public String getDisplayName() {
+		return displayName;
+	}
+
 	@Override
 	public String toString() {
 		return displayName;
@@ -34,6 +42,10 @@ enum Cheese {
 	private final String displayName;
 	Cheese(String displayName) {
 		this.displayName = displayName;
+	}
+
+	public String getDisplayName() {
+		return displayName;
 	}
 
 	@Override
@@ -51,6 +63,10 @@ enum Topping {
 		this.displayName = displayName;
 	}
 
+	public String getDisplayName() {
+		return displayName;
+	}
+
 	@Override
 	public String toString() {
 		return displayName;
@@ -63,6 +79,10 @@ enum Sauce {
 	private final String displayName;
 	Sauce(String displayName) {
 		this.displayName = displayName;
+	}
+
+	public String getDisplayName() {
+		return displayName;
 	}
 
 	@Override
