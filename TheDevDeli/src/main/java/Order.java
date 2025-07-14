@@ -39,7 +39,7 @@ public class Order {
             writer.close();
             System.out.printf("\n%sTHANK YOU %s. Your order will out shortly! \nYour receipt has been saved in /src/main/receipts%s",
                     Utils.GREEN, customerName, Utils.RESET);
-            Utils.playSound("success");
+            Utils.playSound("owin31.wav");
 
         } catch (Exception e) {
             throw new RuntimeException(e);
