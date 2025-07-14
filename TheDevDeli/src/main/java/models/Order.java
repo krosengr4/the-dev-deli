@@ -10,6 +10,8 @@ public class Order {
 	double totalPrice;
 	LocalDateTime timeOfOrder;
 
+	public Order() {}
+
 	public Order(int order_id, String customerName, int quantityOrdered, double totalPrice, LocalDateTime timeOfOrder) {
 		this.order_id = order_id;
 		this.customerName = customerName;
