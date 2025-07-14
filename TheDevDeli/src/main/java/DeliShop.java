@@ -140,7 +140,7 @@ public class DeliShop {
 
     private void processCheckout() {
 
-        String customerName = Utils.promptGetUserInput("Enter a name for your order: ");
+        String customerName = Utils.getUserInput("Enter a name for your order: ");
         Order order = new Order(customerOrder, customerName);
 
         boolean repeatOrderConfirmation = true;
@@ -523,7 +523,7 @@ public class DeliShop {
             }
 
             if (userToppingsOption != 0) {
-                String userExtraToppings = Utils.promptGetUserInput("\nWould you like anymore toppings?(Y or N)");
+                String userExtraToppings = Utils.getUserInput("\nWould you like anymore toppings?(Y or N)");
 
                 if (userExtraToppings.equalsIgnoreCase("n")) {
                     repeatToppingsMenu = false;
@@ -585,7 +585,7 @@ public class DeliShop {
             }
 
             if (userSauceOption != 0) {
-                String userAddExtraSauce = Utils.promptGetUserInput("\nWould you like to add another sauce? (Y or N): ");
+                String userAddExtraSauce = Utils.getUserInput("\nWould you like to add another sauce? (Y or N): ");
 
                 if (userAddExtraSauce.equalsIgnoreCase("n")) {
                     repeatSaucesMenu = false;

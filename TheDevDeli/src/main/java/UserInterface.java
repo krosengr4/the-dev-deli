@@ -14,7 +14,7 @@ public class UserInterface {
                 
                 \s""", Utils.BLUE, Utils.RESET, Utils.GREEN, Utils.RESET, Utils.RED, Utils.RESET);
 
-        return Utils.messageAndResponseInt("Enter 1 or 0: ");
+        return Utils.getUserInputIntMinMax("Enter 1 or 0: ", 0, 1);
     }
 
     //Method that displays order screen options
@@ -33,7 +33,7 @@ public class UserInterface {
                 Utils.chips, Utils.GREEN, Utils.RESET, Utils.RED, Utils.RESET);
 
         //Getting and returning user order menu selection
-        return Utils.messageAndResponseInt("Enter Your Option: ");
+        return Utils.getUserInputIntMinMax("Enter Your Option: ", 0, 4);
     }
 
     //Method to display signature sandwiches and get user sandwich option
@@ -57,20 +57,20 @@ public class UserInterface {
         //Prompt user to choose one of the signature sandwiches, or to create their own
         System.out.println(Utils.CYAN + "\n\t\t\t-----OPTIONS-----" + Utils.RESET);
         System.out.println(Utils.YELLOW + "1 - Create Your Own | 2 - BLT | 3 - Philly Cheese Steak" + Utils.RESET);
-        return Utils.messageAndResponseInt("Please Enter your Choice: ");
+        return Utils.getUserInputInt("Please Enter your Choice: ");
     }
 
     public int displaySandwichSizeOptions() {
         //print out size options
         System.out.printf("\n\t%s---SIZES---%s\n%s1 - Small (4inch) $5.50\n2 - Medium (8inch) $7.00\n3 - Large (12inch) $8.50%s",
                 Utils.CYAN, Utils.RESET, Utils.YELLOW, Utils.RESET);
-        return Utils.messageAndResponseInt("\nPlease enter the number next to the desired sandwich size: ");
+        return Utils.getUserInputInt("\nPlease enter the number next to the desired sandwich size: ");
     }
 
     public int displaySandwichBreadOptions() {
         System.out.printf("\n%s---%sBREAD OPTIONS%s---%s\n%s1 - White\n2 - Wheat\n3 - Rye\n4 - Wrap%s", Utils.CYAN, Utils.bread, Utils.bread,
                 Utils.RESET, Utils.YELLOW, Utils.RESET);
-        return Utils.messageAndResponseInt("\nPlease enter the number next to the desired bread: ");
+        return Utils.getUserInputInt("\nPlease enter the number next to the desired bread: ");
     }
 
     public int displaySandwichMeatMenu() {
@@ -86,13 +86,13 @@ public class UserInterface {
                 5 - Chicken
                 6 - Bacon
                 0 - None%s""", Utils.CYAN, Utils.meat, Utils.meat, Utils.RESET, Utils.YELLOW, Utils.RESET);
-        return Utils.messageAndResponseInt("\nPlease enter the number next to the desired meat: ");
+        return Utils.getUserInputInt("\nPlease enter the number next to the desired meat: ");
     }
 
     public String displayExtraMeatOption() {
         //Prompt user if they want extra meat
         System.out.printf("\n%sExtra Meat: Small: +$0.50 | Medium: +$1.00 | Large: +$1.50%s", Utils.CYAN, Utils.RESET);
-        return Utils.promptGetUserInput("\nWould you like extra meat?(Y or N): ").trim();
+        return Utils.getUserInput("\nWould you like extra meat?(Y or N): ").trim();
     }
 
     public int displaySandwichCheeseOptions() {
@@ -106,12 +106,12 @@ public class UserInterface {
                 3 - Cheddar
                 4 - Swiss
                 0 - None%s""", Utils.CYAN, Utils.cheese, Utils.cheese, Utils.RESET, Utils.YELLOW, Utils.RESET);
-        return Utils.messageAndResponseInt("\nPlease enter the number next to the desired cheese: ");
+        return Utils.getUserInputInt("\nPlease enter the number next to the desired cheese: ");
     }
 
     public String displayExtraCheeseOption() {
         System.out.printf("\n%sExtra Cheese: Small: +$0.30 | Medium: +$0.60 | Large: +$0.90%s", Utils.CYAN, Utils.RESET);
-        return Utils.promptGetUserInput("\nWould you like extra cheese? (Y or N): ").trim();
+        return Utils.getUserInput("\nWould you like extra cheese? (Y or N): ").trim();
     }
 
     public int displaySandwichToppingsOptions() {
@@ -125,7 +125,7 @@ public class UserInterface {
                             5 - Jalapeños               0 - None%s
                 
                 """, Utils.CYAN, Utils.RESET, Utils.YELLOW, Utils.RESET);
-        return Utils.messageAndResponseInt("\nPlease enter the number next to the desired topping: ");
+        return Utils.getUserInputInt("\nPlease enter the number next to the desired topping: ");
     }
 
     public int displaySandwichSaucesOptions() {
@@ -138,14 +138,14 @@ public class UserInterface {
                             4 - Ranch                   0 - None%s
                 
                 """, Utils.CYAN, Utils.RESET, Utils.YELLOW, Utils.RESET);
-        return Utils.messageAndResponseInt("\nPlease enter the number next to the desired sauce: ");
+        return Utils.getUserInputInt("\nPlease enter the number next to the desired sauce: ");
     }
 
     public int displayToastedSandwichOptions() {
         System.out.printf("\n%sWould you like your sandwich toasted?%s%s%s\n%s1 - yes, toast it!\n2 - no, don't toast it.%s\n",
                 Utils.CYAN, Utils.RESET, Utils.fire, Utils.bread, Utils.YELLOW, Utils.RESET);
 
-        return Utils.messageAndResponseInt("Enter your option: ");
+        return Utils.getUserInputInt("Enter your option: ");
     }
 
     public String confirmSandwich(Sandwich sandwich) {
@@ -156,11 +156,11 @@ public class UserInterface {
         System.out.printf("\nTotal Price: $%.2f\n", sandwich.getValue());
 
         //Verify if the sandwich is correct
-        return Utils.promptGetUserInput("Is this sandwich correct?(Y or N):").trim();
+        return Utils.getUserInput("Is this sandwich correct?(Y or N):").trim();
     }
 
     public String displayAddAnotherMessage() {
-        return Utils.promptGetUserInput("Would you like to add another? (Y or N): ").trim();
+        return Utils.getUserInput("Would you like to add another? (Y or N): ").trim();
     }
 
     public int displayChipOptions() {
@@ -175,7 +175,7 @@ public class UserInterface {
                     5 - Cheetos%s
                 \s""", Utils.BLUE, Utils.chips, Utils.chips, Utils.RESET, Utils.YELLOW, Utils.RESET);
 
-        return Utils.messageAndResponseInt("Please enter your option: ");
+        return Utils.getUserInputInt("Please enter your option: ");
     }
 
     public int displayDrinkOptions() {
@@ -190,7 +190,7 @@ public class UserInterface {
                 5 - MilkShake%s
                 """, Utils.BLUE, Utils.drink, Utils.drink, Utils.RESET, Utils.YELLOW, Utils.RESET);
 
-        return Utils.messageAndResponseInt("Select the number next to the desired drink: ");
+        return Utils.getUserInputInt("Select the number next to the desired drink: ");
     }
 
     public int displayDrinkSizes() {
@@ -203,14 +203,14 @@ public class UserInterface {
                  3 - Large $3.00%s       \s
                 \s""", Utils.BLUE, Utils.RESET, Utils.YELLOW, Utils.RESET);
 
-        return Utils.messageAndResponseInt("Enter a drink size: ");
+        return Utils.getUserInputInt("Enter a drink size: ");
     }
 
     public String displayAndConfirmOrder(Order order) {
 
         //Print out order and verify order with customer
         order.printItemsAndPrices();
-        return Utils.promptGetUserInput("Is this order correct? (Y or N): ").trim();
+        return Utils.getUserInput("Is this order correct? (Y or N): ").trim();
 
     }
 
