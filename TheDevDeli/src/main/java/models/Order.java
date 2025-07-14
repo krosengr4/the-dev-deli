@@ -1,6 +1,7 @@
 package models;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Order {
 
@@ -9,15 +10,17 @@ public class Order {
 	int quantityOrdered;
 	double totalPrice;
 	LocalDateTime timeOfOrder;
+	List<MenuItems> itemsOrdered;
 
 	public Order() {}
 
-	public Order(int order_id, String customerName, int quantityOrdered, double totalPrice, LocalDateTime timeOfOrder) {
+	public Order(int order_id, String customerName, int quantityOrdered, double totalPrice, LocalDateTime timeOfOrder, List<MenuItems> itemsOrdered) { //!<--- Dunno if adding the list to the constructor is necessary yet
 		this.order_id = order_id;
 		this.customerName = customerName;
 		this.quantityOrdered = quantityOrdered;
 		this.totalPrice = totalPrice;
 		this.timeOfOrder = timeOfOrder;
+		this.itemsOrdered = itemsOrdered;
 	}
 
 	//region Getters and Setters
@@ -60,5 +63,22 @@ public class Order {
 	public void setTimeOfOrder(LocalDateTime timeOfOrder) {
 		this.timeOfOrder = timeOfOrder;
 	}
+
+	public List<MenuItems> getItemsOrdered() {
+		return itemsOrdered;
+	}
+
+	public void setItemsOrdered(List<MenuItems> itemsOrdered) {
+		this.itemsOrdered = itemsOrdered;
+	}
 	//endregion
+
+	public double getValue() {
+		double value = 0.0;
+
+		for(MenuItems item : this.itemsOrdered) {
+			value += item.getValue();
+		}
+		return value;
+	}
 }
