@@ -1,6 +1,7 @@
 package models;
 
-import java.util.concurrent.RecursiveTask;
+import models.enums.DrinkType;
+import models.enums.Size;
 
 public class Drink implements MenuItems{
 
@@ -51,7 +52,7 @@ public class Drink implements MenuItems{
 		System.out.println("-----DRINK-----");
 		System.out.println("Type: " + this.drinkType);
 		System.out.println("Size: " + this.size);
-		System.out.println("Cost: " + this.getValue());
+		System.out.printf("Price: $%.2f\n", this.getValue());
 		System.out.println("------------------------------------------------");
 	}
 }
