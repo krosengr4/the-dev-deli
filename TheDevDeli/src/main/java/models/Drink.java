@@ -3,7 +3,7 @@ package models;
 import models.enums.DrinkType;
 import models.enums.Size;
 
-public class Drink implements MenuItems{
+public class Drink implements MenuItem {
 
 	Size size;
 	DrinkType drinkType;

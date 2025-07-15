@@ -1,11 +1,11 @@
 package models.sandwich;
 
-import models.MenuItems;
+import models.MenuItem;
 import models.enums.Size;
 
 import java.util.List;
 
-public class Sandwich implements MenuItems {
+public class Sandwich implements MenuItem {
 
 	private Size size;
 	private Bread bread;

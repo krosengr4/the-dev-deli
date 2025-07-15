@@ -1,12 +1,12 @@
 ORDER FOR: Sarah
 
-Sandwich | Size: MEDIUM | Toasted: true | Bread: White | Meat: Steak | ExtraMeat: false | Cheese: American | ExtraCheese: false | Toppings: Peppers | Sauces: Mayo
+Sandwich | models.enums.Size: MEDIUM | Toasted: true | Bread: White | Meat: Steak | ExtraMeat: false | Cheese: American | ExtraCheese: false | Toppings: Peppers | Sauces: Mayo
 Price: $10.5
 
 Chips | Ruffles Original
 Price: $1.5
 
-Drink | Type: Unsweetened Tea | Size: MEDIUM
+Drink | Type: Unsweetened Tea | models.enums.Size: MEDIUM
 Price: $2.5
 
 

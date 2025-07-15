@@ -2,7 +2,7 @@ package models;
 
 import models.enums.ChipType;
 
-public class Chip implements MenuItems {
+public class Chip implements MenuItem {
 
 	ChipType chipType;
 

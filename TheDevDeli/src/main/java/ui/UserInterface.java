@@ -1,3 +1,7 @@
+package ui;
+
+import models.Order;
+import models.sandwich.Sandwich;
 import utils.Utils;
 
 //! Class that handles all user interface of application
@@ -152,11 +156,10 @@ public class UserInterface {
 
     public String confirmSandwich(Sandwich sandwich) {
         //Print out the sandwich that was just created
-        System.out.printf("\nSandwich | %s | Toasted: %b | Bread: %s | Meat: %s | ExtraMeat: %b | Cheese: %s | ExtraCheese: %b | Toppings: %s | Sauces: %s",
-                sandwich.size, sandwich.isToasted(), sandwich.getBread(), sandwich.getMeat(), sandwich.isExtraMeat(), sandwich.getCheese(), sandwich.isExtraCheese(),
-                sandwich.getToppings(), sandwich.getSauces());
-        System.out.printf("\nTotal Price: $%.2f\n", sandwich.getValue());
-
+//        System.out.printf("\nSandwich | %s | Toasted: %b | Bread: %s | Meat: %s | ExtraMeat: %b | Cheese: %s | ExtraCheese: %b | Toppings: %s | Sauces: %s",
+//                sandwich.size, sandwich.isToasted(), sandwich.getBread(), sandwich.getMeat(), sandwich.isExtraMeat(), sandwich.getCheese(), sandwich.isExtraCheese(),
+//                sandwich.getToppings(), sandwich.getSauces());
+		sandwich.print();
         //Verify if the sandwich is correct
         return Utils.getUserInput("Is this sandwich correct?(Y or N):").trim();
     }
@@ -211,7 +214,7 @@ public class UserInterface {
     public String displayAndConfirmOrder(Order order) {
 
         //Print out order and verify order with customer
-        order.printItemsAndPrices();
+        order.print();
         return Utils.getUserInput("Is this order correct? (Y or N): ").trim();
 
     }

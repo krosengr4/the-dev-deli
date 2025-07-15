@@ -1,3 +1,7 @@
+import models.enums.Size;
+import ui.UserInterface;
+import utils.Utils;
+
 import java.util.ArrayList;
 
 //! Class that handles all logic of application

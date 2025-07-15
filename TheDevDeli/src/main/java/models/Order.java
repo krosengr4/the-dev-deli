@@ -12,11 +12,11 @@ public class Order {
 	int quantityOrdered;
 	double totalPrice;
 	LocalDateTime timeOfOrder;
-	List<MenuItems> itemsOrdered;
+	List<MenuItem> itemsOrdered;
 
 	public Order() {}
 
-	public Order(int order_id, String customerName, int quantityOrdered, double totalPrice, LocalDateTime timeOfOrder, List<MenuItems> itemsOrdered) { //!<--- Dunno if adding the list to the constructor is necessary yet
+	public Order(int order_id, String customerName, int quantityOrdered, double totalPrice, LocalDateTime timeOfOrder, List<MenuItem> itemsOrdered) { //!<--- Dunno if adding the list to the constructor is necessary yet
 		this.order_id = order_id;
 		this.customerName = customerName;
 		this.quantityOrdered = quantityOrdered;
@@ -66,11 +66,11 @@ public class Order {
 		this.timeOfOrder = timeOfOrder;
 	}
 
-	public List<MenuItems> getItemsOrdered() {
+	public List<MenuItem> getItemsOrdered() {
 		return itemsOrdered;
 	}
 
-	public void setItemsOrdered(List<MenuItems> itemsOrdered) {
+	public void setItemsOrdered(List<MenuItem> itemsOrdered) {
 		this.itemsOrdered = itemsOrdered;
 	}
 	//endregion
@@ -78,7 +78,7 @@ public class Order {
 	public double getValue() {
 		double value = 0.0;
 
-		for(MenuItems item : this.itemsOrdered) {
+		for(MenuItem item : this.itemsOrdered) {
 			value += item.getValue();
 		}
 		return value;
@@ -88,7 +88,7 @@ public class Order {
 		System.out.printf("\n\t\t\t%s---ORDER FOR %s %s---\n", Utils.BLUE, customerName, Utils.RESET);
 		Utils.designLine(60, true, "_");
 
-		for(MenuItems item : itemsOrdered) {
+		for(MenuItem item : itemsOrdered) {
 			item.print();
 		}
 		System.out.println("Total Items Ordered: " + this.getQuantityOrdered());

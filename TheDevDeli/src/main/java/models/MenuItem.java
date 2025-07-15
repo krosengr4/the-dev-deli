@@ -1,6 +1,6 @@
 package models;
 
-public interface MenuItems {
+public interface MenuItem {
 
 	public double getValue();
 
