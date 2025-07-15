@@ -1,7 +1,7 @@
 package models.sandwich;
 
 enum Bread {
-	WHITE("White"), WHEAT("Wheat"), RYE("Rye"), WRAP("Wrap");
+	WHITE("White"), WHEAT("Wheat"), RYE("Rye"), WRAP("Wrap"), SOURDOUGH("Sourdough");
 
 	private final String displayName;
 	Bread(String displayName) {
@@ -19,7 +19,7 @@ enum Bread {
 }
 
 enum Meat {
-	STEAK("Steak"), HAM("Ham"), SALAMI("Salami"), ROASTBEEF("Roast Beef"), CHICKEN("Chicken"), BACON("Bacon"), NONE("No Meat");
+	STEAK("Steak"), HAM("Ham"), SALAMI("Salami"), ROAST_BEEF("Roast Beef"), CHICKEN("Chicken"), BACON("Bacon"), NONE("No Meat");
 
 	private final String displayName;
 	Meat(String displayName) {
@@ -55,7 +55,7 @@ enum Cheese {
 }
 
 enum Topping {
-	LETTUCE("Lettuce"), PEPPERS("Peppers"), ONIONS("Onions"), TOMATOES("Tomatoes"), JALAPENOS("Jalapenos"), CUCUMBERS("Cucumbers"),
+	LETTUCE("Lettuce"), PEPPERS("Peppers"), ONIONS("Onions"), TOMATO("Tomatoes"), JALAPENOS("Jalapenos"), CUCUMBERS("Cucumbers"),
 	PICKLES("Pickles"), GUACAMOLE("Guacamole"), MUSHROOMS("Mushrooms"), NONE("No Topping");
 
 	private final String displayName;
@@ -74,7 +74,7 @@ enum Topping {
 }
 
 enum Sauce {
-	MAYO("Mayo"), MUSTARD("Mustard"), KETCHUP("Ketchup"), RANCH("Ranch"), THOUSANDISLANDS("Thousand Islands"), VINAIGRETTE("Vinaigrette"), AUJUS("Au Jus"), NONE("No Sauce");
+	MAYO("Mayo"), MUSTARD("Mustard"), KETCHUP("Ketchup"), RANCH("Ranch"), THOUSANDISLANDS("Thousand Islands"), VINAIGRETTE("Vinaigrette"), AUJUS("Au Jus"), BBQ("Barbeque"), NONE("No Sauce");
 
 	private final String displayName;
 	Sauce(String displayName) {
