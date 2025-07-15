@@ -1,3 +1,5 @@
+import utils.Utils;
+
 //! Class that handles all user interface of application
 public class UserInterface {
 

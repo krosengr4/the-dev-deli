@@ -1,5 +1,7 @@
 package models;
 
+import utils.Utils;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -80,5 +82,17 @@ public class Order {
 			value += item.getValue();
 		}
 		return value;
+	}
+
+	public void print() {
+		System.out.printf("\n\t\t\t%s---ORDER FOR %s %s---\n", Utils.BLUE, customerName, Utils.RESET);
+		Utils.designLine(60, true, "_");
+
+		for(MenuItems item : itemsOrdered) {
+			item.print();
+		}
+		System.out.println("Total Items Ordered: " + this.getQuantityOrdered());
+		System.out.println("Total Price: $" + this.getValue());
+		Utils.designLine(35, false, Utils.sandwich);
 	}
 }
