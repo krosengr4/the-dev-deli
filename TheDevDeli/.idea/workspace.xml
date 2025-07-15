@@ -5,26 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="330096fc-78ac-445f-97b8-de15204b3516" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Chips.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DeliShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DeliShop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Drink.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MenuItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Sandwich.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logic/CheckoutLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/CheckoutLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logic/ChipLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/ChipLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logic/DrinkLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/DrinkLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/logic/MainLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/MainLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Chip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Chip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Drink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Drink.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/MenuItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/MenuItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/sandwich/Sandwich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/sandwich/Sandwich.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/UserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/receipts/20250529-095652.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/receipts/20250529-095652.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/receipts/20250529-100128.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/receipts/20250529-100128.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/receipts/20250621-055533.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/receipts/20250621-055533.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logic/SandwichLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/SandwichLogic.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
