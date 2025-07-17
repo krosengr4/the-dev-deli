@@ -1,19 +1,21 @@
 package logic;
 
+import models.MenuItem;
 import ui.UserInterface;
+import java.util.List;
 
 public class MainLogic extends LogicBase{
 
 //	private static final UserInterface ui = new UserInterface();
-	public MainLogic(UserInterface ui) {
-		super(ui);
+	public MainLogic(UserInterface ui, List<MenuItem> customerOrder) {
+		super(ui, customerOrder);
 	}
 
 	public void processMainScreen() {
 		boolean ifContinue = true;
 
 		while(ifContinue) {
-			int userChoice = ui.displayMainScreen();
+			int userChoice = ui.displayMainMenu();
 
 			switch(userChoice) {
 				case 1 -> processOrderOption();
@@ -42,7 +44,5 @@ public class MainLogic extends LogicBase{
 		}
 
 	}
-
-
 
 }
