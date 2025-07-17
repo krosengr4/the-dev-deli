@@ -13,9 +13,12 @@ public class Sandwich implements MenuItem {
 	private Cheese cheese;
 	private List<Sauce> sauces;
 	private List<Topping> toppings;
+	//this is a boolean to determine if sandwich is toasted(true) or not(false).
 	private boolean isToasted;
 	private boolean hasExtraMeat;
 	private boolean hasExtraCheese;
+
+	public Sandwich() {}
 
 	public Sandwich(Size size, Bread bread, Meat meat, Cheese cheese, List<Sauce> sauces, List<Topping> toppings, boolean isToasted, boolean hasExtraCheese, boolean hasExtraMeat) {
 		this.size = size;
@@ -103,6 +106,7 @@ public class Sandwich implements MenuItem {
 	}
 	//endregion
 
+	//! Might wanna think about refactoring...
 	@Override
 	public double getValue() {
 		double value = 0.0;
@@ -191,6 +195,6 @@ public class Sandwich implements MenuItem {
 		if(this.isToasted)
 			System.out.println("Toasted!");
 
-		System.out.println("Price: $" + this.getValue());
+		System.out.printf("\nPrice: $%.2f\n", this.getValue());
 	}
 }

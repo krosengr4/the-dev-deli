@@ -248,10 +248,17 @@ public class UserInterface {
 
 	public int confirmOrder(Order order) {
 		List<MenuItem> itemsInOrder = order.getItemsOrdered();
-
 		for(MenuItem item : itemsInOrder) {
 			item.print();
 		}
+
+		System.out.println("""
+					IS THIS SANDWICH CORRECT?
+				---------------------------------
+				1 - Yes!
+				2 - No...
+				""");
+		return Utils.getUserInputIntMinMax("Enter Option: ", 1, 2);
 	}
 
 }
