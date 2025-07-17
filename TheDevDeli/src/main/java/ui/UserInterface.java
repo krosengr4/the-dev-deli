@@ -1,222 +1,257 @@
 package ui;
 
+import models.MenuItem;
 import models.Order;
 import models.sandwich.Sandwich;
 import utils.Utils;
 
-//! Class that handles all user interface of application
+import java.util.List;
+
 public class UserInterface {
 
-    //Method that will display the Main Menu of the application
-    public int displayMainScreen() {
-        //Create new instance of DeliStore
+	public int displayMainMenu() {
+		System.out.println(Utils.BLUE + "\n\t\t---MAIN MENU---" + Utils.RESET);
+		Utils.designLine(30, false, "_");
+		System.out.println("""
+						---OPTIONS---
+				1 - Order			0 - Exit
+				""");
 
-        //Print out Main Menu
-        System.out.printf("""
-                                             \s
-                                             %sMAIN MENU:
-                                ----------------------------------%s
-                              %s1 - Place an Order%s        %s0 - Exit%s
-                
-                \s""", Utils.BLUE, Utils.RESET, Utils.GREEN, Utils.RESET, Utils.RED, Utils.RESET);
+		return Utils.getUserInputIntMinMax("Enter option: ", 0, 1);
+	}
 
-        return Utils.getUserInputIntMinMax("Enter 1 or 0: ", 0, 1);
-    }
+	public int displayOrderScreen() {
+		System.out.println(Utils.BLUE + "\n\t\t---ORDER---" + Utils.RESET);
+		Utils.designLine(30, false, "_");
+		System.out.printf("""
+								  ---OPTIONS---
+				1 - Order Sandwich %s		3 - Order Drink %s
+				2 - Order Chips %s			4 - Checkout
+								 0 - Cancel
 
-    //Method that displays order screen options
-    public int displayOrderScreen() {
-        //Printing out order menu
-        System.out.printf("""
-                                                          \s
-                                                          %sORDER
-                                    -------------------------------------------------%s
-                                    %s1 - Order a Sandwich%s%s          %s3 - Add a Drink%s%s
-                                    %s2 - Add Chips%s%s                 %s4 - Checkout%s
-                        
-                                                  %s0 - Cancel Order%s
-                                                  \s
-                        """, Utils.BLUE, Utils.RESET, Utils.PURPLE, Utils.RESET, Utils.sandwich, Utils.CYAN, Utils.RESET, Utils.drink, Utils.YELLOW, Utils.RESET,
-                Utils.chips, Utils.GREEN, Utils.RESET, Utils.RED, Utils.RESET);
+				""", Utils.sandwich, Utils.drink, Utils.chips);
 
-        //Getting and returning user order menu selection
-        return Utils.getUserInputIntMinMax("Enter Your Option: ", 0, 4);
-    }
+		return Utils.getUserInputIntMinMax("Enter option: ", 0, 4);
+	}
 
-    //Method to display signature sandwiches and get user sandwich option
-    public int displayNewSandwichMenu() {
+	//region SANDWICH SCREENS
+	public int displaySandwichScreen() {
+		System.out.println(Utils.BLUE + "\n\t\t" + Utils.sandwich + "---SANDWICH---" + Utils.sandwich + Utils.RESET);
+		Utils.designLine(30, false, "_");
+		System.out.println("""
+					---OPTIONS---
+				1 - See Signature Sandwich Options
+				2 - Make Your Own Sandwich
+				0 - Go Back
+				""");
+		return Utils.getUserInputIntMinMax("Enter option: ", 0, 2);
+	}
 
-        System.out.printf("""
-                \s
-                             %s---%sSIGNATURE SANDWICHES%s---
-                        ___________________________________________%s
-                       %sBLT ($10.50)            Philly Cheese Steak ($10.50)
-                       -------------           -----------------------------%s \s
-                       %s8" White Bread          8" White Bread
-                       Bacon                   Steak \s
-                       Cheddar                 American Cheese
-                       Lettuce                 Peppers
-                       Tomato                  Mayo
-                       Ranch                   Toasted
-                       Toasted%s
-                \s""", Utils.CYAN, Utils.sandwich, Utils.sandwich, Utils.RESET, Utils.BLUE, Utils.RESET, Utils.YELLOW, Utils.RESET);
+	public int displaySignatureSandwiches() {
+		System.out.println(Utils.BLUE + "\n\t\t---SIGNATURE SANDWICHES---" + Utils.RESET);
+		Utils.designLine(30, false, "_");
+		System.out.printf("""
 
-        //Prompt user to choose one of the signature sandwiches, or to create their own
-        System.out.println(Utils.CYAN + "\n\t\t\t-----OPTIONS-----" + Utils.RESET);
-        System.out.println(Utils.YELLOW + "1 - Create Your Own | 2 - BLT | 3 - Philly Cheese Steak" + Utils.RESET);
-        return Utils.getUserInputInt("Please Enter your Choice: ");
-    }
+                       %sBLT - $10.50            Philly Cheese Steak - $10.50			The Cowboy - $00.00
+                       --------------------------------------------------------------------------------------%s
+                       %s8" White Bread          	8" White Bread						 12" Sourdough
+                       Bacon                   		Steak   							 Roast Beef
+                       Cheddar                 		American						 	 Cheddar
+                       Lettuce                 		Peppers								 Lettuce
+                       Tomato                  		Mayo								 Jalapenos
+                       Ranch                   		Toasted								 Onions
+                       Toasted  														 BBQ Sauce
+                       																	 Toasted%s
 
-    public int displaySandwichSizeOptions() {
-        //print out size options
-        System.out.printf("\n\t%s---SIZES---%s\n%s1 - Small (4inch) $5.50\n2 - Medium (8inch) $7.00\n3 - Large (12inch) $8.50%s",
-                Utils.CYAN, Utils.RESET, Utils.YELLOW, Utils.RESET);
-        return Utils.getUserInputInt("\nPlease enter the number next to the desired sandwich size: ");
-    }
+                """, Utils.CYAN, Utils.RESET, Utils.BLUE, Utils.RESET);
 
-    public int displaySandwichBreadOptions() {
-        System.out.printf("\n%s---%sBREAD OPTIONS%s---%s\n%s1 - White\n2 - Wheat\n3 - Rye\n4 - Wrap%s", Utils.CYAN, Utils.bread, Utils.bread,
-                Utils.RESET, Utils.YELLOW, Utils.RESET);
-        return Utils.getUserInputInt("\nPlease enter the number next to the desired bread: ");
-    }
+		System.out.println("""
+					---OPTIONS---
+				1 - BLT
+				2 - Philly Cheese Steak
+				3 - The Cowboy
+				0 - Go Back
+				""");
+		return Utils.getUserInputIntMinMax("Enter option: ", 0, 3);
+	}
 
-    public int displaySandwichMeatMenu() {
-        System.out.printf("""
-                
-                           %s---%sMEAT OPTIONS%s---
-                Small: +$1.00 | Medium: +$2.00 | Large: +$3.00%s\
-                
-                %s1 - Steak
-                2 - Ham
-                3 - Salami
-                4 - Roast Beef
-                5 - Chicken
-                6 - Bacon
-                0 - None%s""", Utils.CYAN, Utils.meat, Utils.meat, Utils.RESET, Utils.YELLOW, Utils.RESET);
-        return Utils.getUserInputInt("\nPlease enter the number next to the desired meat: ");
-    }
+	public int displaySandwichSizes() {
+		//distance between despises and price = 4 indents
+		System.out.println("""
+								___SIZES___
+				---------------------------------------
+				1 - Small 4"...					$5.50
+				2 - Medium 8"...				$7.00
+				3 - Large 12"...				$8.50
+				""");
 
-    public String displayExtraMeatOption() {
-        //Prompt user if they want extra meat
-        System.out.printf("\n%sExtra Meat: Small: +$0.50 | Medium: +$1.00 | Large: +$1.50%s", Utils.CYAN, Utils.RESET);
-        return Utils.getUserInput("\nWould you like extra meat?(Y or N): ").trim();
-    }
+		return Utils.getUserInputIntMinMax("Enter Option: ", 1, 3);
+	}
 
-    public int displaySandwichCheeseOptions() {
-        System.out.printf("""
-                
-                           %s---%sCHEESE OPTIONS%s---
-                Small: +$0.75 | Medium: +$1.50 | Large: +$2.25%s\
-                %s
-                1 - American
-                2 - Provolone
-                3 - Cheddar
-                4 - Swiss
-                0 - None%s""", Utils.CYAN, Utils.cheese, Utils.cheese, Utils.RESET, Utils.YELLOW, Utils.RESET);
-        return Utils.getUserInputInt("\nPlease enter the number next to the desired cheese: ");
-    }
+	public int displayMeats() {
+		System.out.printf("""
+							%s___MEATS___%s
+				-------------------------------------
+				1 - Steak
+				2 - Ham
+				3 - Salami
+				4 - Roast Beef
+				5 - Chicken
+				6 - Bacon
+				0 - No Meat
+				
+				""", Utils.meat, Utils.meat);
 
-    public String displayExtraCheeseOption() {
-        System.out.printf("\n%sExtra Cheese: Small: +$0.30 | Medium: +$0.60 | Large: +$0.90%s", Utils.CYAN, Utils.RESET);
-        return Utils.getUserInput("\nWould you like extra cheese? (Y or N): ").trim();
-    }
+		return Utils.getUserInputIntMinMax("Enter Option: ", 0, 6);
+	}
 
-    public int displaySandwichToppingsOptions() {
-        System.out.printf("""
-                                    %s---TOPPINGS OPTIONS---
-                                      Toppings are free%s
-                            %s1 - Lettuce                 6 - Cucumbers
-                            2 - Peppers                 7 - Pickles
-                            3 - Onions                  8 - Guacamole
-                            4 - Tomatoes                9 - Mushrooms
-                            5 - Jalapeños               0 - None%s
-                
-                """, Utils.CYAN, Utils.RESET, Utils.YELLOW, Utils.RESET);
-        return Utils.getUserInputInt("\nPlease enter the number next to the desired topping: ");
-    }
+	public int displayCheeses() {
+		System.out.printf("""
+						%s___CHEESES___%s
+				-------------------------------------
+				1 - American
+				2 - Provolone
+				3 - Cheddar
+				4 - Swiss
+				0 - No Cheese
+				""", Utils.cheese, Utils.cheese);
 
-    public int displaySandwichSaucesOptions() {
-        System.out.printf("""
-                                        %s---SAUCE OPTIONS---
-                                          Sauces are free%s
-                            %s1 - Mayo                    5 - Thousand Islands
-                            2 - Mustard                 6 - Vinaigrette
-                            3 - Ketchup                 7 - Au Jus
-                            4 - Ranch                   0 - None%s
-                
-                """, Utils.CYAN, Utils.RESET, Utils.YELLOW, Utils.RESET);
-        return Utils.getUserInputInt("\nPlease enter the number next to the desired sauce: ");
-    }
+		return Utils.getUserInputIntMinMax("Enter Option: ", 0, 4);
+	}
 
-    public int displayToastedSandwichOptions() {
-        System.out.printf("\n%sWould you like your sandwich toasted?%s%s%s\n%s1 - yes, toast it!\n2 - no, don't toast it.%s\n",
-                Utils.CYAN, Utils.RESET, Utils.fire, Utils.bread, Utils.YELLOW, Utils.RESET);
+	public int displayExtraChoice(String item) {
+		String smallPrice = "";
+		String medPrice = "";
+		String largePrice = "";
 
-        return Utils.getUserInputInt("Enter your option: ");
-    }
+		if (item.equalsIgnoreCase("meat")) {
+			smallPrice = "$0.50";
+			medPrice = "$1.00";
+			largePrice = "$1.50";
+		} else if(item.equalsIgnoreCase("cheese")) {
+			smallPrice = "$0.30";
+			medPrice = "$0.60";
+			largePrice = "$0.90";
+		}
 
-    public String confirmSandwich(Sandwich sandwich) {
-        //Print out the sandwich that was just created
-//        System.out.printf("\nSandwich | %s | Toasted: %b | Bread: %s | Meat: %s | ExtraMeat: %b | Cheese: %s | ExtraCheese: %b | Toppings: %s | Sauces: %s",
-//                sandwich.size, sandwich.isToasted(), sandwich.getBread(), sandwich.getMeat(), sandwich.isExtraMeat(), sandwich.getCheese(), sandwich.isExtraCheese(),
-//                sandwich.getToppings(), sandwich.getSauces());
+		System.out.printf("""
+					WOULD YOU LIKE TO ADD EXTRA CHEESE?
+				__________________________________________
+				1 - YES							2 - NO
+				-------------------------------------------
+				Size Small...		+		 %s
+				Size Medium...		+		 %s
+				Size Large...		+		 %s
+				""", smallPrice, medPrice, largePrice);
+
+		return Utils.getUserInputIntMinMax("Enter Option: ", 1, 2);
+	}
+
+	public int displayToppings() {
+		System.out.println("""
+							___TOPPINGS___
+				---------------------------------------
+				1 - Lettuce					6 - Cucumbers
+				2 - Peppers					7 - Pickles
+				3 - Onions					8 - Guacamole
+				4 - Tomatoes				9 - Mushrooms
+				5 - Jalapenos				0 - No Toppings
+				""");
+
+		return Utils.getUserInputIntMinMax("Enter Option: ", 0, 9);
+	}
+
+	public int displaySauces() {
+		System.out.println("""
+							___SAUCES___
+				---------------------------------------
+				1 - Mayo					6 - Vinaigrette
+				2 - Mustard					7 - Au Jus
+				3 - Ketchup					8 - Barbeque
+				4 - Thousand Islands		0 - No Toppings
+				""");
+
+		return Utils.getUserInputIntMinMax("Enter Option: ", 0, 8);
+	}
+
+	public int displayToastedOption() {
+		System.out.println("""
+					WOULD YOU LIKE YOUR SANDWICH TOASTED?
+				_____________________________________________
+				1 - YES						2 - NO
+				""");
+
+		return Utils.getUserInputIntMinMax("Enter Option: ", 1, 2);
+	}
+
+	public int confirmSandwich(Sandwich sandwich) {
 		sandwich.print();
-        //Verify if the sandwich is correct
-        return Utils.getUserInput("Is this sandwich correct?(Y or N):").trim();
-    }
+		System.out.println("""
+					IS THIS SANDWICH CORRECT?
+				---------------------------------
+				1 - Yes!
+				2 - No...
+				""");
+		return Utils.getUserInputIntMinMax("Enter Option: ", 1, 2);
+	}
+	//endregion
 
-    public String displayAddAnotherMessage() {
-        return Utils.getUserInput("Would you like to add another? (Y or N): ").trim();
-    }
+	public int displayChips() {
+		System.out.printf("""
+								%s___CHIP_OPTIONS___%s
+				--------------------------------------------------
+				1 - French Fries...						$2.75
+				2 - Nacho Cheese Doritos...				$1.50
+				3 - Miss Vickies Jalapeno Chips...		$1.50
+				4 - Lays Original Potato Chips...		$1.50
+				5 - Cheetos...							$1.50
+				6 - Takis...							$1.50
+				7 - Cheez-Its...						$1.50
+									0 - Go Back
+				
+				""", Utils.chips, Utils.chips);
 
-    public int displayChipOptions() {
-        System.out.printf("""
-                \s
-                         %s---%sCHIP OPTIONS%s---
-                          Chips are $1.50 each%s
-                    %s1 - Doritos Nacho Cheese\s
-                    2 - Lays Classic\s
-                    3 - Miss Vickies Jalapeño\s
-                    4 - Ruffles Original
-                    5 - Cheetos%s
-                \s""", Utils.BLUE, Utils.chips, Utils.chips, Utils.RESET, Utils.YELLOW, Utils.RESET);
+		return Utils.getUserInputIntMinMax("Enter Option: ", 0, 7);
+	}
 
-        return Utils.getUserInputInt("Please enter your option: ");
-    }
+	//region DRINK SCREENS
+	public int displayDrinks() {
+		System.out.printf("""
+						%s___DRINK_OPTIONS___%s
+				-------------------------------------
+				1 - Fountain Drink
+				2 - Lemonade
+				3 - Sweet Tea
+				4 - Unsweet Tea
+				5 - Milkshake
+				6 - Juice
+				7 - Water 	*** Water is Free ***
+				0 - Go Back
+				
+				""", Utils.drink, Utils.drink);
 
-    public int displayDrinkOptions() {
-        //Ask customer for drink type
-        System.out.printf("""
-                
-                    %s----%sDRINK OPTIONS%s-----%s
-                %s1 - Fountain Drink
-                2 - Lemonade
-                3 - Sweet Tea
-                4 - Unsweetened Tea
-                5 - MilkShake%s
-                """, Utils.BLUE, Utils.drink, Utils.drink, Utils.RESET, Utils.YELLOW, Utils.RESET);
+		return Utils.getUserInputIntMinMax("Enter Option: ", 0, 7);
+	}
 
-        return Utils.getUserInputInt("Select the number next to the desired drink: ");
-    }
+	public int displayDrinkSize() {
+		System.out.println("""
+								___DRINK_SIZES___
+				---------------------------------------
+				1 - Small 12 Oz...				$2.00
+				2 - Medium 24 Oz...				$2.50
+				3 - Large 32 Oz...				$3.00
+				""");
 
-    public int displayDrinkSizes() {
-        //Ask customer for drink size
-        System.out.printf("""
-                \s
-                     %s-----DRINK SIZES-----%s
-                 %s1 - Small $2.00
-                 2 - Medium $2.50
-                 3 - Large $3.00%s       \s
-                \s""", Utils.BLUE, Utils.RESET, Utils.YELLOW, Utils.RESET);
+		return Utils.getUserInputIntMinMax("Enter Option: ", 1, 3);
+	}
+	//endregion
 
-        return Utils.getUserInputInt("Enter a drink size: ");
-    }
+	public int confirmOrder(Order order) {
+		List<MenuItem> itemsInOrder = order.getItemsOrdered();
 
-    public String displayAndConfirmOrder(Order order) {
-
-        //Print out order and verify order with customer
-        order.print();
-        return Utils.getUserInput("Is this order correct? (Y or N): ").trim();
-
-    }
+		for(MenuItem item : itemsInOrder) {
+			item.print();
+		}
+	}
 
 }
