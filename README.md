@@ -4,7 +4,6 @@
 
 - [Description](#description)
 - [Images](#images)
-- [Class Diagram](#class-diagram)
 - [Usage](#usage)
 - [Testing](#testing)
 - [Featured Code](#featured-code)
@@ -62,12 +61,6 @@ ___
 ___
 ___
 ![img_3.png](TheDevDeli/images/img_3.png)
-
-## Class Diagram
-
----
-
-![img.png](TheDevDeli/src/main/ClassDiagram/img.png)
 
 ## Usage
 
