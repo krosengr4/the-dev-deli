@@ -1,10 +1,7 @@
 package logic;
 
 import models.MenuItem;
-import models.enums.Cheese;
-import models.enums.Meat;
-import models.enums.Sauce;
-import models.enums.Topping;
+import models.enums.*;
 import models.sandwich.Sandwich;
 import ui.UserInterface;
 import utils.Utils;
@@ -54,15 +51,19 @@ public class SandwichLogic extends LogicBase {
 		return sandwich;
 	}
 
-//	private static Sandwich selectBread(Sandwich sandwich) {
-//		int userChoice = ui.displayBreads();
-//
-//		switch(userChoice) {
-//			1 - > sandwich.setBread(Bread.WHITE);
-//			2 -> sandwich.setBread(Bread.WHEAT);
-//
-//		}
-//	}
+	private static Sandwich selectBread(Sandwich sandwich) {
+		int userChoice = ui.displayBreads();
+
+		switch(userChoice) {
+			case 1 -> sandwich.setBread(Bread.WHITE);
+			case 2 -> sandwich.setBread(Bread.WHEAT);
+			case 3 -> sandwich.setBread(Bread.RYE);
+			case 4 -> sandwich.setBread(Bread.SOURDOUGH);
+			default -> System.err.println("ERROR! Please enter a choice that is listed!!!");
+		}
+
+		return sandwich;
+	}
 
 	private static Sandwich selectMeat(Sandwich sandwich) {
 		int userChoice = ui.displayMeats();
