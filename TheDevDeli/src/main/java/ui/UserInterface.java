@@ -149,14 +149,14 @@ public class UserInterface {
 		}
 
 		System.out.printf("""
-					WOULD YOU LIKE TO ADD EXTRA CHEESE?
+					WOULD YOU LIKE TO ADD EXTRA %s?
 				__________________________________________
 				1 - YES							2 - NO
 				-------------------------------------------
 				Size Small...		+		 %s
 				Size Medium...		+		 %s
 				Size Large...		+		 %s
-				""", smallPrice, medPrice, largePrice);
+				""", item.toUpperCase(), smallPrice, medPrice, largePrice);
 
 		return Utils.getUserInputIntMinMax("Enter Option: ", 1, 2);
 	}
@@ -186,6 +186,16 @@ public class UserInterface {
 				""");
 
 		return Utils.getUserInputIntMinMax("Enter Option: ", 0, 8);
+	}
+
+	public int displayMoreMenu() {
+		System.out.println("""
+					WOULD YOU LIKE TO ADD MORE?
+				______________________________________
+				1 - YES						2 - NO
+				""");
+
+		return Utils.getUserInputIntMinMax("Enter Option: ", 1, 2);
 	}
 
 	public int displayToastedOption() {

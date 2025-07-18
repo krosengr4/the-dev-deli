@@ -12,7 +12,7 @@ public class Sandwich implements MenuItem {
 	private Meat meat;
 	private Cheese cheese;
 	private List<Sauce> sauces;
-	private List<Topping> toppings;
+	private List<Topping> toppingList;
 	//this is a boolean to determine if sandwich is toasted(true) or not(false).
 	private boolean isToasted;
 	private boolean hasExtraMeat;
@@ -27,7 +27,7 @@ public class Sandwich implements MenuItem {
 		this.meat = meat;
 		this.cheese = cheese;
 		this.sauces = sauces;
-		this.toppings = toppings;
+		this.toppingList = toppings;
 		this.isToasted = isToasted;
 		this.hasExtraCheese = hasExtraCheese;
 		this.hasExtraMeat = hasExtraMeat;
@@ -82,8 +82,8 @@ public class Sandwich implements MenuItem {
 		this.sauces = sauces;
 	}
 
-	public void setToppings(List<Topping> toppings) {
-		this.toppings = toppings;
+	public void setToppingList(Topping topping) {
+		this.toppingList.add(topping);
 	}
 //endregion
 
@@ -169,7 +169,7 @@ public class Sandwich implements MenuItem {
 		for(Sauce sauce : this.sauces) {
 			System.out.println(sauce.getDisplayName() + " Sauce");
 		}
-		for(Topping topping : toppings) {
+		for(Topping topping : toppingList) {
 			System.out.println(topping.getDisplayName());
 		}
 

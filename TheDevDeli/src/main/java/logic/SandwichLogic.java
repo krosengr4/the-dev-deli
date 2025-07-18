@@ -3,17 +3,14 @@ package logic;
 import models.MenuItem;
 import models.enums.Cheese;
 import models.enums.Meat;
+import models.enums.Topping;
 import models.sandwich.Sandwich;
 import ui.UserInterface;
 import utils.Utils;
 import java.util.List;
 
-import static models.enums.Bread.WHITE;
-import static models.enums.Bread.*;
-import static models.enums.Meat.*;
+//import static models.enums.Meat.*;
 import static models.enums.Size.*;
-import static models.enums.Sauce.*;
-import static models.enums.Topping.*;
 
 public class SandwichLogic extends LogicBase {
 
@@ -60,8 +57,8 @@ public class SandwichLogic extends LogicBase {
 //		int userChoice = ui.displayBreads();
 //
 //		switch(userChoice) {
-//			1 - > sandwich.setBread(WHITE);
-//			2 -> sandwich.setBread(WHEAT);
+//			1 - > sandwich.setBread(Bread.WHITE);
+//			2 -> sandwich.setBread(Bread.WHEAT);
 //
 //		}
 //	}
@@ -70,12 +67,12 @@ public class SandwichLogic extends LogicBase {
 		int userChoice = ui.displayMeats();
 
 		switch(userChoice) {
-			case 1 -> sandwich.setMeat(STEAK);
-			case 2 -> sandwich.setMeat(HAM);
-			case 3 -> sandwich.setMeat(SALAMI);
-			case 4 -> sandwich.setMeat(ROAST_BEEF);
-			case 5 -> sandwich.setMeat(CHICKEN);
-			case 6 -> sandwich.setMeat(BACON);
+			case 1 -> sandwich.setMeat(Meat.STEAK);
+			case 2 -> sandwich.setMeat(Meat.HAM);
+			case 3 -> sandwich.setMeat(Meat.SALAMI);
+			case 4 -> sandwich.setMeat(Meat.ROAST_BEEF);
+			case 5 -> sandwich.setMeat(Meat.CHICKEN);
+			case 6 -> sandwich.setMeat(Meat.BACON);
 			case 0 -> sandwich.setMeat(Meat.NONE);
 			default -> System.err.println("ERROR! Please enter a choice that is listed!!!");
 		}
@@ -100,6 +97,33 @@ public class SandwichLogic extends LogicBase {
 
 		int extraCheeseChoice = ui.displayExtraChoice("cheese");
 		sandwich.setHasExtraCheese(extraCheeseChoice == 1);
+
+		return sandwich;
+	}
+
+	private static Sandwich setToppings(Sandwich sandwich) {
+		boolean ifContinue = true;
+
+		while(ifContinue) {
+			int userChoice = ui.displayToppings();
+			switch(userChoice) {
+				case 1 -> sandwich.setToppingList(Topping.LETTUCE);
+				case 2 -> sandwich.setToppingList(Topping.PEPPERS);
+				case 3 -> sandwich.setToppingList(Topping.ONIONS);
+				case 4 -> sandwich.setToppingList(Topping.TOMATO);
+				case 5 -> sandwich.setToppingList(Topping.JALAPENOS);
+				case 6 -> sandwich.setToppingList(Topping.CUCUMBERS);
+				case 7 -> sandwich.setToppingList(Topping.PICKLES);
+				case 8 -> sandwich.setToppingList(Topping.GUACAMOLE);
+				case 9 -> sandwich.setToppingList(Topping.MUSHROOMS);
+				case 0 -> sandwich.setToppingList(Topping.NONE);
+				default -> System.err.println("ERROR! Please enter a choice that is listed!!!");
+			}
+
+			int addMoreOption = ui.displayMoreMenu();
+			if(addMoreOption == 2)
+				ifContinue = false;
+		}
 
 		return sandwich;
 	}
