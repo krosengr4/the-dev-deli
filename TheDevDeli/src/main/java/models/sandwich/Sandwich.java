@@ -58,6 +58,14 @@ public class Sandwich implements MenuItem {
 		this.hasExtraCheese = hasExtraCheese;
 	}
 
+	public Size getSize() {
+		return size;
+	}
+
+	public void setSize(Size size) {
+		this.size = size;
+	}
+
 	public void setBread(SandwichOptions.Bread bread) {
 		this.bread = bread;
 	}

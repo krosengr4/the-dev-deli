@@ -1,12 +1,12 @@
 package logic;
 
 import models.MenuItem;
-import models.enums.Size;
 import models.sandwich.Sandwich;
 import ui.UserInterface;
 import utils.Utils;
-
 import java.util.List;
+import static models.sandwich.SandwichOptions.Meat.*;
+import static models.enums.Size.*;
 
 public class SandwichLogic extends LogicBase {
 
@@ -36,14 +36,33 @@ public class SandwichLogic extends LogicBase {
 		Sandwich sandwich = new Sandwich();
 	}
 
-	private static Sandwich selectSide() {
+	private static Sandwich selectSize() {
 		Sandwich sandwich = new Sandwich();
 		int userChoice = ui.displaySandwichSizes();
 
 		switch(userChoice) {
-			case 1 -> sandwich.setSize(Size.SMALL);
-			case 2 -> sandwich.setSize(Size.MEDIUM);
-			case 3 -> sandwich.setSize(Size.LARGE);
+			case 1 -> sandwich.setSize(SMALL);
+			case 2 -> sandwich.setSize(MEDIUM);
+			case 3 -> sandwich.setSize(LARGE);
+			default -> System.err.println("ERROR! Please enter a choice that is listed!!!");
+		}
+
+		return sandwich;
+	}
+
+	private static Sandwich selectMeat() {
+
+		Sandwich sandwich = new Sandwich();
+		int userChoice = ui.displayMeats();
+
+		switch(userChoice) {
+			case 1 -> sandwich.setMeat(STEAK);
+			case 2 -> sandwich.setMeat(HAM);
+			case 3 -> sandwich.setMeat(SALAMI);
+			case 4 -> sandwich.setMeat(ROAST_BEEF);
+			case 5 -> sandwich.setMeat(CHICKEN);
+			case 6 -> sandwich.setMeat(BACON);
+			case 0 -> sandwich.setMeat(NONE);
 			default -> System.err.println("ERROR! Please enter a choice that is listed!!!");
 		}
 
