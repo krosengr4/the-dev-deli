@@ -1,13 +1,19 @@
 package logic;
 
 import models.MenuItem;
+import models.enums.Cheese;
+import models.enums.Meat;
 import models.sandwich.Sandwich;
 import ui.UserInterface;
 import utils.Utils;
 import java.util.List;
 
+import static models.enums.Bread.WHITE;
+import static models.enums.Bread.*;
 import static models.enums.Meat.*;
 import static models.enums.Size.*;
+import static models.enums.Sauce.*;
+import static models.enums.Topping.*;
 
 public class SandwichLogic extends LogicBase {
 
@@ -37,8 +43,7 @@ public class SandwichLogic extends LogicBase {
 		Sandwich sandwich = new Sandwich();
 	}
 
-	private static Sandwich selectSize() {
-		Sandwich sandwich = new Sandwich();
+	private static Sandwich selectSize(Sandwich sandwich) {
 		int userChoice = ui.displaySandwichSizes();
 
 		switch(userChoice) {
@@ -51,9 +56,17 @@ public class SandwichLogic extends LogicBase {
 		return sandwich;
 	}
 
-	private static Sandwich selectMeat() {
+//	private static Sandwich selectBread(Sandwich sandwich) {
+//		int userChoice = ui.displayBreads();
+//
+//		switch(userChoice) {
+//			1 - > sandwich.setBread(WHITE);
+//			2 -> sandwich.setBread(WHEAT);
+//
+//		}
+//	}
 
-		Sandwich sandwich = new Sandwich();
+	private static Sandwich selectMeat(Sandwich sandwich) {
 		int userChoice = ui.displayMeats();
 
 		switch(userChoice) {
@@ -63,9 +76,30 @@ public class SandwichLogic extends LogicBase {
 			case 4 -> sandwich.setMeat(ROAST_BEEF);
 			case 5 -> sandwich.setMeat(CHICKEN);
 			case 6 -> sandwich.setMeat(BACON);
-			case 0 -> sandwich.setMeat(NONE);
+			case 0 -> sandwich.setMeat(Meat.NONE);
 			default -> System.err.println("ERROR! Please enter a choice that is listed!!!");
 		}
+
+		int extraMeatChoice = ui.displayExtraChoice("meat");
+		sandwich.setHasExtraMeat(extraMeatChoice == 1);
+
+		return sandwich;
+	}
+
+	private static Sandwich setCheese(Sandwich sandwich) {
+		int userChoice = ui.displayCheeses();
+
+		switch(userChoice) {
+			case 1 -> sandwich.setCheese(Cheese.AMERICAN);
+			case 2 -> sandwich.setCheese(Cheese.PROVOLONE);
+			case 3 -> sandwich.setCheese(Cheese.CHEDDAR);
+			case 4 -> sandwich.setCheese(Cheese.SWISS);
+			case 0 -> sandwich.setCheese(Cheese.NONE);
+			default -> System.err.println("ERROR! Please enter a choice that is listed!!!");
+		}
+
+		int extraCheeseChoice = ui.displayExtraChoice("cheese");
+		sandwich.setHasExtraCheese(extraCheeseChoice == 1);
 
 		return sandwich;
 	}

@@ -28,7 +28,7 @@ public class UserInterface {
 				1 - Order Sandwich %s		3 - Order Drink %s
 				2 - Order Chips %s			4 - Checkout
 								 0 - Cancel
-
+				
 				""", Utils.sandwich, Utils.drink, Utils.chips);
 
 		return Utils.getUserInputIntMinMax("Enter option: ", 0, 4);
@@ -51,19 +51,19 @@ public class UserInterface {
 		System.out.println(Utils.BLUE + "\n\t\t---SIGNATURE SANDWICHES---" + Utils.RESET);
 		Utils.designLine(30, false, "_");
 		System.out.printf("""
-
-                       %sBLT - $10.50            Philly Cheese Steak - $10.50			The Cowboy - $00.00
-                       --------------------------------------------------------------------------------------%s
-                       %s8" White Bread          	8" White Bread						 12" Sourdough
-                       Bacon                   		Steak   							 Roast Beef
-                       Cheddar                 		American						 	 Cheddar
-                       Lettuce                 		Peppers								 Lettuce
-                       Tomato                  		Mayo								 Jalapenos
-                       Ranch                   		Toasted								 Onions
-                       Toasted  														 BBQ Sauce
-                       																	 Toasted%s
-
-                """, Utils.CYAN, Utils.RESET, Utils.BLUE, Utils.RESET);
+				
+				       %sBLT - $10.50            Philly Cheese Steak - $10.50			The Cowboy - $00.00
+				       --------------------------------------------------------------------------------------%s
+				       %s8" White Bread          	8" White Bread						 12" Sourdough
+				       Bacon                   		Steak   							 Roast Beef
+				       Cheddar                 		American						 	 Cheddar
+				       Lettuce                 		Peppers								 Lettuce
+				       Tomato                  		Mayo								 Jalapenos
+				       Ranch                   		Toasted								 Onions
+				       Toasted  														 BBQ Sauce
+				       																	 Toasted%s
+				
+				""", Utils.CYAN, Utils.RESET, Utils.BLUE, Utils.RESET);
 
 		System.out.println("""
 					---OPTIONS---
@@ -86,6 +86,20 @@ public class UserInterface {
 				""");
 
 		return Utils.getUserInputIntMinMax("Enter Option: ", 1, 3);
+	}
+
+	public int displayBreads() {
+		System.out.printf("""
+							%s___BREADS___%s
+				-------------------------------------
+				1 - White
+				2 - Wheat
+				3 - Rye
+				4 - Sourdough
+				
+				""", Utils.meat, Utils.meat);
+
+		return Utils.getUserInputIntMinMax("Enter Option: ", 1, 4);
 	}
 
 	public int displayMeats() {
@@ -124,7 +138,7 @@ public class UserInterface {
 		String medPrice = "";
 		String largePrice = "";
 
-		if (item.equalsIgnoreCase("meat")) {
+		if(item.equalsIgnoreCase("meat")) {
 			smallPrice = "$0.50";
 			medPrice = "$1.00";
 			largePrice = "$1.50";
