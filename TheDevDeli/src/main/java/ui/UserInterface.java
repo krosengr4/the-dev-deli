@@ -179,9 +179,9 @@ public class UserInterface {
 		System.out.println("""
 							___SAUCES___
 				---------------------------------------
-				1 - Mayo					6 - Vinaigrette
-				2 - Mustard					7 - Au Jus
-				3 - Ketchup					8 - Barbeque
+				1 - Mayo					5 - Vinaigrette
+				2 - Mustard					6 - Au Jus
+				3 - Ketchup					7 - Barbeque
 				4 - Thousand Islands		0 - No Toppings
 				""");
 

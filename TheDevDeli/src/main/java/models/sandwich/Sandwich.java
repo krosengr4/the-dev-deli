@@ -11,7 +11,7 @@ public class Sandwich implements MenuItem {
 	private Bread bread;
 	private Meat meat;
 	private Cheese cheese;
-	private List<Sauce> sauces;
+	private List<Sauce> sauceList;
 	private List<Topping> toppingList;
 	//this is a boolean to determine if sandwich is toasted(true) or not(false).
 	private boolean isToasted;
@@ -26,7 +26,7 @@ public class Sandwich implements MenuItem {
 		this.bread = bread;
 		this.meat = meat;
 		this.cheese = cheese;
-		this.sauces = sauces;
+		this.sauceList = sauces;
 		this.toppingList = toppings;
 		this.isToasted = isToasted;
 		this.hasExtraCheese = hasExtraCheese;
@@ -78,8 +78,8 @@ public class Sandwich implements MenuItem {
 		this.cheese = cheese;
 	}
 
-	public void setSauces(List<Sauce> sauces) {
-		this.sauces = sauces;
+	public void setSauceList(Sauce sauce) {
+		this.sauceList.add(sauce);
 	}
 
 	public void setToppingList(Topping topping) {
@@ -166,7 +166,7 @@ public class Sandwich implements MenuItem {
 		if(this.hasExtraCheese)
 			System.out.println("Extra " + this.cheese.getDisplayName() + "!");
 
-		for(Sauce sauce : this.sauces) {
+		for(Sauce sauce : this.sauceList) {
 			System.out.println(sauce.getDisplayName() + " Sauce");
 		}
 		for(Topping topping : toppingList) {

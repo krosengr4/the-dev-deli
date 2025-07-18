@@ -3,6 +3,7 @@ package logic;
 import models.MenuItem;
 import models.enums.Cheese;
 import models.enums.Meat;
+import models.enums.Sauce;
 import models.enums.Topping;
 import models.sandwich.Sandwich;
 import ui.UserInterface;
@@ -123,6 +124,31 @@ public class SandwichLogic extends LogicBase {
 			int addMoreOption = ui.displayMoreMenu();
 			if(addMoreOption == 2)
 				ifContinue = false;
+		}
+
+		return sandwich;
+	}
+
+	private static Sandwich setSauces(Sandwich sandwich) {
+		boolean ifContinue = true;
+		while(ifContinue) {
+			int userChoice = ui.displaySauces();
+
+			switch(userChoice) {
+				case 1 -> sandwich.setSauceList(Sauce.MAYO);
+				case 2 -> sandwich.setSauceList(Sauce.MUSTARD);
+				case 3 -> sandwich.setSauceList(Sauce.KETCHUP);
+				case 4 -> sandwich.setSauceList(Sauce.THOUSANDISLANDS);
+				case 5 -> sandwich.setSauceList(Sauce.VINAIGRETTE);
+				case 6 -> sandwich.setSauceList(Sauce.AUJUS);
+				case 7 -> sandwich.setSauceList(Sauce.BBQ);
+				case 0 -> sandwich.setSauceList(Sauce.NONE);
+			}
+
+			int addMoreOption = ui.displayMoreMenu();
+			if(addMoreOption == 2) {
+				ifContinue = false;
+			}
 		}
 
 		return sandwich;
