@@ -1,6 +1,4 @@
-package models.sandwich;
-
-import models.enums.Size;
+package models.enums;
 
 import java.util.List;
 

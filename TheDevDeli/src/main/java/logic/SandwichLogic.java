@@ -5,7 +5,8 @@ import models.sandwich.Sandwich;
 import ui.UserInterface;
 import utils.Utils;
 import java.util.List;
-import static models.sandwich.SandwichOptions.Meat.*;
+
+import static models.enums.Meat.*;
 import static models.enums.Size.*;
 
 public class SandwichLogic extends LogicBase {

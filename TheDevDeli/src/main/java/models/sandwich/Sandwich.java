@@ -1,18 +1,18 @@
 package models.sandwich;
 
 import models.MenuItem;
-import models.enums.Size;
+import models.enums.*;
 
 import java.util.List;
 
 public class Sandwich implements MenuItem {
 
 	private Size size;
-	private SandwichOptions.Bread bread;
-	private SandwichOptions.Meat meat;
-	private SandwichOptions.Cheese cheese;
-	private List<SandwichOptions.Sauce> sauces;
-	private List<SandwichOptions.Topping> toppings;
+	private Bread bread;
+	private Meat meat;
+	private Cheese cheese;
+	private List<Sauce> sauces;
+	private List<Topping> toppings;
 	//this is a boolean to determine if sandwich is toasted(true) or not(false).
 	private boolean isToasted;
 	private boolean hasExtraMeat;
@@ -20,8 +20,8 @@ public class Sandwich implements MenuItem {
 
 	public Sandwich() {}
 
-	public Sandwich(Size size, SandwichOptions.Bread bread, SandwichOptions.Meat meat, SandwichOptions.Cheese cheese, List<SandwichOptions.Sauce> sauces,
-					List<SandwichOptions.Topping> toppings, boolean isToasted, boolean hasExtraCheese, boolean hasExtraMeat) {
+	public Sandwich(Size size, Bread bread, Meat meat, Cheese cheese, List<Sauce> sauces,
+					List<Topping> toppings, boolean isToasted, boolean hasExtraCheese, boolean hasExtraMeat) {
 		this.size = size;
 		this.bread = bread;
 		this.meat = meat;
@@ -66,23 +66,23 @@ public class Sandwich implements MenuItem {
 		this.size = size;
 	}
 
-	public void setBread(SandwichOptions.Bread bread) {
+	public void setBread(Bread bread) {
 		this.bread = bread;
 	}
 
-	public void setMeat(SandwichOptions.Meat meat) {
+	public void setMeat(Meat meat) {
 		this.meat = meat;
 	}
 
-	public void setCheese(SandwichOptions.Cheese cheese) {
+	public void setCheese(Cheese cheese) {
 		this.cheese = cheese;
 	}
 
-	public void setSauces(List<SandwichOptions.Sauce> sauces) {
+	public void setSauces(List<Sauce> sauces) {
 		this.sauces = sauces;
 	}
 
-	public void setToppings(List<SandwichOptions.Topping> toppings) {
+	public void setToppings(List<Topping> toppings) {
 		this.toppings = toppings;
 	}
 //endregion
@@ -97,10 +97,10 @@ public class Sandwich implements MenuItem {
 				value = 5.5;
 
 				//Calculate value for adding meat and cheese
-				if (this.meat != SandwichOptions.Meat.NONE) {
+				if (this.meat != Meat.NONE) {
 					value += 1.00;
 				}
-				if (this.cheese != SandwichOptions.Cheese.NONE) {
+				if (this.cheese != Cheese.NONE) {
 					value += 0.75;
 				}
 				//Calculate value for adding EXTRA meat and cheese
@@ -115,10 +115,10 @@ public class Sandwich implements MenuItem {
 				value = 7.00;
 
 				//Calculate value for adding meat and cheese
-				if (this.meat != SandwichOptions.Meat.NONE) {
+				if (this.meat != Meat.NONE) {
 					value += 2.00;
 				}
-				if (this.cheese != SandwichOptions.Cheese.NONE) {
+				if (this.cheese != Cheese.NONE) {
 					value += 1.50;
 				}
 				//Calculate value for adding EXTRA meat and cheese
@@ -133,10 +133,10 @@ public class Sandwich implements MenuItem {
 				value = 8.50;
 
 				//Calculate value for adding meat and cheese
-				if (this.meat != SandwichOptions.Meat.NONE) {
+				if (this.meat != Meat.NONE) {
 					value += 3.00;
 				}
-				if (this.cheese != SandwichOptions.Cheese.NONE) {
+				if (this.cheese != Cheese.NONE) {
 					value += 2.25;
 				}
 				//Calculate value for adding EXTRA meat and cheese
@@ -166,10 +166,10 @@ public class Sandwich implements MenuItem {
 		if(this.hasExtraCheese)
 			System.out.println("Extra " + this.cheese.getDisplayName() + "!");
 
-		for(SandwichOptions.Sauce sauce : this.sauces) {
+		for(Sauce sauce : this.sauces) {
 			System.out.println(sauce.getDisplayName() + " Sauce");
 		}
-		for(SandwichOptions.Topping topping : toppings) {
+		for(Topping topping : toppings) {
 			System.out.println(topping.getDisplayName());
 		}
 
