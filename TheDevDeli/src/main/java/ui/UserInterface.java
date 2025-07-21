@@ -66,12 +66,12 @@ public class UserInterface {
 				""", Utils.CYAN, Utils.RESET, Utils.BLUE, Utils.RESET);
 
 		System.out.println("""
-					---OPTIONS---
-				1 - BLT
-				2 - Philly Cheese Steak
-				3 - The Cowboy
-				0 - Go Back
+									---OPTIONS---
+
+				1 - BLT				2 - Philly Cheese Steak			3 - The Cowboy
+									0 - Go Back
 				""");
+
 		return Utils.getUserInputIntMinMax("Enter option: ", 0, 3);
 	}
 
@@ -156,6 +156,7 @@ public class UserInterface {
 				Size Small...		+		 %s
 				Size Medium...		+		 %s
 				Size Large...		+		 %s
+				
 				""", item.toUpperCase(), smallPrice, medPrice, largePrice);
 
 		return Utils.getUserInputIntMinMax("Enter Option: ", 1, 2);

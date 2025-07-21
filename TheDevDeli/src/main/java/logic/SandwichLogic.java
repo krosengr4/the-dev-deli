@@ -5,6 +5,8 @@ import models.enums.*;
 import models.sandwich.Sandwich;
 import ui.UserInterface;
 import utils.Utils;
+
+import java.util.ArrayList;
 import java.util.List;
 
 //import static models.enums.Meat.*;
@@ -23,22 +25,61 @@ public class SandwichLogic extends LogicBase {
 			int userChoice = ui.displaySandwichScreen();
 
 			switch(userChoice) {
-				case 1 -> createNewSandwich();
+				case 1 -> selectSigSandwich();
+				case 2 -> createNewSandwich();
+				case 0 -> ifContinue = false;
 			}
 		}
-		//This is a comment
-		//COMMENT
+	}
+
+	private static void selectSigSandwich() {
+		int userChoice = ui.displaySignatureSandwiches();
+		Sandwich sandwich = new Sandwich();
+		List<Topping> toppingList = new ArrayList<>();
+		List<Sauce> sauceList = new ArrayList<>();
+
+		switch(userChoice) {
+			case 1 -> {
+				toppingList.add(Topping.LETTUCE);
+				toppingList.add(Topping.TOMATO);
+				sauceList.add(Sauce.RANCH);
+
+				sandwich = new Sandwich(MEDIUM, Bread.WHITE, Meat.BACON, Cheese.CHEDDAR, sauceList, toppingList, true, false, false);
+			}
+			case 2 -> {
+				toppingList.add(Topping.PEPPERS);
+				sauceList.add(Sauce.MAYO);
+
+				sandwich = new Sandwich(MEDIUM, Bread.WHITE, Meat.STEAK, Cheese.AMERICAN, sauceList, toppingList, true, false, false);
+			}
+			case 3 -> {
+				toppingList.add(Topping.LETTUCE);
+				toppingList.add(Topping.JALAPENOS);
+				toppingList.add(Topping.ONIONS);
+				sauceList.add(Sauce.BBQ);
+
+				sandwich = new Sandwich(LARGE, Bread.SOURDOUGH, Meat.ROAST_BEEF, Cheese.CHEDDAR, sauceList, toppingList, true, true, true);
+			}
+		}
+
+		addToOrder(sandwich);
 	}
 
 	private static void createNewSandwich() {
 		boolean ifContinue = true;
-		// Build sandwich by calling methods to add item on sandwich
-
-
 		Sandwich sandwich = new Sandwich();
+		// Build sandwich by calling methods to add item on sandwich
+		selectSize(sandwich);
+		selectBread(sandwich);
+		selectMeat(sandwich);
+		setCheese(sandwich);
+		setToppings(sandwich);
+		setSauces(sandwich);
+
+		addToOrder(sandwich);
 	}
 
-	private static Sandwich selectSize(Sandwich sandwich) {
+	private static void selectSize(Sandwich sandwich) {
 		int userChoice = ui.displaySandwichSizes();
 
 		switch(userChoice) {
@@ -47,11 +88,9 @@ public class SandwichLogic extends LogicBase {
 			case 3 -> sandwich.setSize(LARGE);
 			default -> System.err.println("ERROR! Please enter a choice that is listed!!!");
 		}
-
-		return sandwich;
 	}
 
-	private static Sandwich selectBread(Sandwich sandwich) {
+	private static void selectBread(Sandwich sandwich) {
 		int userChoice = ui.displayBreads();
 
 		switch(userChoice) {
@@ -61,11 +100,9 @@ public class SandwichLogic extends LogicBase {
 			case 4 -> sandwich.setBread(Bread.SOURDOUGH);
 			default -> System.err.println("ERROR! Please enter a choice that is listed!!!");
 		}
-
-		return sandwich;
 	}
 
-	private static Sandwich selectMeat(Sandwich sandwich) {
+	private static void selectMeat(Sandwich sandwich) {
 		int userChoice = ui.displayMeats();
 
 		switch(userChoice) {
@@ -81,11 +118,9 @@ public class SandwichLogic extends LogicBase {
 
 		int extraMeatChoice = ui.displayExtraChoice("meat");
 		sandwich.setHasExtraMeat(extraMeatChoice == 1);
-
-		return sandwich;
 	}
 
-	private static Sandwich setCheese(Sandwich sandwich) {
+	private static void setCheese(Sandwich sandwich) {
 		int userChoice = ui.displayCheeses();
 
 		switch(userChoice) {
@@ -99,11 +134,9 @@ public class SandwichLogic extends LogicBase {
 
 		int extraCheeseChoice = ui.displayExtraChoice("cheese");
 		sandwich.setHasExtraCheese(extraCheeseChoice == 1);
-
-		return sandwich;
 	}
 
-	private static Sandwich setToppings(Sandwich sandwich) {
+	private static void setToppings(Sandwich sandwich) {
 		boolean ifContinue = true;
 
 		while(ifContinue) {
@@ -126,11 +159,9 @@ public class SandwichLogic extends LogicBase {
 			if(addMoreOption == 2)
 				ifContinue = false;
 		}
-
-		return sandwich;
 	}
 
-	private static Sandwich setSauces(Sandwich sandwich) {
+	private static void setSauces(Sandwich sandwich) {
 		boolean ifContinue = true;
 		while(ifContinue) {
 			int userChoice = ui.displaySauces();
@@ -151,8 +182,6 @@ public class SandwichLogic extends LogicBase {
 				ifContinue = false;
 			}
 		}
-
-		return sandwich;
 	}
 
 	private static void addToOrder(Sandwich sandwich) {
