@@ -185,6 +185,14 @@ public class SandwichLogic extends LogicBase {
 	}
 
 	//todo: Make toasted option method
+	private static void setToastedOption(Sandwich sandwich) {
+		int userChoice = ui.displayToastedOption();
+
+		switch(userChoice) {
+			case 1 -> sandwich.setToasted(true);
+			case 2 -> sandwich.setToasted(false);
+		}
+	}
 
 	private static void addToOrder(Sandwich sandwich) {
 		int userConfirmation = ui.confirmSandwich(sandwich);
