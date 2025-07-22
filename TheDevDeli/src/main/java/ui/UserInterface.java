@@ -273,7 +273,7 @@ public class UserInterface {
 
 	public int confirmOrder() {
 		System.out.println("""
-					IS THIS SANDWICH CORRECT?
+					IS THIS ORDER CORRECT?
 				---------------------------------
 				1 - Yes!
 				2 - No...

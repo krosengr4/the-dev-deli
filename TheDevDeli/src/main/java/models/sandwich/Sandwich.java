@@ -187,6 +187,7 @@ public class Sandwich implements MenuItem {
 		if(this.isToasted)
 			System.out.println("Toasted!");
 
-		System.out.printf("\nPrice: $%.2f\n", this.getValue());
+		System.out.printf("Price: $%.2f\n", this.getValue());
+		System.out.println("------------------------------------------------");
 	}
 }
