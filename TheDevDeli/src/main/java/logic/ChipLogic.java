@@ -30,11 +30,10 @@ public class ChipLogic extends LogicBase{
 		if(userChoice != 0) {
 			addToOrder(chip);
 		}
-
 	}
 
 	private static void addToOrder(Chip chip) {
-
+		customerOrder.add(chip);
 	}
 
 }
