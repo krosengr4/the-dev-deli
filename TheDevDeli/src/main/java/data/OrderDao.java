@@ -2,6 +2,7 @@ package data;
 
 import models.MenuItem;
 import models.Order;
+import models.OrderLineItem;
 
 import java.util.List;
 
@@ -15,6 +16,6 @@ public interface OrderDao {
 
 	Order addOrder(Order order);
 
-	Order addLineItems(List<MenuItem> orderItems);
+	Order addLineItems(OrderLineItem orderItem);
 
 }

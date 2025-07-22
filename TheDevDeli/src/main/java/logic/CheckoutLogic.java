@@ -26,9 +26,10 @@ public class CheckoutLogic extends LogicBase {
 		int userChoice = ui.confirmOrder();
 		if(userChoice == 1) {
 			createAndAddOrder();
+		} else {
+			System.out.println("Sorry for the inconvenience... Try again?");
+			Utils.playSound("womp-womp.wav");
 		}
-
-
 	}
 
 	private static void createAndAddOrder() {
@@ -38,14 +39,16 @@ public class CheckoutLogic extends LogicBase {
 		order.setOrder_id(0);
 		order.setCustomerName(customerName);
 		order.setQuantityOrdered(customerOrder.size());
-		order.setTotalPrice(order.getValue());
 		order.setTimeOfOrder(LocalDateTime.now());
 		order.setItemsOrdered(customerOrder);
+		order.setTotalPrice(order.getValue());
 
 		//todo: Create DAO with method to insert into the orders table
+		Order addedOrder = orderDao.addOrder(order);
+		addedOrder.print();
 	}
 
-	private static void addOrderLineItems() {
+	private static void addOrderLineItems(List<MenuItem> orderItems) {
 		//todo: Create DAO with method to insert each item in customer order into order_line_items table
 
 	}

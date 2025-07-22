@@ -98,14 +98,14 @@ public class Order {
 	}
 
 	public void print() {
-		System.out.printf("\n\t\t\t%s---ORDER FOR %s %s---\n", Utils.BLUE, customerName, Utils.RESET);
+		System.out.printf("\n\t\t\t%s---ORDER FOR %s %s---\n", Utils.BLUE, customerName.toUpperCase(), Utils.RESET);
 		Utils.designLine(60, true, "_");
 
 		for(MenuItem item : itemsOrdered) {
 			item.print();
 		}
 		System.out.println("Total Items Ordered: " + this.getQuantityOrdered());
-		System.out.println("Total Price: $" + this.getValue());
+		System.out.println("Total Price: $" + this.getTotalPrice());
 		Utils.designLine(35, false, Utils.sandwich);
 	}
 }

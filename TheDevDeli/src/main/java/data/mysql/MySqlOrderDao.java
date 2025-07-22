@@ -4,6 +4,7 @@ import config.DatabaseConfig;
 import data.OrderDao;
 import models.MenuItem;
 import models.Order;
+import models.OrderLineItem;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 import javax.sql.DataSource;
@@ -87,7 +88,7 @@ public class MySqlOrderDao extends MySqlBaseDao implements OrderDao {
 				ResultSet key = statement.getGeneratedKeys();
 
 				if(key.next()) {
-					int orderId = key.getInt("order_id");
+					int orderId = key.getInt(1);
 					return getById(orderId);
 				}
 			} else {
@@ -102,7 +103,7 @@ public class MySqlOrderDao extends MySqlBaseDao implements OrderDao {
 	}
 
 	@Override
-	public Order addLineItems(List<MenuItem> orderItems) {
+	public Order addLineItems(OrderLineItem orderItem) {
 		return null;
 	}
 
