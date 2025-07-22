@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="330096fc-78ac-445f-97b8-de15204b3516" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/logic/SandwichLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/SandwichLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logic/CheckoutLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/CheckoutLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logic/LogicBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/LogicBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +50,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Debug",
+    "Application.Main.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",

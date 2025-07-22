@@ -3,6 +3,7 @@ package models;
 import utils.Utils;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
@@ -12,7 +13,7 @@ public class Order {
 	int quantityOrdered;
 	double totalPrice;
 	LocalDateTime timeOfOrder;
-	List<MenuItem> itemsOrdered;
+	List<MenuItem> itemsOrdered = new ArrayList<>();
 
 	public Order() {}
 
@@ -72,6 +73,10 @@ public class Order {
 
 	public void setItemsOrdered(List<MenuItem> itemsOrdered) {
 		this.itemsOrdered = itemsOrdered;
+	}
+
+	public void addToOrder(MenuItem item) {
+		itemsOrdered.add(item);
 	}
 	//endregion
 

@@ -1,6 +1,7 @@
 package logic;
 
 import models.MenuItem;
+import models.Order;
 import ui.UserInterface;
 
 import java.util.List;
@@ -11,8 +12,8 @@ public abstract class LogicBase {
 	protected static List<MenuItem> customerOrder;
 
 	public LogicBase(UserInterface ui, List<MenuItem> customerOrder) {
-		this.ui = ui;
-		this.customerOrder = customerOrder;
+		LogicBase.ui = ui;
+		LogicBase.customerOrder = customerOrder;
 	}
 
 }

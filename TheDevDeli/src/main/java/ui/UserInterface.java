@@ -271,12 +271,7 @@ public class UserInterface {
 	}
 	//endregion
 
-	public int confirmOrder(Order order) {
-		List<MenuItem> itemsInOrder = order.getItemsOrdered();
-		for(MenuItem item : itemsInOrder) {
-			item.print();
-		}
-
+	public int confirmOrder() {
 		System.out.println("""
 					IS THIS SANDWICH CORRECT?
 				---------------------------------
