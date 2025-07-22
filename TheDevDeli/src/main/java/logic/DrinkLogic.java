@@ -7,6 +7,8 @@ import ui.UserInterface;
 
 import java.util.List;
 
+import static models.enums.Size.*;
+
 public class DrinkLogic extends LogicBase {
 
 	public DrinkLogic(UserInterface ui, List<MenuItem> customerOrder) {
@@ -29,6 +31,16 @@ public class DrinkLogic extends LogicBase {
 			case 5 -> drink.setDrinkType(DrinkType.MILKSHAKE);
 			case 6 -> drink.setDrinkType(DrinkType.JUICE);
 			case 7 -> drink.setDrinkType(DrinkType.WATER);
+		}
+	}
+
+	private static void selectDrinkSize(Drink drink) {
+		int userChoice = ui.displayDrinkSize();
+
+		switch(userChoice) {
+			case 1 -> drink.setSize(SMALL);
+			case 2 -> drink.setSize(MEDIUM);
+			case 3 -> drink.setSize(LARGE);
 		}
 	}
 
