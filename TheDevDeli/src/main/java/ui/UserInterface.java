@@ -1,11 +1,7 @@
 package ui;
 
-import models.MenuItem;
-import models.Order;
-import models.sandwich.Sandwich;
+import models.Sandwich;
 import utils.Utils;
-
-import java.util.List;
 
 public class UserInterface {
 

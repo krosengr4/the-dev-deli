@@ -2,7 +2,7 @@ package logic;
 
 import models.MenuItem;
 import models.enums.*;
-import models.sandwich.Sandwich;
+import models.Sandwich;
 import ui.UserInterface;
 import utils.Utils;
 

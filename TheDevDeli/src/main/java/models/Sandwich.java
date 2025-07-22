@@ -1,6 +1,5 @@
-package models.sandwich;
+package models;
 
-import models.MenuItem;
 import models.enums.*;
 
 import java.util.ArrayList;
