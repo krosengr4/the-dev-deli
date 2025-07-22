@@ -6,6 +6,8 @@ public class Chip implements MenuItem {
 
 	ChipType chipType;
 
+	public Chip() {}
+
 	public Chip(ChipType chipType) {
 		this.chipType = chipType;
 	}

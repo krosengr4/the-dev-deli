@@ -9,7 +9,6 @@ import utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-//import static models.enums.Meat.*;
 import static models.enums.Size.*;
 
 public class SandwichLogic extends LogicBase {
@@ -62,11 +61,12 @@ public class SandwichLogic extends LogicBase {
 			}
 		}
 
-		addToOrder(sandwich);
+		if(userChoice == 1 || userChoice == 2 || userChoice == 3) {
+			addToOrder(sandwich);
+		}
 	}
 
 	private static void createNewSandwich() {
-		boolean ifContinue = true;
 		Sandwich sandwich = new Sandwich();
 		// Build sandwich by calling methods to add item on sandwich
 		selectSize(sandwich);
@@ -190,10 +190,10 @@ public class SandwichLogic extends LogicBase {
 		if(userConfirmation == 1) {
 			customerOrder.add(sandwich);
 			System.out.println(Utils.GREEN + "Your sandwich was added to the order!" + Utils.RESET);
-			Utils.playSound("owin31");
+			Utils.playSound("owin31.wav");
 		} else {
 			System.out.println("Apologies for the inconvenience. Please try again!");
-			Utils.playSound("womp-womp");
+			Utils.playSound("womp-womp.wav");
 		}
 	}
 

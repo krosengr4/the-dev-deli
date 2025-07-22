@@ -3,6 +3,7 @@ package models.sandwich;
 import models.MenuItem;
 import models.enums.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sandwich implements MenuItem {
@@ -11,8 +12,8 @@ public class Sandwich implements MenuItem {
 	private Bread bread;
 	private Meat meat;
 	private Cheese cheese;
-	private List<Sauce> sauceList;
-	private List<Topping> toppingList;
+	private List<Sauce> sauceList = new ArrayList<>();
+	private List<Topping> toppingList = new ArrayList<>();
 	//this is a boolean to determine if sandwich is toasted(true) or not(false).
 	private boolean isToasted;
 	private boolean hasExtraMeat;
@@ -166,11 +167,21 @@ public class Sandwich implements MenuItem {
 		if(this.hasExtraCheese)
 			System.out.println("Extra " + this.cheese.getDisplayName() + "!");
 
-		for(Sauce sauce : this.sauceList) {
-			System.out.println(sauce.getDisplayName() + " Sauce");
+		System.out.println("Sauces: ");
+		if(sauceList.isEmpty()) {
+			System.out.println("None.");
+		} else {
+			for(Sauce sauce : this.sauceList) {
+				System.out.println(sauce.getDisplayName() + " Sauce");
+			}
 		}
-		for(Topping topping : toppingList) {
-			System.out.println(topping.getDisplayName());
+		System.out.println("Toppings: ");
+		if(toppingList.isEmpty()) {
+			System.out.println("None");
+		} else {
+			for(Topping topping : toppingList) {
+				System.out.println(topping.getDisplayName());
+			}
 		}
 
 		if(this.isToasted)
