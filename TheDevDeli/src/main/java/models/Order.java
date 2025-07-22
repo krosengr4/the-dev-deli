@@ -17,7 +17,15 @@ public class Order {
 
 	public Order() {}
 
-	public Order(int order_id, String customerName, int quantityOrdered, double totalPrice, LocalDateTime timeOfOrder, List<MenuItem> itemsOrdered) { //!<--- Dunno if adding the list to the constructor is necessary yet
+	public Order(int order_id, String customerName, int quantityOrdered, double totalPrice, LocalDateTime timeOfOrder) {
+		this.order_id = order_id;
+		this.customerName = customerName;
+		this.quantityOrdered = quantityOrdered;
+		this.totalPrice = totalPrice;
+		this.timeOfOrder = timeOfOrder;
+	}
+
+	public Order(int order_id, String customerName, int quantityOrdered, double totalPrice, LocalDateTime timeOfOrder, List<MenuItem> itemsOrdered) {
 		this.order_id = order_id;
 		this.customerName = customerName;
 		this.quantityOrdered = quantityOrdered;

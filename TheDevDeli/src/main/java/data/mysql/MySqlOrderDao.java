@@ -7,6 +7,9 @@ import models.Order;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 import javax.sql.DataSource;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +42,16 @@ public class MySqlOrderDao extends MySqlBaseDao implements OrderDao {
 	@Override
 	public Order addLineItems(List<MenuItem> orderItems) {
 		return null;
+	}
+
+	private Order mapRow(ResultSet results) throws SQLException {
+		int orderId = results.getInt("order_id");
+		String customerName = results.getString("customer_name");
+		int quantity = results.getInt("quantity_of_items");
+		double totalPrice = results.getDouble("total_price");
+		LocalDateTime timeOrdered = results.getTimestamp("time_ordered").toLocalDateTime();
+
+		return new Order(orderId, customerName, quantity, totalPrice, timeOrdered);
 	}
 
 }
