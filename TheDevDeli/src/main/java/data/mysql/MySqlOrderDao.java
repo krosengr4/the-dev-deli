@@ -40,12 +40,27 @@ public class MySqlOrderDao extends MySqlBaseDao implements OrderDao {
 			throw new RuntimeException(e);
 		}
 
-
 		return ordersList;
 	}
 
 	@Override
 	public Order getById(int orderId) {
+		String query = "SELECT * FROM orders WHERE order_id = ?;";
+
+		try(Connection connection = getConnection()) {
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setInt(1, orderId);
+
+			ResultSet results = statement.executeQuery();
+			if(results.next()) {
+				return mapRow(results);
+			} else {
+				System.out.println("No orders with that order ID!");
+			}
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+
 		return null;
 	}
 
