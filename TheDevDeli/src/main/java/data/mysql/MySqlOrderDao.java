@@ -7,6 +7,8 @@ import models.Order;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
@@ -24,6 +26,19 @@ public class MySqlOrderDao extends MySqlBaseDao implements OrderDao {
 	@Override
  	public List<Order> getAll() {
 		List<Order> ordersList = new ArrayList<>();
+		String query = "SELECT * FROM orders;";
+
+		try(Connection connection = getConnection()) {
+			PreparedStatement statement = connection.prepareStatement(query);
+
+			ResultSet results = statement.executeQuery();
+			while(results.next()) {
+				ordersList.add(mapRow(results));
+			}
+
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
 
 
 		return ordersList;
