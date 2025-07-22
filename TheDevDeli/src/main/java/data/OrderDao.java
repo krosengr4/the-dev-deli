@@ -1,15 +1,18 @@
 package data;
 
+import models.MenuItem;
 import models.Order;
+
+import java.util.List;
 
 public interface OrderDao {
 
-	Order getAll();
+	List<Order> getAll();
 
-	Order getById();
+	Order getById(int orderId);
 
-	Order addOrder();
+	Order addOrder(Order order);
 
-	Order addLineItems();
+	Order addLineItems(List<MenuItem> orderItems);
 
 }
