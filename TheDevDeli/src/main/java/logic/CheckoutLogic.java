@@ -46,6 +46,8 @@ public class CheckoutLogic extends LogicBase {
 		//todo: Create DAO with method to insert into the orders table
 		Order addedOrder = orderDao.addOrder(order);
 		addedOrder.print();
+
+		addOrderLineItems(customerOrder);
 	}
 
 	private static void addOrderLineItems(List<MenuItem> orderItems) {

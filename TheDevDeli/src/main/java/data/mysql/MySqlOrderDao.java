@@ -2,9 +2,7 @@ package data.mysql;
 
 import config.DatabaseConfig;
 import data.OrderDao;
-import models.MenuItem;
-import models.Order;
-import models.OrderLineItem;
+import models.*;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 import javax.sql.DataSource;
@@ -103,8 +101,34 @@ public class MySqlOrderDao extends MySqlBaseDao implements OrderDao {
 	}
 
 	@Override
-	public Order addLineItems(OrderLineItem orderItem) {
-		return null;
+	public void addLineItems(OrderLineItem orderItem) {
+		String query = "INSERT INTO order_line_items (order_id, item_ordered, price) " +
+							   "VALUES (?, ?, ?);";
+		try(Connection connection = getConnection()) {
+			String itemName = "";
+			if(orderItem.getItemOrdered() instanceof Sandwich) {
+				itemName = "Sandwich";
+			} else if(orderItem.getItemOrdered() instanceof Chip) {
+				itemName = "Chip";
+			} else if(orderItem.getItemOrdered() instanceof Drink) {
+				itemName = "Drink";
+			}
+
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setInt(1, orderItem.getOrderId());
+			statement.setString(2, itemName);
+			statement.setDouble(3, orderItem.getPrice());
+
+			int rows = statement.executeUpdate();
+			if(rows > 0) {
+				System.out.println("All items logged to database");
+			} else {
+				System.err.println("ERROR! Could not log items ordered to database!");
+			}
+
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	private Order mapRowToOrder(ResultSet results) throws SQLException {

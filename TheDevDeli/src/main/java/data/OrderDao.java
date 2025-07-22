@@ -16,6 +16,6 @@ public interface OrderDao {
 
 	Order addOrder(Order order);
 
-	Order addLineItems(OrderLineItem orderItem);
+	void addLineItems(OrderLineItem orderItem);
 
 }

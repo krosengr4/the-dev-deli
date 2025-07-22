@@ -18,16 +18,12 @@ public class SandwichLogic extends LogicBase {
 	}
 
 	public static void processSandwichMenu() {
-		boolean ifContinue = true;
 
-		while(ifContinue) {
-			int userChoice = ui.displaySandwichScreen();
+		int userChoice = ui.displaySandwichScreen();
 
-			switch(userChoice) {
-				case 1 -> selectSigSandwich();
-				case 2 -> createNewSandwich();
-				case 0 -> ifContinue = false;
-			}
+		switch(userChoice) {
+			case 1 -> selectSigSandwich();
+			case 2 -> createNewSandwich();
 		}
 	}
 

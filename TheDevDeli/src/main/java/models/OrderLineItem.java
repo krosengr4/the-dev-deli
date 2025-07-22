@@ -4,7 +4,7 @@ public class OrderLineItem {
 
 	int orderLineItemId;
 	int orderId;
-	String itemOrdered;
+	Object itemOrdered;
 	double price;
 
 	public OrderLineItem() {}
@@ -33,7 +33,7 @@ public class OrderLineItem {
 		this.orderId = orderId;
 	}
 
-	public String getItemOrdered() {
+	public Object getItemOrdered() {
 		return itemOrdered;
 	}
 
