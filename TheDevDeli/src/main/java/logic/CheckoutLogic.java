@@ -5,10 +5,13 @@ import data.mysql.MySqlOrderDao;
 import data.OrderDao;
 import models.MenuItem;
 import models.Order;
+import models.OrderLineItem;
+import models.Sandwich;
 import ui.UserInterface;
 import utils.Utils;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CheckoutLogic extends LogicBase {
@@ -47,11 +50,20 @@ public class CheckoutLogic extends LogicBase {
 		Order addedOrder = orderDao.addOrder(order);
 		addedOrder.print();
 
-		addOrderLineItems(customerOrder);
+		addOrderLineItems(addedOrder);
 	}
 
-	private static void addOrderLineItems(List<MenuItem> orderItems) {
+	private static void addOrderLineItems(Order order) {
 		//todo: Create DAO with method to insert each item in customer order into order_line_items table
+		List<OrderLineItem> orderItems = new ArrayList<>();
+		for(MenuItem item : customerOrder) {
+			OrderLineItem orderItem = new OrderLineItem();
+			orderItem.setOrderId(order.getOrder_id());
+			orderItem.setItemOrdered(item);
+			orderItem.setPrice(item.getValue());
+
+			orderDao.addLineItems(orderItem);
+		}
 
 	}
 

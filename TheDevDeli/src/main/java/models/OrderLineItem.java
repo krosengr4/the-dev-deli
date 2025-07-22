@@ -1,15 +1,17 @@
 package models;
 
+import java.awt.*;
+
 public class OrderLineItem {
 
 	int orderLineItemId;
 	int orderId;
-	Object itemOrdered;
+	MenuItem itemOrdered;
 	double price;
 
 	public OrderLineItem() {}
 
-	public OrderLineItem(int orderLineItemId, int orderId, String itemOrdered, double price) {
+	public OrderLineItem(int orderLineItemId, int orderId, MenuItem itemOrdered, double price) {
 		this.orderLineItemId = orderLineItemId;
 		this.orderId = orderId;
 		this.itemOrdered = itemOrdered;
@@ -33,11 +35,11 @@ public class OrderLineItem {
 		this.orderId = orderId;
 	}
 
-	public Object getItemOrdered() {
+	public MenuItem getItemOrdered() {
 		return itemOrdered;
 	}
 
-	public void setItemOrdered(String itemOrdered) {
+	public void setItemOrdered(MenuItem itemOrdered) {
 		this.itemOrdered = itemOrdered;
 	}
 
