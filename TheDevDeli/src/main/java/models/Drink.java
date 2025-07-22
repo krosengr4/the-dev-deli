@@ -8,6 +8,8 @@ public class Drink implements MenuItem {
 	Size size;
 	DrinkType drinkType;
 
+	public Drink() {}
+
 	public Drink(Size size, DrinkType drinkType) {
 		this.size = size;
 		this.drinkType = drinkType;
