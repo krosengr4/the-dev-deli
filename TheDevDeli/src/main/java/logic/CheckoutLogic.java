@@ -1,5 +1,8 @@
 package logic;
 
+import config.DatabaseConfig;
+import data.mysql.MySqlOrderDao;
+import data.OrderDao;
 import models.MenuItem;
 import models.Order;
 import ui.UserInterface;
@@ -9,6 +12,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class CheckoutLogic extends LogicBase {
+
+	static OrderDao orderDao = new MySqlOrderDao(DatabaseConfig.setDataSource());
 
 	public CheckoutLogic(UserInterface ui, List<MenuItem> customerOrder) {
 		super(ui, customerOrder);
