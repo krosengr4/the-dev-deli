@@ -51,6 +51,7 @@ public class CheckoutLogic extends LogicBase {
 		addedOrder.print();
 
 		addOrderLineItems(addedOrder);
+		customerOrder.clear();
 	}
 
 	private static void addOrderLineItems(Order order) {
