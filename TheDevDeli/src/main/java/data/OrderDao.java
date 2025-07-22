@@ -11,6 +11,8 @@ public interface OrderDao {
 
 	Order getById(int orderId);
 
+	List<MenuItem> getItemsByOrderId(int orderId);
+
 	Order addOrder(Order order);
 
 	Order addLineItems(List<MenuItem> orderItems);

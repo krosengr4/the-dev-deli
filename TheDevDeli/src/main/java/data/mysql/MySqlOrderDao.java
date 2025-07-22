@@ -33,7 +33,7 @@ public class MySqlOrderDao extends MySqlBaseDao implements OrderDao {
 
 			ResultSet results = statement.executeQuery();
 			while(results.next()) {
-				ordersList.add(mapRow(results));
+				ordersList.add(mapRowToOrder(results));
 			}
 
 		} catch(SQLException e) {
@@ -53,7 +53,7 @@ public class MySqlOrderDao extends MySqlBaseDao implements OrderDao {
 
 			ResultSet results = statement.executeQuery();
 			if(results.next()) {
-				return mapRow(results);
+				return mapRowToOrder(results);
 			} else {
 				System.out.println("No orders with that order ID!");
 			}
@@ -62,6 +62,14 @@ public class MySqlOrderDao extends MySqlBaseDao implements OrderDao {
 		}
 
 		return null;
+	}
+
+	@Override
+	public List<MenuItem> getItemsByOrderId(int orderId) {
+		List<MenuItem> orderItems = new ArrayList<>();
+
+
+		return orderItems;
 	}
 
 	@Override
@@ -74,7 +82,7 @@ public class MySqlOrderDao extends MySqlBaseDao implements OrderDao {
 		return null;
 	}
 
-	private Order mapRow(ResultSet results) throws SQLException {
+	private Order mapRowToOrder(ResultSet results) throws SQLException {
 		int orderId = results.getInt("order_id");
 		String customerName = results.getString("customer_name");
 		int quantity = results.getInt("quantity_of_items");
@@ -83,5 +91,9 @@ public class MySqlOrderDao extends MySqlBaseDao implements OrderDao {
 
 		return new Order(orderId, customerName, quantity, totalPrice, timeOrdered);
 	}
+
+//	private MenuItem mapRowToOrderItem(ResultSet results) {
+//		String itemOrdered =
+//	}
 
 }
