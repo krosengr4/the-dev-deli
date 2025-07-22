@@ -25,7 +25,7 @@ public class Chip implements MenuItem {
 	@Override
 	public double getValue() {
 		if(this.chipType.equals(ChipType.FRENCHFRIES))
-			return 2.25;
+			return 2.75;
 		else
 			return 1.50;
 	}

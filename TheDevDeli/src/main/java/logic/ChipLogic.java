@@ -4,6 +4,7 @@ import models.Chip;
 import models.MenuItem;
 import models.enums.ChipType;
 import ui.UserInterface;
+import utils.Utils;
 
 import java.util.List;
 
@@ -34,6 +35,10 @@ public class ChipLogic extends LogicBase{
 
 	private static void addToOrder(Chip chip) {
 		customerOrder.add(chip);
+		System.out.println("Success! The chips were added to the order!");
+		chip.print();
+		Utils.playSound("owin31.wav");
+
 	}
 
 }

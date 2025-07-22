@@ -4,6 +4,7 @@ import models.Drink;
 import models.MenuItem;
 import models.enums.DrinkType;
 import ui.UserInterface;
+import utils.Utils;
 
 import java.util.List;
 
@@ -49,6 +50,9 @@ public class DrinkLogic extends LogicBase {
 
 	private static void addToOrder(Drink drink) {
 		customerOrder.add(drink);
+		System.out.println("Success your drink was added to the order!");
+		drink.print();
+		Utils.playSound("owin31.wav");
 	}
 
 }
