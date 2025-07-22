@@ -17,7 +17,10 @@ public class DrinkLogic extends LogicBase {
 
 	public static void processDrinkOption() {
 		Drink drink = new Drink();
+		selectDrinkType(drink);
+		selectDrinkSize(drink);
 
+		addToOrder(drink);
 	}
 
 	private static void selectDrinkType(Drink drink) {
@@ -45,7 +48,7 @@ public class DrinkLogic extends LogicBase {
 	}
 
 	private static void addToOrder(Drink drink) {
-
+		customerOrder.add(drink);
 	}
 
 }
