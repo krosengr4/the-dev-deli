@@ -1,6 +1,7 @@
 package models;
 
 import models.enums.*;
+import utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -156,37 +157,37 @@ public class Sandwich implements MenuItem {
 	@Override
 	public void print() {
 		System.out.println("-----SANDWICH------");
-		System.out.println("Size: " + this.size.getDisplayName());
-		System.out.println("Bread: " + this.bread.getDisplayName());
-		System.out.println("Meat: " + this.meat.getDisplayName());
+		System.out.println("Size: " + Utils.BLUE + this.size.getDisplayName() + Utils.RESET);
+		System.out.println("Bread: " + Utils.BLUE + this.bread.getDisplayName() + Utils.RESET);
+		System.out.println("Meat: " + Utils.BLUE + this.meat.getDisplayName() + Utils.RESET);
 		if(this.hasExtraMeat)
-			System.out.println("Extra " + this.meat.getDisplayName() + "!");
+			System.out.println(Utils.BLUE + "Extra " + this.meat.getDisplayName() + "!" + Utils.RESET);
 
-		System.out.println("Cheese: " + this.cheese.getDisplayName());
+		System.out.println("Cheese: " + Utils.BLUE + this.cheese.getDisplayName() + Utils.RESET);
 		if(this.hasExtraCheese)
-			System.out.println("Extra " + this.cheese.getDisplayName() + "!");
+			System.out.println(Utils.BLUE + "Extra " + this.cheese.getDisplayName() + "!" + Utils.RESET);
 
 		System.out.println("Sauces: ");
 		if(sauceList.isEmpty()) {
-			System.out.println("None.");
+			System.out.println(Utils.RED + "None." + Utils.RESET);
 		} else {
 			for(Sauce sauce : this.sauceList) {
-				System.out.println(sauce.getDisplayName() + " Sauce");
+				System.out.println(Utils.BLUE + sauce.getDisplayName() + " Sauce" + Utils.RESET);
 			}
 		}
 		System.out.println("Toppings: ");
 		if(toppingList.isEmpty()) {
-			System.out.println("None");
+			System.out.println(Utils.RED + "None" + Utils.RESET);
 		} else {
 			for(Topping topping : toppingList) {
-				System.out.println(topping.getDisplayName());
+				System.out.println(Utils.BLUE + topping.getDisplayName() + Utils.RESET);
 			}
 		}
 
 		if(this.isToasted)
-			System.out.println("Toasted!");
+			System.out.println(Utils.BLUE + "Toasted!" + Utils.RESET);
 
-		System.out.printf("Price: $%.2f\n", this.getValue());
+		System.out.printf("Price:%s $%.2f%s\n", Utils.GREEN, this.getValue(), Utils.RESET);
 		System.out.println("------------------------------------------------");
 	}
 }

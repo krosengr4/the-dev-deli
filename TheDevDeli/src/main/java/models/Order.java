@@ -104,8 +104,8 @@ public class Order {
 		for(MenuItem item : itemsOrdered) {
 			item.print();
 		}
-		System.out.println("Total Items Ordered: " + this.getQuantityOrdered());
-		System.out.println("Total Price: $" + this.getTotalPrice());
+		System.out.println("Total Items Ordered: " + Utils.BLUE + this.getQuantityOrdered() + Utils.RESET);
+		System.out.println("Total Price: " + Utils.GREEN + "$" + this.getTotalPrice() + Utils.RESET);
 		Utils.designLine(35, false, Utils.sandwich);
 	}
 }

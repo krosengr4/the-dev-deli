@@ -1,6 +1,7 @@
 package models;
 
 import models.enums.ChipType;
+import utils.Utils;
 
 public class Chip implements MenuItem {
 
@@ -33,8 +34,8 @@ public class Chip implements MenuItem {
 	@Override
 	public void print() {
 		System.out.println("-----CHIP-----");
-		System.out.println("Type: " + this.chipType);
-		System.out.printf("Price: $%.2f\n", this.getValue());
+		System.out.println("Type: " + Utils.BLUE + this.chipType + Utils.RESET);
+		System.out.printf("Price:%s $%.2f%s\n", Utils.GREEN, this.getValue(), Utils.RESET);
 		System.out.println("------------------------------------------------");
 	}
 

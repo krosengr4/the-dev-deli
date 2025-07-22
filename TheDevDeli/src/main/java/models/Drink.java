@@ -2,6 +2,7 @@ package models;
 
 import models.enums.DrinkType;
 import models.enums.Size;
+import utils.Utils;
 
 public class Drink implements MenuItem {
 
@@ -52,9 +53,9 @@ public class Drink implements MenuItem {
 	@Override
 	public void print() {
 		System.out.println("-----DRINK-----");
-		System.out.println("Type: " + this.drinkType);
-		System.out.println("Size: " + this.size);
-		System.out.printf("Price: $%.2f\n", this.getValue());
+		System.out.println("Type: " + Utils.BLUE + this.drinkType + Utils.RESET);
+		System.out.println("Size: " + Utils.BLUE + this.size + Utils.RESET);
+		System.out.printf("Price:%s $%.2f%s\n", Utils.GREEN, this.getValue(), Utils.RESET);
 		System.out.println("------------------------------------------------");
 	}
 }
