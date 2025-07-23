@@ -141,8 +141,13 @@ public class MySqlOrderDao extends MySqlBaseDao implements OrderDao {
 		return new Order(orderId, customerName, quantity, totalPrice, timeOrdered);
 	}
 
-//	private MenuItem mapRowToOrderItem(ResultSet results) {
-//		String itemOrdered =
-//	}
+	private OrderLineItem mapRowToOrderItem(ResultSet results) throws SQLException{
+		int orderLineItemId = results.getInt("order_line_item_id");
+		int orderId = results.getInt("order_id");
+		String itemOrdered = results.getString("item_ordered");
+		double price = results.getDouble("price");
+
+		return new OrderLineItem(orderLineItemId, orderId, itemOrdered, price);
+	}
 
 }
