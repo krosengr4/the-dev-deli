@@ -20,7 +20,7 @@ public class MySqlOrderDao extends MySqlBaseDao implements OrderDao {
 	}
 
 	@Override
- 	public List<Order> getAll() {
+	public List<Order> getAll() {
 		List<Order> ordersList = new ArrayList<>();
 		String query = "SELECT * FROM orders;";
 
@@ -145,6 +145,48 @@ public class MySqlOrderDao extends MySqlBaseDao implements OrderDao {
 		}
 	}
 
+	public void updateOrder(Order order) {
+		String query = "UPDATE orders " +
+							   "SET customer_name = ?, " +
+							   "total_price = ? " +
+							   "WHERE order_id = ?;";
+
+		try(Connection connection = getConnection()) {
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setString(1, order.getCustomerName());
+			statement.setDouble(2, order.getTotalPrice());
+			statement.setInt(3, order.getOrder_id());
+
+			int rows = statement.executeUpdate();
+			if(rows > 0)
+				System.out.println("Success! The order was updated!");
+			else
+				System.err.println("ERROR! The order could not be updated!!!");
+
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public void deleteOrder(int orderId) {
+		String query = "DELETE FROM orders " +
+							   "WHERE order_id = ?;";
+
+		try(Connection connection = getConnection()) {
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setInt(1, orderId);
+
+			int rows = statement.executeUpdate();
+			if(rows > 0)
+				System.out.println("Success! The order was deleted!");
+			else
+				System.err.println("ERROR! The order could not be deleted!!!");
+
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
 	private Order mapRowToOrder(ResultSet results) throws SQLException {
 		int orderId = results.getInt("order_id");
 		String customerName = results.getString("customer_name");
@@ -155,7 +197,7 @@ public class MySqlOrderDao extends MySqlBaseDao implements OrderDao {
 		return new Order(orderId, customerName, quantity, totalPrice, timeOrdered);
 	}
 
-	private OrderLineItem mapRowToOrderItem(ResultSet results) throws SQLException{
+	private OrderLineItem mapRowToOrderItem(ResultSet results) throws SQLException {
 		int orderLineItemId = results.getInt("order_line_item_id");
 		int orderId = results.getInt("order_id");
 		String itemOrdered = results.getString("item_ordered");

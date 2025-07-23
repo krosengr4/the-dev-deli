@@ -18,4 +18,8 @@ public interface OrderDao {
 
 	void addLineItems(OrderLineItem orderItem);
 
+	void updateOrder(Order order);
+
+	void deleteOrder(int orderId);
+
 }
