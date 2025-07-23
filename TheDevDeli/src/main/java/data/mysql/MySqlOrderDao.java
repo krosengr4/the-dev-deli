@@ -61,9 +61,23 @@ public class MySqlOrderDao extends MySqlBaseDao implements OrderDao {
 	}
 
 	@Override
-	public List<MenuItem> getItemsByOrderId(int orderId) {
-		List<MenuItem> orderItems = new ArrayList<>();
+	public List<OrderLineItem> getItemsByOrderId(int orderId) {
+		List<OrderLineItem> orderItems = new ArrayList<>();
+		String query = "SELECT * FROM order_line_items " +
+							   "WHERE order_id = ?;";
 
+		try(Connection connection = getConnection()) {
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setInt(1, orderId);
+
+			ResultSet results = statement.executeQuery();
+			while(results.next()) {
+				orderItems.add(mapRowToOrderItem(results));
+			}
+
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
 
 		return orderItems;
 	}

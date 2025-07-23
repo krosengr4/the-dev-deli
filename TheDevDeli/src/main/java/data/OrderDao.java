@@ -12,7 +12,7 @@ public interface OrderDao {
 
 	Order getById(int orderId);
 
-	List<MenuItem> getItemsByOrderId(int orderId);
+	List<OrderLineItem> getItemsByOrderId(int orderId);
 
 	Order addOrder(Order order);
 
