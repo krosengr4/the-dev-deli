@@ -21,6 +21,7 @@ public class MainLogic extends LogicBase{
 
 			switch(userChoice) {
 				case 1 -> processOrderOption();
+				case 2 -> processAdmin();
 				case 0 -> ifContinue = false;
 				default -> System.err.println("ERROR! Please enter a number that is listed!");
 			}
@@ -51,7 +52,7 @@ public class MainLogic extends LogicBase{
 		String password = Utils.getUserInput("Please enter the password: ");
 		boolean passwordCheck = Utils.passwordCheck(password);
 
-		if(passwordCheck == true) {
+		if(passwordCheck) {
 			AdminLogic.processAdminScreen();
 		} else {
 			System.out.println("That is not the password!!!");
