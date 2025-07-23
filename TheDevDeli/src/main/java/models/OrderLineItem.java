@@ -7,6 +7,7 @@ public class OrderLineItem {
 	int orderLineItemId;
 	int orderId;
 	MenuItem itemOrdered;
+	String nameOfItemOrdered;
 	double price;
 
 	public OrderLineItem() {}
@@ -15,6 +16,13 @@ public class OrderLineItem {
 		this.orderLineItemId = orderLineItemId;
 		this.orderId = orderId;
 		this.itemOrdered = itemOrdered;
+		this.price = price;
+	}
+
+	public OrderLineItem(int orderLineItemId, int orderId, String nameOfItemOrdered, double price) {
+		this.orderLineItemId = orderLineItemId;
+		this.orderId = orderId;
+		this.nameOfItemOrdered = nameOfItemOrdered;
 		this.price = price;
 	}
 
@@ -51,4 +59,13 @@ public class OrderLineItem {
 		this.price = price;
 	}
 	//endregion
+
+	public void print() {
+		System.out.println("-----ORDER ITEM-----");
+		System.out.println("Order Item ID: " + this.orderLineItemId);
+		System.out.println("Order ID: " + this.orderId);
+		System.out.println("Item Ordered: " + this.itemOrdered);
+		System.out.println("Price: $" + this.price);
+		System.out.println("__________________________________________");
+	}
 }

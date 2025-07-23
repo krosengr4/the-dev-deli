@@ -6,7 +6,6 @@ import data.OrderDao;
 import models.MenuItem;
 import models.Order;
 import models.OrderLineItem;
-import models.Sandwich;
 import ui.UserInterface;
 import utils.Utils;
 
@@ -23,19 +22,6 @@ public class CheckoutLogic extends LogicBase {
 	}
 
 	public static void processCheckout() {
-		for(MenuItem item : customerOrder) {
-			item.print();
-		}
-		int userChoice = ui.confirmOrder();
-		if(userChoice == 1) {
-			createAndAddOrder();
-		} else {
-			System.out.println("Sorry for the inconvenience... Try again?");
-			Utils.playSound("womp-womp.wav");
-		}
-	}
-
-	private static void createAndAddOrder() {
 		String customerName = Utils.getUserInput("Please enter a name for the order: ");
 
 		Order order = new Order();
@@ -46,7 +32,17 @@ public class CheckoutLogic extends LogicBase {
 		order.setItemsOrdered(customerOrder);
 		order.setTotalPrice(order.getValue());
 
-		//todo: Create DAO with method to insert into the orders table
+		order.print();
+		int userChoice = ui.confirmOrder();
+		if(userChoice == 1) {
+			createAndAddOrder(order);
+		} else {
+			System.out.println("Sorry for the inconvenience... Try again?");
+			Utils.playSound("womp-womp.wav");
+		}
+	}
+
+	private static void createAndAddOrder(Order order) {
 		Order addedOrder = orderDao.addOrder(order);
 		addedOrder.print();
 
