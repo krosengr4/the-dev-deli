@@ -1,7 +1,6 @@
 package logic;
 
 import models.MenuItem;
-import models.Order;
 import ui.UserInterface;
 
 import java.util.List;

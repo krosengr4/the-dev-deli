@@ -1,7 +1,5 @@
 package models;
 
-import java.awt.*;
-
 public class OrderLineItem {
 
 	int orderLineItemId;
