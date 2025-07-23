@@ -64,7 +64,7 @@ public class OrderLineItem {
 		System.out.println("-----ORDER ITEM-----");
 		System.out.println("Order Item ID: " + this.orderLineItemId);
 		System.out.println("Order ID: " + this.orderId);
-		System.out.println("Item Ordered: " + this.itemOrdered);
+		System.out.println("Item Ordered: " + this.nameOfItemOrdered);
 		System.out.println("Price: $" + this.price);
 		System.out.println("__________________________________________");
 	}

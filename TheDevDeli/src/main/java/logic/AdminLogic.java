@@ -4,7 +4,9 @@ import config.DatabaseConfig;
 import data.OrderDao;
 import data.mysql.MySqlOrderDao;
 import models.Order;
+import models.OrderLineItem;
 import ui.AdminUserInterface;
+import utils.Utils;
 
 import java.util.List;
 
@@ -38,13 +40,32 @@ public class AdminLogic {
 		} else {
 			for(Order order : ordersList) {
 				System.out.println("-----ALL ORDERS-----");
-				order.print();2
+				order.print();
 			}
 		}
+
+		Utils.pauseApp();
 	}
 
 	private static void viewOrderItems() {
+		int orderId = Utils.getUserInputInt("Enter the order ID: ");
 
+		Order order = orderDao.getById(orderId);
+		if(order == null) {
+			System.out.println("There are no orders with that ID...");
+		} else {
+			List<OrderLineItem> orderItems = orderDao.getItemsByOrderId(orderId);
+
+			if(orderItems.isEmpty()) {
+				System.out.println("There are no items in that order...");
+			} else {
+				for(OrderLineItem orderItem : orderItems) {
+					orderItem.print();
+				}
+			}
+		}
+
+		Utils.pauseApp();
 	}
 
 	private static void processUpdateOrder() {
