@@ -10,10 +10,11 @@ public class UserInterface {
 		Utils.designLine(30, false, "_");
 		System.out.println("""
 						---OPTIONS---
-				1 - Order			0 - Exit
+				1 - Order			2 - Admin
+						  0 - Exit
 				""");
 
-		return Utils.getUserInputIntMinMax("Enter option: ", 0, 1);
+		return Utils.getUserInputIntMinMax("Enter option: ", 0, 2);
 	}
 
 	public int displayOrderScreen() {

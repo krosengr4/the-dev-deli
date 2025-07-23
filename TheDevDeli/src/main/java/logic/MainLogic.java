@@ -2,6 +2,8 @@ package logic;
 
 import models.MenuItem;
 import ui.UserInterface;
+import utils.Utils;
+
 import java.util.List;
 
 public class MainLogic extends LogicBase{
@@ -43,6 +45,17 @@ public class MainLogic extends LogicBase{
 			}
 		}
 
+	}
+
+	private static void processAdmin() {
+		String password = Utils.getUserInput("Please enter the password: ");
+		boolean passwordCheck = Utils.passwordCheck(password);
+
+		if(passwordCheck == true) {
+			AdminLogic.processAdminScreen();
+		} else {
+			System.out.println("That is not the password!!!");
+		}
 	}
 
 }
