@@ -145,6 +145,7 @@ public class MySqlOrderDao extends MySqlBaseDao implements OrderDao {
 		}
 	}
 
+	@Override
 	public void updateOrder(Order order) {
 		String query = "UPDATE orders " +
 							   "SET customer_name = ?, " +
@@ -168,7 +169,25 @@ public class MySqlOrderDao extends MySqlBaseDao implements OrderDao {
 		}
 	}
 
+	public void deleteLineItems(int orderId) {
+		String query = "DELETE FROM order_line_items " +
+							   "WHERE order_id = ?;";
+
+		try(Connection connection = getConnection()) {
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setInt(1, orderId);
+
+			statement.executeUpdate();
+
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	@Override
 	public void deleteOrder(int orderId) {
+		deleteLineItems(orderId);
+
 		String query = "DELETE FROM orders " +
 							   "WHERE order_id = ?;";
 

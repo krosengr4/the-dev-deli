@@ -95,7 +95,16 @@ public class AdminLogic {
 	}
 
 	private static void processDeleteOrder() {
+		int orderId = Utils.getUserInputInt("Enter the Order ID of the order to be deleted: ");
 
+		Order order = orderDao.getById(orderId);
+		if(order == null) {
+			System.out.println("There are no orders with that ID...");
+		} else {
+			orderDao.deleteOrder(orderId);
+		}
+
+		Utils.pauseApp();
 	}
 
 }
