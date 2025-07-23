@@ -18,4 +18,16 @@ public class AdminUserInterface {
 
 		return Utils.getUserInputIntMinMax("Enter Option: ", 0, 4);
 	}
+
+	public int displayUpdateOptions() {
+		System.out.println("---WHAT WOULD YOU LIKE TO UPDATE---");
+		System.out.println("""
+						---OPTIONS---
+				1 - Update customer name
+				2 - Update total price
+				0 - Go back
+				""");
+
+		return Utils.getUserInputIntMinMax("Enter option: ", 0, 2);
+	}
 }
