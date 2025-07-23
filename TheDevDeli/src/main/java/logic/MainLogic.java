@@ -55,7 +55,7 @@ public class MainLogic extends LogicBase{
 		if(passwordCheck) {
 			AdminLogic.processAdminScreen();
 		} else {
-			System.out.println("That is not the password!!!");
+			System.err.println("That is not the password!!!");
 		}
 	}
 

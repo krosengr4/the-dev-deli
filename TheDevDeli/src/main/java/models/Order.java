@@ -101,6 +101,7 @@ public class Order {
 		System.out.printf("\n\t\t\t%s---ORDER FOR %s %s---\n", Utils.BLUE, customerName.toUpperCase(), Utils.RESET);
 		Utils.designLine(60, true, "_");
 
+		System.out.println("Order ID: " + this.order_id);
 		for(MenuItem item : itemsOrdered) {
 			item.print();
 		}
