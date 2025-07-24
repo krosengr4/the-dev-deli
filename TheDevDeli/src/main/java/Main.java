@@ -30,6 +30,6 @@ public class Main {
         System.out.println(Utils.BLUE + "\t\t\t\tWe will see you soon!" + Utils.RESET);
         Utils.playSound("winxpshutdown.wav");
 
-		//Test for mac
+		//Another test for the macaroni!
     }
 }
